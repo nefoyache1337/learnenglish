@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Уроки — Learn English with Nefoyache</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#e4e5e2; --surface:#eeefec; --surface-2:#d9dbd7; --border:#c3c6c1;
+  --text:#272b2f; --muted:#5a6168; --accent:#3d6b78; --accent-text:#f4f6f5;
+  --ok:#2f6b4c; --ok-bg:#d3e3d9; --bad:#9a3f3f; --bad-bg:#ebd5d3;
+  --font:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+    --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+    --ok:#8fd0ab; --ok-bg:#24372d; --bad:#e49a9a; --bad-bg:#3b2828;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+  --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+  --ok:#8fd0ab; --ok-bg:#24372d; --bad:#e49a9a; --bad-bg:#3b2828;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.6 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+header{border-bottom:1px solid var(--border)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;flex-wrap:wrap}
+.logo{font-weight:700;font-size:1.15rem;text-decoration:none}
+.right{display:flex;gap:14px;align-items:center}
+.back{color:var(--muted);text-decoration:none}
+.back:hover{color:var(--text)}
+.theme{font:inherit;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:6px 14px;cursor:pointer}
+h1{font-size:clamp(1.8rem,5vw,2.5rem);margin:40px 0 8px}
+h2{font-size:1.5rem;margin:28px 0 4px}
+.sub{color:var(--muted);margin:0 0 20px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.tabs button{font:inherit;font-weight:500;border:1px solid var(--border);background:var(--surface);color:var(--text);
+  border-radius:10px;padding:8px 18px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+.lesson{border:1px solid var(--border);background:var(--surface);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.lesson summary{display:flex;align-items:center;gap:14px;padding:16px 18px;cursor:pointer;font-weight:500;list-style:none}
+.lesson summary::-webkit-details-marker{display:none}
+.lesson summary::after{content:"+";margin-left:auto;color:var(--muted);font-size:1.4rem}
+.lesson[open] summary::after{content:"\2212"}
+.num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--accent-text);font-size:.9rem}
+.body{padding:0 18px 20px}
+.rule{background:var(--surface-2);border-radius:10px;padding:12px 14px;margin-bottom:12px}
+.rule p{margin:0 0 6px}.rule p:last-child{margin:0}
+h3{font-size:1rem;margin:16px 0 6px}
+.ex{margin:0 0 4px;padding-left:20px;color:var(--muted)}
+.ex i{color:var(--text)}
+.q p{margin:12px 0 6px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts button{font:inherit;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:8px;padding:6px 14px;cursor:pointer}
+.opts button:hover{background:var(--surface-2)}
+.opts button.ok{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opts button.bad{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opts button.ok::after{content:" \2713"}
+.opts button.bad::after{content:" \2717"}
+.score{margin-top:14px;min-height:1.5em;font-weight:500}
+.again{font:inherit;margin-left:10px;border:0;background:none;color:var(--accent);cursor:pointer;text-decoration:underline}
+.lesson summary::after{margin-left:12px}
+.badge{margin-left:auto;font-size:.85rem;color:var(--muted);border:1px solid var(--border);border-radius:99px;padding:1px 10px}
+.badge:empty{border:0;padding:0}
+.badge.done{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+.spk{font:inherit;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:8px;padding:0 8px;margin-left:8px;cursor:pointer;line-height:1.5}
+.spk:hover{background:var(--surface-2)}
+.progbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:14px 0 0;color:var(--muted);font-size:.95rem}
+.link{font:inherit;border:0;background:none;color:var(--accent);cursor:pointer;text-decoration:underline;padding:0}
+.tabs small{opacity:.8;font-size:.8rem;margin-left:4px}
+.hint{margin-top:8px;font-size:.92rem;color:var(--muted);border-left:3px solid var(--accent);padding-left:10px}
+footer{border-top:1px solid var(--border);margin-top:40px;padding:24px 0;color:var(--muted);font-size:.9rem}
+.menu{display:flex;gap:6px;overflow-x:auto;margin-top:0;padding:0 20px 12px}
+.menu a{flex:none;text-decoration:none;color:var(--muted);padding:6px 14px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+.menu a:hover{color:var(--text);background:var(--surface-2)}
+.menu a[aria-current="page"]{color:var(--accent-text);background:var(--accent);border-color:var(--accent)}
+@media (min-width:721px){.bar,.menu{max-width:960px}.menu{overflow-x:visible;flex-wrap:wrap;gap:4px}.menu a{padding:6px 12px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="index.html"><span class="lw">Learn English with </span>Nefoyache</a>
+    <div class="right">
+      
+      
+      
+      <button class="theme" id="theme" type="button">Тёмная тема</button>
+    </div>
+  </div>
+<nav class="wrap menu" aria-label="Разделы">
+    <a href="index.html">Главная</a>
+    <a href="lessons.html" aria-current="page">Уроки</a>
+    <a href="test.html">Тест</a>
+    <a href="cards.html">Карточки</a>
+    <a href="verbs.html">Глаголы</a>
+    <a href="reading.html">Чтение</a>
+    <a href="cheatsheets.html">Шпаргалки</a>
+    <a href="listening.html">Аудирование</a>
+    <a href="speaking.html">Говорение</a>
+    <a href="idioms.html">Идиомы</a>
+    <a href="abbrev.html">Сокращения</a>
+    <a href="progress.html">Прогресс</a>
+  </nav>
+</header>
+<main class="wrap">
+  <h1>Уроки</h1>
+  <p class="sub">Выберите уровень, откройте урок, прочитайте правило и проверьте себя в мини-тесте.</p>
+  <div class="tabs" id="tabs" role="group" aria-label="Уровень"></div>
+  <div class="progbar"><span id="pt"></span><button class="link" id="rst" type="button">Сбросить прогресс</button></div>
+  <div id="out"></div>
+</main>
+<footer><div class="wrap">Learn English with Nefoyache · учебный проект</div></footer>
+
+<script>
+var SK=(function(){var K='streak',G=5,S={d:0,s:0,b:0,t:0,n:0,a:0,c:0,g:5,u:0,p:0,q:0},chip;function day(){return Math.floor((Date.now()-new Date().getTimezoneOffset()*60000)/86400000)}try{var x=JSON.parse(localStorage.getItem(K));if(x&&typeof x.d==='number')S=x}catch(e){}S.g=[3,5,10,15].indexOf(S.g)>-1?S.g:5;S.u=S.u||0;S.p=S.p||0;S.q=S.q||0;function merge(a,b){var r={d:Math.max(a.d,b.d),t:Math.max(a.t,b.t),a:Math.max(a.a,b.a),c:Math.max(a.c,b.c)};r.s=a.d===b.d?Math.max(a.s,b.s):(a.d>b.d?a.s:b.s);r.n=a.t===b.t?Math.max(a.n,b.n):(a.t>b.t?a.n:b.n);r.b=Math.max(a.b,b.b,r.s);r.g=(b.u||0)>(a.u||0)?b.g:a.g;r.u=Math.max(a.u||0,b.u||0);r.p=(b.q||0)>(a.q||0)?b.p:a.p;r.q=Math.max(a.q||0,b.q||0);return r}var m=/^#p((?:-[0-9a-z]+){7}(?:-[0-9a-z]+){0,4})$/.exec(location.hash||'');if(m){var v=m[1].slice(1).split('-').map(function(z){return parseInt(z,36)||0});S=merge(S,{d:v[0],s:v[1],b:v[2],t:v[3],n:v[4],a:v[5],c:v[6],g:v[7]||5,u:v[8]||0,p:v[9]||0,q:v[10]||0})}function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}function links(){var h='#p-'+[S.d,S.s,S.b,S.t,S.n,S.a,S.c,S.g,S.u,S.p,S.q].map(function(z){return Math.max(0,z|0).toString(36)}).join('-');[].forEach.call(document.querySelectorAll('a[href]'),function(a){var u=a.getAttribute('href')||'';if(u.indexOf('https://claude.ai/artifact/')===0)a.setAttribute('href',u.split('#')[0]+h)})}function draw(){var t=day();if(chip)chip.textContent='🔥 '+(S.d>=t-1?S.s:0)+' · '+Math.min(S.t===t?S.n:0,99)+'/'+S.g;links()}function task(){var t=day();if(S.d!==t){S.s=S.d===t-1?S.s+1:1;S.d=t;S.c++}if(S.t!==t){S.t=t;S.n=0}S.n++;S.a++;S.b=Math.max(S.b,S.s);save();draw()}function part(n){try{var c=(+localStorage.getItem('tk')||0)+1;if(c>=n){c=0;task()}localStorage.setItem('tk',c)}catch(e){}}function init(){var st=document.createElement('style');st.textContent='.bar{flex-wrap:nowrap}.logo{white-space:nowrap}@media (max-width:520px){.lw{display:none}}.chip{font-size:.9rem;font-weight:500;text-decoration:none;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:4px 12px;white-space:nowrap}.chip:hover{background:var(--surface-2)}';document.head.appendChild(st);chip=document.createElement('a');chip.className='chip';chip.href='progress.html';chip.title='Дней подряд и задания на сегодня';var tb=document.getElementById('theme'),host=tb&&tb.parentNode;if(host)host.insertBefore(chip,tb);var ml=[].slice.call(document.querySelectorAll('.menu a')),ci=-1;ml.forEach(function(a,i){if(a.hasAttribute('aria-current'))ci=i});if(ci>0&&ci<11){S.p=ci;S.q=Math.floor(Date.now()/60000)}save();draw();}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();return {task:task,part:part,get:function(){return S},draw:draw}})();
+</script>
+<script>
+var L=[
+{id:'A1',name:'Начальный',d:'Первые конструкции: быть, делать, повторяющиеся действия.',lessons:[
+ {t:'Глагол to be',rule:['<b>I am</b>, <b>you / we / they are</b>, <b>he / she / it is</b>.','Отрицание: am not, isn\'t, aren\'t. Вопрос: глагол выходит вперёд — <i>Are you ready?</i>'],ex:['I am a student.','She is at home.','Are they ready?'],q:[
+  {q:'She ___ from Spain.',o:['am','is','are'],a:1},{q:'We ___ friends.',o:['is','am','are'],a:2},{q:'___ you a teacher?',o:['Am','Is','Are'],a:2}]},
+ {t:'Present Simple',rule:['Для привычек и фактов. С he / she / it к глаголу добавляем <b>-s</b>: <i>he works</i>.','Отрицание: <b>don\'t / doesn\'t</b> + глагол без -s. Вопрос: <b>Do / Does</b> + подлежащее + глагол.'],ex:['He drinks coffee every morning.','They don\'t like fish.','Does she live here?'],q:[
+  {q:'He ___ coffee every morning.',o:['drink','drinks','drinking'],a:1},{q:'They ___ like fish.',o:['don\'t','doesn\'t','isn\'t'],a:0},{q:'___ she live here?',o:['Do','Does','Is'],a:1}]},
+ {t:'Местоимения: кто? и кого? кому?',rule:['<b>Кто?</b> — I, you, he, she, we, they. <b>Кого? кому?</b> — me, you, him, her, us, them.','Сравните: <i>I love her</i>, но <i>She loves me</i>.'],ex:['She loves me.','We see them every day.','Give it to him.'],q:[
+  {q:'They call ___ every day. (нас)',o:['we','us','our'],a:1},{q:'She loves ___. (меня)',o:['I','me','my'],a:1},{q:'Where is Tom? I cannot see ___.',o:['he','him','his'],a:1}]},
+ {t:'Вопросительные слова, to и from',rule:['<b>What?</b> что, какой · <b>Who?</b> кто · <b>Where?</b> где, куда · <b>When?</b> когда · <b>Why?</b> почему, зачем · <b>How?</b> как.','<b>to</b> — куда, к кому, к чему. <b>from</b> — откуда, от кого, из чего.'],ex:['Where do you live?','Why are you late?','I go to school. I come from Russia.'],q:[
+  {q:'___ is your birthday? In May.',o:['Where','When','Who'],a:1},{q:'___ do you go to school? By bus.',o:['How','Why','Who'],a:0},{q:'I come ___ Moscow.',o:['to','from','at'],a:1}]},
+ {t:'Артикли a / an / the',rule:['<b>a</b> — перед согласным звуком, <b>an</b> — перед гласным: <i>a book, an apple</i>. A / an ставят только перед исчисляемым существительным в единственном числе.','<b>the</b> — когда ясно, о каком именно предмете речь: <i>Close the door.</i>'],ex:['I have an apple.','She is a teacher.','Close the door, please.'],q:[
+  {q:'I have ___ apple.',o:['a','an','the'],a:1},{q:'She is ___ teacher.',o:['a','an','the'],a:0},{q:'Close ___ door, please.',o:['a','an','the'],a:2}]},
+ {t:'Множественное число существительных',rule:['Обычно добавляем <b>-s</b>: <i>book → books</i>. После -s, -ch, -sh, -x — <b>-es</b>: <i>box → boxes</i>.','Особые формы: <b>man → men, woman → women, child → children, foot → feet, tooth → teeth, mouse → mice</b>. Не меняются: <b>sheep, fish, deer</b>.'],ex:['one box, two boxes','one child, three children','A sheep is in the field. Two sheep are in the field.'],q:[
+  {q:'Two ___ are in the garden. (child)',o:['childs','children','childrens'],a:1},{q:'I have two ___. (foot)',o:['foots','feets','feet'],a:2},{q:'There are three ___ on the table. (box)',o:['boxs','boxes','boxen'],a:1}]},
+ {t:'Исчисляемые и неисчисляемые существительные',rule:['<b>Исчисляемые</b> можно посчитать: <i>one apple, two apples</i>. <b>Неисчисляемые</b> нельзя: <i>water, milk, rice, money, advice, news</i>. У них нет множественного числа, глагол стоит в единственном числе, а a / an перед ними не ставят.','Нужное количество показываем словами: <b>a glass of water, a bottle of milk, a piece of advice, a slice of bread</b>.'],ex:['I need some water.','She gave me a piece of advice.','Milk comes from cows.'],q:[
+  {q:'I need ___ advice.',o:['an','some','two'],a:1},{q:'Milk ___ from cows.',o:['come','comes','are'],a:1},{q:'Can I have a ___ of water?',o:['glass','piece','slice'],a:0}]},
+ {t:'A / an, one и some',rule:['<b>a / an</b> — один, любой: <i>He bought a tie.</i> Они же значат «в»: <i>twice a week, 80 km an hour.</i> <b>one</b> — когда важно число: <i>He bought one tie, not two.</i>','С множественным числом и неисчисляемыми вместо a / an ставим <b>some</b>: <i>some flowers, some milk</i>. Если после прилагательного нет существительного, артикля нет: <i>This ring is expensive.</i> Но: <i>This is an expensive ring.</i>'],ex:['I go to the gym twice a week.','We need some milk and some flour.','This is an expensive ring.'],q:[
+  {q:'I go to the gym twice ___ week.',o:['a','an','the'],a:0},{q:'We need ___ flour.',o:['a','an','some'],a:2},{q:'This ring is ___.',o:['expensive','an expensive','a expensive'],a:0}]}]},
+{id:'A2',name:'Элементарный',d:'Рассказ о прошлом и сравнение предметов.',lessons:[
+ {t:'Past Simple',rule:['Правильные глаголы: <b>-ed</b> (work → worked). Неправильные надо знать: go → went, see → saw, have → had.','Отрицание и вопрос: <b>didn\'t / Did</b> + глагол в начальной форме.'],ex:['Yesterday I went to the cinema.','She didn\'t watch the news.','Did you call him?'],q:[
+  {q:'Yesterday I ___ to the cinema.',o:['go','went','gone'],a:1},{q:'She didn\'t ___ the news.',o:['watched','watch','watches'],a:1},{q:'___ you call him?',o:['Do','Did','Were'],a:1}]},
+ {t:'Степени сравнения',rule:['Короткие прилагательные: <b>-er than</b> (cheaper than). Длинные: <b>more … than</b> (more expensive than).','Исключения: good → better, bad → worse. Равенство: <b>as … as</b>.'],ex:['This bag is cheaper than that one.','Flying is more expensive than going by train.','Your English is better than mine.'],q:[
+  {q:'This bag is ___ than that one.',o:['cheap','cheaper','more cheap'],a:1},{q:'Flying is ___ than going by train.',o:['more expensive','expensiver','most expensive'],a:0},{q:'Your English is ___ than mine.',o:['good','gooder','better'],a:2}]},
+ {t:'Will, do / does, did',rule:['<b>Будущее:</b> will + глагол — <i>I will love</i>; отрицание <i>will not love</i>; в вопросе will идёт вперёд: <i>Will you love?</i>','<b>Настоящее:</b> <i>I love, he loves</i>; вопрос с Do / Does; отрицание do not / does not + глагол.','<b>Прошедшее:</b> <i>loved</i>; вопрос и отрицание — Did / did not + глагол без изменений.'],ex:['Will you help me tomorrow?','He does not love coffee.','Did they love the film?'],q:[
+  {q:'We ___ call you tomorrow.',o:['will','did','does'],a:0},{q:'She ___ like horror films: she never watches them.',o:['do not','does not','will not'],a:1},{q:'Did you ___ the film yesterday?',o:['loved','love','loves'],a:1}]},
+ {t:'Полезные слова и разговорные вставки',rule:['<b>Welcome</b> в ответ на «спасибо» значит «пожалуйста»: <i>Thank you! — You are welcome.</i>','Вставки в живой речи: <b>well, you know, I mean, like, sort of</b>. Они помогают сделать паузу и подумать.'],ex:['novel — роман; character — персонаж; script — сценарий; film director — кинорежиссёр','jewel — драгоценный камень; jewelry designer — ювелир','order — заказ, заказывать; apologize — приносить извинения','well — ну…; you know — вы знаете; I mean — я имею в виду; like — как бы; sort of — типа того'],q:[
+  {q:'Как по-английски «сценарий»?',o:['script','novel','order'],a:0},{q:'Thank you! — You are ___.',o:['welcome','sorry','please'],a:0},{q:'Фраза «я имею в виду»:',o:['I regret','I mean','I order'],a:1}]},
+ {t:'Much / many, some / any',rule:['<b>many</b> — с исчисляемыми (<i>many apples</i>), <b>much</b> — с неисчисляемыми (<i>much water</i>). В основном их используют в вопросах и отрицаниях.','<b>some</b> — в утверждениях: <i>There is some milk.</i> <b>any</b> — в вопросах и отрицаниях: <i>We do not have any milk.</i>'],ex:['How many apples do you want?','How much water do you drink?','We do not have any milk.'],q:[
+  {q:'How ___ apples do you want?',o:['much','many','any'],a:1},{q:'We do not have ___ milk.',o:['some','any','many'],a:1},{q:'There is ___ water in the glass.',o:['some','any','many'],a:0}]},
+ {t:'Превосходная степень',rule:['Короткие прилагательные: <b>the + -est</b> (the smartest). Длинные: <b>the most</b> (the most expensive). Особые: good → <b>the best</b>, bad → <b>the worst</b>.','Среди людей и предметов группы — <b>of</b>, для места — <b>in</b>: <i>the smartest of all my students; the most expensive restaurant in our town</i>. Усилитель перед сравнительной степенью — <b>much, a lot, a bit</b>: <i>He seems much better today.</i>'],ex:['Peter is the smartest of all my students.','Don\'s is the most expensive restaurant in our town.','He seems much better today.'],q:[
+  {q:'Peter is the ___ student of all.',o:['smartest','smarter','most smart'],a:0},{q:'It is the most expensive restaurant ___ our town.',o:['of','in','than'],a:1},{q:'He seems ___ better today.',o:['much','most','very'],a:0}]},
+ {t:'Present Simple и Present Continuous',rule:['<b>Present Simple</b> — постоянное, привычки, расписания, общие факты: <i>He works in a bank. The plane arrives at 8:30.</i> Слова: usually, often, every day, on Mondays.','<b>Present Continuous</b> (am / is / are + V-ing) — действие сейчас и временное: <i>He is giving the baby a bath. I\'m looking for a new job these days.</i> Слова: now, at the moment, these days. Также договорённость на ближайшее будущее: <i>They are moving next week.</i>'],ex:['He works in a bank.','He is giving the baby a bath at the moment.','They are moving into a new house next week.'],q:[
+  {q:'She ___ in a bank. (постоянная работа)',o:['works','is working','work'],a:0},{q:'Be quiet! The baby ___ now.',o:['sleeps','is sleeping','sleep'],a:1},{q:'The plane ___ at 8:30. (расписание)',o:['arrives','is arriving','arrive'],a:0}]},
+ {t:'Наречия: как и насколько',rule:['Наречие описывает действие. Чаще всего это <b>прилагательное + -ly</b>: <i>quick → quickly, careful → carefully</i>. Одинаковые формы: <b>hard, fast, late</b>. Особое: good → <b>well</b>.','Сравнение: у наречий на -ly — <b>more / most</b> (<i>more comfortably</i>), у коротких — <b>-er / -est</b> (<i>harder, later</i>). Сила признака растёт так: <b>fairly → quite → rather → very</b> + прилагательное.'],ex:['She speaks English very well.','He works harder than me.','The hotel is fairly expensive, but this one is very expensive.'],q:[
+  {q:'She speaks English very ___.',o:['good','well','goodly'],a:1},{q:'He works ___ than me.',o:['harder','more hard','hardlier'],a:0},{q:'He drives ___ carefully than me.',o:['more','most','-er'],a:0}]},
+ {t:'Many, much, few, little, a lot of',rule:['С <b>исчисляемыми</b>: many, (a) few, a couple of, several — <i>a few friends</i>. С <b>неисчисляемыми</b>: much, (a) little, a great deal of — <i>a little money</i>.','С обоими: <b>a lot of, lots of, plenty of, some, any, no</b> — <i>plenty of friends, plenty of money</i>. <b>A few / a little</b> — немного, но хватает; <b>few / little</b> — почти нет.'],ex:['She has several friends.','There is only a little milk left.','We have plenty of time.'],q:[
+  {q:'There is only ___ milk left. (немного)',o:['a little','a few','many'],a:0},{q:'She has several ___.',o:['friend','friends','money'],a:1},{q:'We have ___ of time.',o:['plenty','many','few'],a:0}]},
+ {t:'News, physics, trousers: число существительных',rule:['Всегда единственное число: <b>news, physics, maths, politics</b> — <i>The news is good.</i>','Только множественное число: <b>trousers, shorts, scissors, glasses, clothes, people, police</b> — <i>Where are my glasses?</i> Количество показываем словами <b>a pair of</b>: <i>a pair of trousers</i>.'],ex:['The news is good.','Where are my glasses?','I bought a pair of scissors.'],q:[
+  {q:'Mathematics ___ my favourite subject.',o:['is','are','were'],a:0},{q:'Where ___ my trousers?',o:['is','are','am'],a:1},{q:'I bought a ___ of scissors.',o:['pair','piece','couple'],a:0}]}]},
+{id:'B1',name:'Средний',d:'Связь прошлого с настоящим и условия.',lessons:[
+ {t:'Present Perfect и Past Simple',rule:['<b>Present Perfect</b> (have / has + V3): связь с настоящим. Период ещё не закончился (today, this week), for / since, just, already, yet.','<b>Past Simple</b>: время закончено (yesterday, in 2019, last week).'],ex:['I have written three emails today.','She lived in London in 2019.','We have been here since Monday.'],q:[
+  {q:'I ___ three emails today.',o:['wrote','have written','was writing'],a:1},{q:'She ___ in London in 2019.',o:['lived','has lived','have lived'],a:0},{q:'We ___ here since Monday.',o:['were','have been','are'],a:1}]},
+ {t:'Условные 0 и 1 типа',rule:['<b>If + Present Simple, will + глагол</b> — реальное будущее. Для общих фактов (тип 0): If + Present, Present.','После when, before, as soon as будущее выражаем настоящим временем, а не will.'],ex:['If it rains, we will stay at home.','I\'ll call you when I arrive.','If you heat ice, it melts.'],q:[
+  {q:'If it ___ tomorrow, we\'ll stay home.',o:['rains','will rain','rained'],a:0},{q:'I\'ll call you when I ___.',o:['will arrive','arrive','arrived'],a:1},{q:'If you ___ ice, it melts.',o:['heat','will heat','heated'],a:0}]},
+ {t:'Модальные глаголы: must, have to, should',rule:['<b>must / have to</b> — необходимость: <i>You must wear a seat belt.</i> <b>should</b> — совет: <i>You should rest.</i>','<b>must not</b> — запрещено. <b>do not have to</b> — делать необязательно. Это разные вещи!'],ex:['You must not smoke here.','You do not have to wear a suit.','You look tired. You should rest.'],q:[
+  {q:'You ___ smoke here. It is forbidden.',o:['must not','do not have to','should'],a:0},{q:'You ___ wear a suit. It is optional.',o:['must not','do not have to','must'],a:1},{q:'You look tired. You ___ rest.',o:['should','must not','do not have to'],a:0}]},
+ {t:'Past Continuous и Past Simple',rule:['<b>was / were + V-ing</b> — процесс в прошлом. <b>Past Simple</b> — короткое действие, которое его прервало.','Слова-связки: <b>when</b> + Past Simple, <b>while</b> + Past Continuous.'],ex:['I was cooking when the phone rang.','While she was sleeping, it started to rain.','They were playing football when it began to rain.'],q:[
+  {q:'I ___ TV when you called.',o:['watched','was watching','have watched'],a:1},{q:'While she ___, it started to rain.',o:['slept','was sleeping','sleeps'],a:1},{q:'They ___ football when it began to rain.',o:['played','were playing','play'],a:1}]},
+ {t:'Инфинитив и -ing',rule:['После <b>enjoy, finish, avoid, mind, suggest</b> ставим форму -ing. После <b>want, decide, hope, plan, learn</b> — to + глагол.','После модальных (can, must, should) — глагол без to. Цель выражается через to: <i>I went to the shop to buy bread.</i>'],ex:['She enjoys listening to music.','We decided to take a taxi.','I went to the shop to buy some bread.'],q:[
+  {q:'She enjoys ___ to music.',o:['listen','listening','to listen'],a:1},{q:'We decided ___ a taxi.',o:['take','taking','to take'],a:2},{q:'I went to the shop ___ some bread.',o:['buy','to buy','buying'],a:1}]},
+ {t:'Used to и would о прошлом',rule:['<b>used to + глагол</b> — привычка или состояние в прошлом, которых больше нет: <i>I used to smoke.</i> Вопрос и отрицание: <i>Did you use to…? I didn\'t use to…</i>','<b>would + глагол</b> — только повторяющиеся действия: <i>We would swim in the lake every summer.</i> Состояния (be, have, like) — только с used to.'],ex:['I used to play football every day.','Did you use to live here?','We would swim in the lake every summer.'],q:[
+  {q:'I ___ smoke, but I stopped last year.',o:['used to','am used to','use to'],a:0},{q:'Did you ___ live in London?',o:['used to','use to','using to'],a:1},{q:'He ___ be shy, but now he is confident.',o:['would','used to','is used to'],a:1}]},
+ {t:'Present Perfect Continuous',rule:['<b>have / has been + V-ing</b> — действие длится до сих пор или только что закончилось, виден результат: <i>I have been waiting for an hour.</i> Вопрос: <i>How long have you been waiting?</i>','Длительность — Continuous, результат или количество — Present Perfect: <i>I have been writing emails all morning. / I have written three emails.</i>'],ex:['I have been learning English for two years.','She is tired. She has been running.','How long have you been waiting?'],q:[
+  {q:'I ___ for you since six o\'clock.',o:['have waited','have been waiting','am waiting'],a:1},{q:'It ___ all day, so the streets are wet.',o:['has been raining','rains','rained'],a:0},{q:'I have ___ three emails this morning.',o:['written','been writing','write'],a:0}]},
+ {t:'Будущее: will, going to, Present Continuous',rule:['<b>will</b> — решение в момент речи, обещание, прогноз: <i>The phone is ringing. I\'ll answer it.</i>','<b>be going to</b> — заранее принятый план или очевидный признак: <i>Look at those clouds! It is going to rain.</i> <b>Present Continuous</b> — договорённость с известным временем: <i>I am meeting Tom at six.</i>'],ex:['The phone is ringing. I will answer it.','We are going to buy a new flat.','I am meeting Tom at six tonight.'],q:[
+  {q:'Oh, I forgot the milk! I ___ get some.',o:['will','am going to','am getting'],a:0},{q:'We have decided: we ___ move to Spain next year.',o:['will','are going to','move'],a:1},{q:'Look at those clouds! It ___ rain.',o:['will','is going to','rains'],a:1}]},
+ {t:'Вопросительные хвосты (question tags)',rule:['После утверждения — отрицательный хвост, после отрицания — утвердительный: <i>You like tea, don\'t you? You aren\'t tired, are you?</i>','Вспомогательный глагол повторяем: <i>She can swim, can\'t she?</i> Если его нет — do / does / did. Особый случай: <i>I am late, aren\'t I?</i>'],ex:['You like coffee, don\'t you?','She isn\'t here, is she?','You can swim, can\'t you?'],q:[
+  {q:'You live here, ___?',o:['don\'t you','do you','aren\'t you'],a:0},{q:'He isn\'t late, ___?',o:['is he','isn\'t he','does he'],a:0},{q:'They have finished, ___?',o:['haven\'t they','don\'t they','have they'],a:0}]},
+ {t:'Too и enough',rule:['<b>too + прилагательное</b> — слишком, с отрицательным смыслом: <i>The tea is too hot to drink.</i>','<b>enough</b> — достаточно. После прилагательного: <i>old enough to drive</i>. Перед существительным: <i>enough time, enough money</i>.'],ex:['The tea is too hot to drink.','She is old enough to drive.','We have enough time.'],q:[
+  {q:'The bag is ___ heavy for me to carry.',o:['too','enough','very much'],a:0},{q:'He is tall ___ to play basketball.',o:['enough','too','so'],a:0},{q:'We do not have ___ chairs.',o:['enough','too','enough of'],a:0}]}]},
+{id:'B2',name:'Выше среднего',d:'Пассив и косвенная речь.',lessons:[
+ {t:'Пассив и have something done',rule:['<b>Пассив:</b> be + V3. <i>The report was written by Anna.</i> Кто сделал — by, чем сделано — with.','<b>have + предмет + V3</b>: услугу делает кто-то другой — <i>I had my car repaired.</i>'],ex:['The window was broken by a ball.','I had my hair cut last week.','The cake was decorated with fresh fruit.'],q:[
+  {q:'The window ___ by a ball yesterday.',o:['broke','was broken','has broke'],a:1},{q:'I ___ my hair cut last week.',o:['had','have','did'],a:0},{q:'The cake was decorated ___ fresh fruit.',o:['by','with','of'],a:1}]},
+ {t:'Косвенная речь',rule:['Времена «сдвигаются» назад: Present Simple → Past Simple, will → would, Past Simple / Present Perfect → Past Perfect.','Слова времени: now → then, tomorrow → the next day, here → there. В косвенном вопросе порядок слов прямой: <i>He asked where I lived.</i>'],ex:['«I am tired,» she said. → She said she was tired.','«Where do you live?» → He asked where I lived.'],q:[
+  {q:'«I am tired,» she said. → She said she ___ tired.',o:['is','was','has been'],a:1},{q:'«Where do you live?» → He asked me where I ___.',o:['lived','did live','do live'],a:0},{q:'«I will call you tomorrow.» → Tom said he ___ call me the next day.',o:['will','would','has'],a:1}]},
+ {t:'Догадки: must, might, cannot',rule:['Когда мы делаем вывод: <b>must</b> — почти уверены, что это так; <b>may / might</b> — возможно; <b>cannot</b> — почти уверены, что это не так.','Формула: модальный глагол + be / глагол: <i>He must be at home.</i>'],ex:['The lights are on, so he must be at home.','You have just had lunch. You cannot be hungry.','I am not sure, but Tom might come tonight.'],q:[
+  {q:'The lights are on, so he ___ be at home.',o:['must','cannot','might not'],a:0},{q:'You have just had lunch. You ___ be hungry.',o:['must','cannot','might'],a:1},{q:'I am not sure, but Tom ___ come tonight.',o:['must','might','cannot'],a:1}]},
+ {t:'Относительные придаточные: who, which, whose, where',rule:['<b>who</b> — люди, <b>which</b> — предметы, <b>that</b> — и то, и другое (в определительных придаточных).','<b>whose</b> — принадлежность (чей), <b>where</b> — место.'],ex:['The woman who called you is my aunt.','The car which he bought is very fast.','That is the house where I was born.'],q:[
+  {q:'The man ___ lives next door is a doctor.',o:['who','which','whose'],a:0},{q:'This is the book ___ I told you about.',o:['who','which','where'],a:1},{q:'She is the girl ___ father is a pilot.',o:['who','whose','which'],a:1}]},
+ {t:'Связки: although, despite, however',rule:['<b>although</b> + предложение. <b>despite / in spite of</b> + существительное или -ing.','<b>however</b> — новое предложение и запятая после: <i>He was tired. However, he finished the work.</i> <b>therefore</b> — следствие.'],ex:['Although it was raining, we went for a walk.','Despite the rain, we went for a walk.','He was tired. However, he finished the work.'],q:[
+  {q:'___ it was raining, we went for a walk.',o:['Despite','Although','However'],a:1},{q:'___ the rain, we went for a walk.',o:['Despite','Although','Therefore'],a:0},{q:'He was tired. ___, he finished the work.',o:['Although','However','Despite'],a:1}]},
+ {t:'Past Perfect',rule:['<b>had + V3</b> — действие, которое произошло раньше другого действия в прошлом: <i>When I arrived, the film had already started.</i> Часто: already, just, before, after, by the time.','Сравните: <i>When I arrived, he left.</i> (я пришёл, потом он ушёл) и <i>When I arrived, he had left.</i> (он ушёл ещё до моего прихода).'],ex:['When I arrived, the film had already started.','She had lived in Paris before she moved to Rome.','By the time we got home, it had stopped raining.'],q:[
+  {q:'When we arrived, the film ___ already.',o:['started','had started','was starting'],a:1},{q:'She ___ in Paris before she moved to Rome.',o:['had lived','lives','is living'],a:0},{q:'By the time we got home, it ___ raining.',o:['stopped','had stopped','has stopped'],a:1}]},
+ {t:'Условные 2 и 3 типа',rule:['<b>2 тип</b> — нереальное или маловероятное сейчас: <b>If + Past Simple, would + глагол</b>. <i>If I won the lottery, I would travel the world.</i> С be обычно were: <i>If I were you…</i>','<b>3 тип</b> — сожаление о прошлом: <b>If + Past Perfect, would have + V3</b>. <i>If she had studied, she would have passed the exam.</i>'],ex:['If I won the lottery, I would travel the world.','If I were you, I would apologise.','If she had studied, she would have passed the exam.'],q:[
+  {q:'If I ___ more money, I would buy a bigger house.',o:['have','had','would have'],a:1},{q:'If I ___ you, I would take the job.',o:['am','were','will be'],a:1},{q:'If he had left earlier, he ___ the train.',o:['would catch','would have caught','will catch'],a:1}]},
+ {t:'Инфинитив или -ing: меняется смысл',rule:['<b>stop doing</b> — перестать; <b>stop to do</b> — остановиться, чтобы сделать: <i>He stopped smoking. I stopped to buy bread.</i>','<b>remember doing</b> — помнить, что делал; <b>remember to do</b> — не забыть сделать: <i>I remember seeing this film. Remember to lock the door.</i> Так же <b>try doing</b> — попробовать как эксперимент, <b>try to do</b> — пытаться.'],ex:['He stopped smoking last year.','I stopped to buy some bread.','Remember to lock the door.'],q:[
+  {q:'I stopped ___ a coffee. (остановился, чтобы купить)',o:['to buy','buying','buy'],a:0},{q:'Please remember ___ the door. (не забудьте)',o:['to lock','locking','lock'],a:0},{q:'I remember ___ this film as a child. (помню, что видел)',o:['seeing','to see','see'],a:0}]},
+ {t:'Used to, be used to, get used to',rule:['<b>used to + глагол</b> — так было раньше: <i>He used to live in Rome.</i>','<b>be used to + -ing</b> — привык: <i>I am used to getting up early.</i> <b>get used to + -ing</b> — привыкать: <i>She got used to the noise.</i>'],ex:['I am used to getting up early.','She got used to the noise.','He used to live in Rome.'],q:[
+  {q:'I am used to ___ up early.',o:['get','getting','got'],a:1},{q:'It took me a month to get used to ___ in the city.',o:['live','living','lived'],a:1},{q:'We ___ play chess every weekend, but we do not now.',o:['used to','are used to','get used to'],a:0}]},
+ {t:'Had better и would rather',rule:['<b>had better + глагол без to</b> — лучше бы (совет с предупреждением): <i>You had better see a doctor.</i> Отрицание: <i>had better not</i>.','<b>would rather + глагол</b> — предпочёл бы: <i>I would rather stay at home.</i> Если речь о другом человеке — Past Simple: <i>I would rather you didn\'t smoke here.</i>'],ex:['You had better see a doctor.','I would rather stay at home tonight.','I would rather you didn\'t smoke here.'],q:[
+  {q:'You ___ see a doctor.',o:['had better','would better','have better'],a:0},{q:'I would rather ___ at home tonight.',o:['stay','to stay','staying'],a:0},{q:'I would rather you ___ here.',o:['don\'t smoke','didn\'t smoke','won\'t smoke'],a:1}]}]},
+{id:'C1',name:'Продвинутый',d:'Инверсия и нереальное прошедшее.',lessons:[
+ {t:'Инверсия',rule:['После отрицательных наречий в начале предложения вспомогательный глагол идёт перед подлежащим: <b>Never, Rarely, Seldom, Hardly … when, No sooner … than, Not only</b>.','Также Nor / Neither + вспомогательный: <i>He didn\'t call, nor did he write.</i>'],ex:['Rarely do we eat out.','No sooner had she left than it started to rain.','Not only was he late, but he forgot the documents.'],q:[
+  {q:'Rarely ___ such a beautiful view.',o:['I have seen','have I seen','I saw'],a:1},{q:'No sooner had she left ___ it started to rain.',o:['when','than','then'],a:1},{q:'Not only ___ late, but he forgot the documents.',o:['he was','was he','did he'],a:1}]},
+ {t:'Wish и нереальное прошедшее',rule:['<b>wish + Past Simple</b> — желание о настоящем. <b>wish + Past Perfect</b> — сожаление о прошлом.','<b>It\'s time + Past Simple</b>: пора что-то сделать. <b>would rather + Past Simple</b> — о чужих действиях.'],ex:['I wish I had more free time now.','I wish I had studied harder last year.','It\'s time we left.'],q:[
+  {q:'I wish I ___ more free time now.',o:['have','had','would have'],a:1},{q:'I wish I ___ harder last year.',o:['studied','had studied','would study'],a:1},{q:'It\'s time we ___.',o:['leave','left','will leave'],a:1}]},
+ {t:'Эмфаза: What… и It was… that',rule:['Чтобы выделить главное, делим фразу: <b>What + подлежащее + глагол + is / was</b> — <i>What I need is a rest.</i>','<b>It is / was + выделяемое + that / who</b> — <i>It was Maria who called me.</i>'],ex:['What I need is a holiday.','It was Maria who called me.','It was in Paris that they met.'],q:[
+  {q:'What I need ___ a holiday.',o:['are','is','do'],a:1},{q:'___ was Maria who called me.',o:['It','What','That'],a:0},{q:'It was in Paris ___ they met.',o:['what','that','who'],a:1}]},
+ {t:'Смешанные условные',rule:['Причина в прошлом, результат сейчас: <b>If + Past Perfect, would + V</b> — <i>If I had studied medicine, I would be a doctor now.</i>','Причина вообще, результат в прошлом: <b>If + Past Simple, would have + V3</b> — <i>If she were more careful, she would not have broken it.</i>'],ex:['If I had taken the job, I would be rich now.','If she were more careful, she would not have broken the glass.'],q:[
+  {q:'If I had taken the job, I ___ rich now.',o:['would be','would have been','will be'],a:0},{q:'If she were more careful, she ___ the glass.',o:['would not have broken','would not break','will not break'],a:0},{q:'If we had left earlier, we ___ late now.',o:['would not be','would not have been','will not be'],a:0}]},
+ {t:'Причастные обороты',rule:['Причастие заменяет короткое придаточное, при этом подлежащее у обоих частей одно и то же.','<b>V-ing</b> — одновременное действие: <i>Walking down the street, I met a friend.</i> <b>Having + V3</b> — действие раньше: <i>Having finished the report, she went home.</i>'],ex:['Having finished the report, she went home.','Walking down the street, I met an old friend.','Hearing the news, he called his mother.'],q:[
+  {q:'___ the report, she went home.',o:['Having finished','Finished to','Finish'],a:0},{q:'___ down the street, I met an old friend.',o:['Walked','Walking','To walk'],a:1},{q:'___ the news, he called his mother.',o:['Hearing','Heard to','To hear'],a:0}]},
+ {t:'Future Continuous и Future Perfect',rule:['<b>will be + V-ing</b> — действие будет идти в определённый момент: <i>This time tomorrow I will be flying to Rome.</i> Так же вежливый вопрос: <i>Will you be using the car tonight?</i>','<b>will have + V3</b> — действие завершится к определённому моменту: <i>By Friday I will have finished the report.</i> Слова: by, by the time, by then.'],ex:['This time tomorrow I will be flying to Rome.','By next year she will have graduated.','Will you be using the car tonight?'],q:[
+  {q:'This time tomorrow I ___ to Rome.',o:['will fly','will be flying','will have flown'],a:1},{q:'By Friday I ___ the report.',o:['will finish','will have finished','will be finishing'],a:1},{q:'By 2030 they ___ the bridge.',o:['will build','will have built','are building'],a:1}]},
+ {t:'Пассив с вводными глаголами',rule:['Для слухов и общего мнения: <b>It is said / believed / thought / known that</b> + предложение: <i>It is said that he is rich.</i>','То же с инфинитивом: <b>He is said to be rich.</b> О прошлом — <b>to have + V3</b>: <i>He is believed to have left the country.</i>'],ex:['It is said that the company will close.','He is said to be very rich.','She is believed to have left the country last year.'],q:[
+  {q:'It ___ that the company will close.',o:['says','is said','said'],a:1},{q:'He is said ___ very rich.',o:['to be','being','be'],a:0},{q:'She is believed ___ the country last year.',o:['to have left','to leave','leaving'],a:0}]}]},
+{id:'C2',name:'Мастерство',d:'Тонкости стиля и формальная грамматика.',lessons:[
+ {t:'Сослагательное наклонение',rule:['После suggest, insist, demand, recommend и оборотов <b>it is essential / vital that</b> глагол стоит в начальной форме для всех лиц: <i>It is vital that he be present.</i>','<b>If I were you</b> — формальный вариант; в разговорной речи часто «If I was».'],ex:['The manager insisted that he arrive on time.','I suggest that she see a doctor.','If I were you, I would apologise.'],q:[
+  {q:'The manager insisted that he ___ on time.',o:['arrives','arrive','arrived'],a:1},{q:'It is vital that every student ___ the form.',o:['signs','sign','signed'],a:1},{q:'If I ___ you, I would apologise.',o:['were','was','am'],a:0}]},
+ {t:'Формальный и нейтральный стиль',rule:['Для писем, договоров и докладов вместо разговорных слов берут более формальные: <b>get → obtain</b>, <b>need → require</b>, <b>find out → ascertain</b>, <b>ask for → request</b>, <b>start → commence</b>, <b>help → assist</b>.'],ex:['We require your passport.','Please obtain a visa before travelling.'],q:[
+  {q:'Формальный вариант слова «get»:',o:['obtain','take','catch'],a:0},{q:'Более формально: «We need your passport.»',o:['We want your passport.','We require your passport.','We hope for your passport.'],a:1},{q:'Формальный вариант «find out»:',o:['look up','figure out','ascertain'],a:2}]},
+ {t:'Смягчение утверждений (hedging)',rule:['В научном и деловом стиле категоричные фразы смягчают: <b>arguably</b> (можно утверждать), <b>it appears that</b>, <b>seem / appear to</b>, <b>tend to</b>, <b>somewhat</b>, <b>to some extent</b>.'],ex:['The results appear to suggest a link.','People tend to forget small details.','This is arguably the best solution.'],q:[
+  {q:'Слово со значением «можно утверждать, вероятно»:',o:['arguably','definitely','absolutely'],a:0},{q:'The results ___ to suggest a link.',o:['appear','are appeared','appearing'],a:0},{q:'People ___ to forget small details.',o:['tend','tends','tending'],a:0}]},
+ {t:'Отглагольные существительные в формальном стиле',rule:['В деловой и академической речи глаголы часто заменяют существительными: <b>decide → decision, develop → development, refuse → refusal, fail → failure</b>.','Так текст звучит сдержаннее: <i>They decided to postpone it</i> → <i>The decision to postpone it was unanimous.</i>'],ex:['The development of the system took two years.','Her refusal to attend surprised everyone.','The failure of the project was unexpected.'],q:[
+  {q:'Noun from decide:',o:['decision','decider','deciding'],a:0},{q:'The ___ of the new system took two years. (develop)',o:['development','developing','developed'],a:0},{q:'Her ___ to attend surprised everyone. (refuse)',o:['refusal','refusing','refused'],a:0}]},
+ {t:'Инверсия в условных: Had, Should, Were',rule:['В формальной речи if опускают, а вспомогательный глагол ставят перед подлежащим.','<b>Had I known</b> = If I had known. <b>Should you need help</b> = If you need help. <b>Were I you</b> = If I were you.'],ex:['Had I known, I would have called you.','Should you need any help, please call us.','Were I in your place, I would apologise.'],q:[
+  {q:'___ I known, I would have called you.',o:['Had','Have','Would'],a:0},{q:'___ you need any help, please call us.',o:['Should','Would','Have'],a:0},{q:'___ I in your place, I would apologise.',o:['Were','Was','Had'],a:0}]}]}
+];
+var tabs=document.getElementById('tabs'),out=document.getElementById('out');
+var P={},cur=0,canSpeak='speechSynthesis' in window;
+try{P=JSON.parse(localStorage.getItem('progress')||'{}')||{}}catch(e){P={}}
+function save(){try{localStorage.setItem('progress',JSON.stringify(P))}catch(e){}}
+function eng(s){return s.split(';').map(function(x){return x.split('—')[0]}).join('. ').replace(/[«»→]/g,' ').replace(/[а-яёА-ЯЁ]+/g,' ').replace(/\s+/g,' ').trim()}
+function speak(t){
+  if(!canSpeak)return;
+  speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=0.9;
+  var v=speechSynthesis.getVoices().filter(function(x){return /^en/i.test(x.lang)})[0];
+  if(v)u.voice=v;
+  speechSynthesis.speak(u);
+}
+function setBadge(ls){var b=P[ls.key];ls.badge.textContent=b==null?'':b+'/'+ls.q.length;ls.badge.className='badge'+(b===ls.q.length?' done':'')}
+function refresh(){
+  var done=0,total=0;
+  L.forEach(function(l,k){
+    var d=0;
+    l.lessons.forEach(function(ls,n){if(P[l.id+'-'+n]===ls.q.length)d++});
+    done+=d;total+=l.lessons.length;
+    var s=tabs.children[k]&&tabs.children[k].querySelector('small');
+    if(s)s.textContent=d+'/'+l.lessons.length;
+  });
+  document.getElementById('pt').textContent='Пройдено уроков без ошибок: '+done+' из '+total;
+}
+function hint(ls,w){if(w.querySelector('.hint'))return;w.appendChild(el('div','hint','<b>Подсказка:</b> '+ls.rule[0]))}
+function record(ls,sc){if(!(P[ls.key]>=sc)){P[ls.key]=sc;save()}setBadge(ls);refresh();SK.task()}
+(function(){
+  var rst=document.getElementById('rst'),armed=false;
+  rst.onclick=function(){
+    if(!armed){armed=true;rst.textContent='Точно сбросить? Нажмите ещё раз';setTimeout(function(){armed=false;rst.textContent='Сбросить прогресс'},4000);return}
+    P={};save();armed=false;rst.textContent='Сбросить прогресс';show(cur);refresh();
+  };
+})();
+function el(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e}
+function buildQuiz(ls,box,score){
+  box.innerHTML='';score.innerHTML='';var sc=0,n=0;
+  ls.q.forEach(function(q,k){
+    var w=el('div','q','<p>'+(k+1)+'. '+q.q+'</p>'),row=el('div','opts');
+    q.o.forEach(function(t,j){
+      var b=el('button',null,t);b.type='button';
+      b.onclick=function(){
+        if(w.dataset.done)return;w.dataset.done=1;
+        b.classList.add(j===q.a?'ok':'bad');
+        if(j===q.a)sc++;else{row.children[q.a].classList.add('ok');hint(ls,w)}
+        if(++n===ls.q.length){
+          score.textContent='Результат: '+sc+' из '+n+(sc===n?' — отлично!':' — перечитайте правило и попробуйте ещё раз.');record(ls,sc);
+          var r=el('button','again','Пройти заново');r.type='button';r.onclick=function(){buildQuiz(ls,box,score)};score.appendChild(r);
+        }
+      };
+      row.appendChild(b);
+    });
+    w.appendChild(row);box.appendChild(w);
+  });
+}
+function show(i){
+  [].forEach.call(tabs.children,function(b,j){b.setAttribute('aria-pressed',j===i)});
+  cur=i;var l=L[i];out.innerHTML='';
+  out.appendChild(el('h2',null,l.id+' · '+l.name));out.appendChild(el('p','sub',l.d));
+  l.lessons.forEach(function(ls,n){
+    var d=el('details','lesson');if(n===0)d.open=true;
+    ls.key=l.id+'-'+n;
+    d.appendChild(el('summary',null,'<span class="num">'+(n+1)+'</span>'+ls.t+'<span class="badge"></span>'));
+    ls.badge=d.querySelector('.badge');setBadge(ls);
+    var b=el('div','body');
+    b.appendChild(el('div','rule',ls.rule.map(function(r){return '<p>'+r+'</p>'}).join('')));
+    b.appendChild(el('h3',null,'Примеры'));
+    var ul=el('ul','ex');
+    ls.ex.forEach(function(x){
+      var li=el('li',null,'<i>'+x+'</i>'),t=eng(x);
+      if(canSpeak&&t){var s=el('button','spk','🔊');s.type='button';s.title='Прослушать';s.setAttribute('aria-label','Прослушать: '+t);s.onclick=function(){speak(t)};li.appendChild(s)}
+      ul.appendChild(li);
+    });
+    b.appendChild(ul);
+    b.appendChild(el('h3',null,'Проверьте себя'));
+    var box=el('div'),score=el('div','score');score.setAttribute('role','status');
+    b.appendChild(box);b.appendChild(score);buildQuiz(ls,box,score);
+    d.appendChild(b);out.appendChild(d);
+  });
+}
+L.forEach(function(l,i){var b=el('button',null,l.id+' <small></small>');b.type='button';b.onclick=function(){show(i)};tabs.appendChild(b)});
+var h=(location.hash||'').slice(1),s0=0;L.forEach(function(l,k){if(l.id===h)s0=k});show(s0);refresh();
+
+(function(){
+  var root=document.documentElement,btn=document.getElementById('theme');
+  function isDark(){var t=root.getAttribute('data-theme');return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+  function label(){var d=isDark(),t=d?'Светлая тема':'Тёмная тема';btn.textContent=d?'☀️':'🌙';btn.setAttribute('aria-label',t);btn.title=t}
+  try{var s=localStorage.getItem('theme');if(s)root.setAttribute('data-theme',s)}catch(e){}
+  label();
+  btn.addEventListener('click',function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}label()});
+})();
+</script>
+<script>(function(){var c=document.querySelector('.menu a[aria-current]'),m=document.querySelector('.menu');if(c&&m)m.scrollLeft=c.getBoundingClientRect().left-m.getBoundingClientRect().left+m.scrollLeft-(m.clientWidth-c.offsetWidth)/2})()</script>
+</body>
+</html>

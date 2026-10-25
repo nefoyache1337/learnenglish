@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Learn English with Nefoyache — английский для любого уровня</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#e4e5e2; --surface:#eeefec; --surface-2:#d9dbd7; --border:#c3c6c1;
+  --text:#272b2f; --muted:#5a6168; --accent:#3d6b78; --accent-text:#f4f6f5;
+  --font:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+    --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+  --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.6 var(--font);
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+header{border-bottom:1px solid var(--border)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 20px}
+.logo{font-weight:700;font-size:1.25rem;text-decoration:none}
+nav{display:flex;align-items:center;gap:20px}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--text)}
+.theme{font:inherit;color:var(--text);background:var(--surface);border:1px solid var(--border);
+  border-radius:999px;padding:6px 14px;cursor:pointer}
+.theme:hover{background:var(--surface-2)}
+
+.hero{padding:72px 0 56px;max-width:640px}
+h1{font-size:clamp(2rem,6vw,3.1rem);line-height:1.15;margin:0 0 18px;font-weight:700}
+.lead{color:var(--muted);font-size:1.15rem;margin:0 0 28px}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-text);font-weight:500;
+  text-decoration:none;padding:12px 24px;border-radius:10px}
+.btn:hover{filter:brightness(1.08)}
+.btn.alt{background:var(--surface-2);color:var(--text)}
+.hero .btn{margin:0 10px 10px 0}
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.tool{display:block;text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px}
+.tool:hover{background:var(--surface-2)}
+.tool b{display:block;margin-bottom:2px}
+.tool span{color:var(--muted);font-size:.95rem}
+#tools{padding-bottom:56px}
+
+h2{font-size:1.6rem;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 24px}
+.levels{list-style:none;margin:0;padding:0;border:1px solid var(--border);border-radius:14px;
+  background:var(--surface);overflow:hidden}
+.levels summary{display:grid;grid-template-columns:64px 1fr 20px;gap:16px;align-items:center;padding:18px 20px;cursor:pointer;list-style:none}
+.levels summary::-webkit-details-marker{display:none}
+.levels summary::after{content:"+";color:var(--muted);font-size:1.4rem;text-align:center}
+.levels details[open] summary::after{content:"−"}
+.more{display:grid;grid-template-columns:130px 1fr;gap:10px 16px;margin:0;padding:4px 20px 22px 100px}
+.more dt{font-weight:500}
+.more dd{margin:0;color:var(--muted)}
+.more ul{margin:0;padding-left:18px}
+.more li{margin:0 0 7px}
+.more b{color:var(--text);font-weight:500}
+.more i{color:var(--text)}
+.levels>li+li{border-top:1px solid var(--border)}
+.levels>li:hover{background:var(--surface-2)}
+.code{font-weight:700;font-size:1.3rem;color:var(--accent)}
+.name{font-weight:500;display:block}
+.desc{display:block;color:var(--muted);font-size:.95rem}
+
+#levels{padding-bottom:56px}
+#start{padding-bottom:40px}
+.steps{margin:0 0 16px;padding-left:0;list-style:none;counter-reset:s;display:grid;gap:10px}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 18px 14px 56px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:16px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-text);display:grid;place-items:center;font-weight:700;font-size:.9rem}
+.steps a{color:var(--accent)}
+.cont[hidden]{display:none}
+.cont{display:flex;flex-wrap:wrap;align-items:center;gap:12px;background:var(--surface-2);border-radius:14px;padding:14px 18px}
+
+footer{border-top:1px solid var(--border);padding:24px 0;color:var(--muted);font-size:.9rem}
+@media (max-width:560px){.hero{padding:44px 0 36px}.more{grid-template-columns:1fr;padding-left:20px;gap:2px}.more dd{margin-bottom:12px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.menu{display:flex;gap:6px;overflow-x:auto;margin-top:0;padding:0 20px 12px}
+.menu a{flex:none;text-decoration:none;color:var(--muted);padding:6px 14px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+.menu a:hover{color:var(--text);background:var(--surface-2)}
+.menu a[aria-current="page"]{color:var(--accent-text);background:var(--accent);border-color:var(--accent)}
+@media (min-width:721px){.bar,.menu{max-width:960px}.menu{overflow-x:visible;flex-wrap:wrap;gap:4px}.menu a{padding:6px 12px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top"><span class="lw">Learn English with </span>Nefoyache</a>
+    <nav>
+      
+      
+      
+      
+      
+      
+      <button class="theme" id="theme" type="button">Тёмная тема</button>
+    </nav>
+  </div>
+<nav class="wrap menu" aria-label="Разделы">
+    <a href="index.html" aria-current="page">Главная</a>
+    <a href="lessons.html">Уроки</a>
+    <a href="test.html">Тест</a>
+    <a href="cards.html">Карточки</a>
+    <a href="verbs.html">Глаголы</a>
+    <a href="reading.html">Чтение</a>
+    <a href="cheatsheets.html">Шпаргалки</a>
+    <a href="listening.html">Аудирование</a>
+    <a href="speaking.html">Говорение</a>
+    <a href="idioms.html">Идиомы</a>
+    <a href="abbrev.html">Сокращения</a>
+    <a href="progress.html">Прогресс</a>
+  </nav>
+</header>
+
+<main id="top" class="wrap">
+  <section class="hero">
+    <h1>Английский — шаг за шагом, с вашего уровня</h1>
+    <p class="lead">Выберите уровень, с которого удобно начать, и двигайтесь дальше в своём темпе.</p>
+    <a class="btn" href="#levels">Выбрать уровень</a> <a class="btn alt" href="test.html">Пройти тест уровня</a>
+  </section>
+
+  <section id="start">
+    <h2>С чего начать</h2>
+    <ol class="steps">
+      <li><b>Узнайте свой уровень.</b> <a href="test.html">Пройдите тест</a> — 30 вопросов, около 8 минут.</li>
+      <li><b>Откройте уроки своего уровня.</b> В <a href="lessons.html">уроках</a> короткое правило, примеры с озвучкой и мини-тест.</li>
+      <li><b>Повторяйте каждый день.</b> <a href="cards.html">Карточки слов</a> возвращают слова в нужный день, а <a href="progress.html">стрик</a> помогает не пропускать занятия.</li>
+    </ol>
+    <div class="cont" id="cont" hidden><span>Вы остановились на странице «<b id="contN"></b>».</span> <a class="btn" id="contA" href="#">Продолжить</a></div>
+  </section>
+
+  <section id="levels">
+    <h2>Уровни</h2>
+    <p class="sub">Шесть ступеней по шкале CEFR. Нажмите на уровень, чтобы увидеть, что в нём учить. Числа слов — приблизительные ориентиры.</p>
+    <ol class="levels">
+      <li><details><summary><span class="code">A1</span><span><span class="name">Начальный</span><span class="desc">Первые слова, знакомство, простые фразы о себе.</span></span></summary><dl class="more"><dt>Вы сможете</dt><dd>представиться, спросить цену и дорогу, понять очень медленную и простую речь.</dd><dt>Грамматика</dt><dd>to be, личные местоимения, артикли a/the, Present Simple, there is/are, can, вопросы с do/does.</dd><dt>Лексика (около 500–1000 слов)</dt><dd>приветствия, числа, семья, еда, цвета, дни недели, дом.</dd><dt>Как учить</dt><dd>15 минут в день, слова с картинками и повторение вслух, простые мультфильмы с английскими субтитрами.</dd><dt>Разбор тем</dt><dd><ul><li><b>Местоимения.</b> Кто? — I, you, he, she, we, they. Кого? кому? — me, you, him, her, us, them.</li><li><b>Вопросительные слова:</b> what (что, какой), who (кто), where (где, куда), when (когда), why (почему, зачем), how (как).</li><li><b>Предлоги:</b> to — куда, к кому, к чему; from — откуда, от кого, из чего.</li><li><b>Настоящее время:</b> I love, he loves; вопрос с do / does, отрицание don't / doesn't.</li></ul></dd><dt>Дополнительно</dt><dd><ul><li><b>Множественное число:</b> обычно -s (books), после -s, -ch, -sh, -x — -es (boxes). Особые формы: man → men, woman → women, child → children, foot → feet, tooth → teeth, mouse → mice; sheep и fish не меняются.</li><li><b>Исчисляемые и неисчисляемые:</b> apple — apples, но water, milk, rice, money, advice — без множественного числа и без a / an. Количество показываем так: a glass of water, a piece of advice, a bottle of milk, a slice of bread.</li><li><b>a / an / one / some:</b> a / an — один, любой (<i>twice a week</i>); one — когда важно число; some — для множественного числа и неисчисляемых (<i>some flowers, some milk</i>).</li></ul></dd></dl></details></li>
+      <li><details><summary><span class="code">A2</span><span><span class="name">Элементарный</span><span class="desc">Повседневные темы: покупки, семья, работа.</span></span></summary><dl class="more"><dt>Вы сможете</dt><dd>общаться в магазине и кафе, рассказать, что было вчера, написать короткое сообщение.</dd><dt>Грамматика</dt><dd>Past Simple (включая неправильные глаголы), Present Continuous, will и be going to, сравнительная степень, much/many, предлоги места и времени.</dd><dt>Лексика (около 1000–2000 слов)</dt><dd>покупки, транспорт, путешествия, работа, здоровье, хобби.</dd><dt>Как учить</dt><dd>выучите 10 самых частых неправильных глаголов, пишите 2–3 предложения о своём дне, читайте адаптированные рассказы. Экзамен: Cambridge A2 Key.</dd><dt>Разбор тем</dt><dd><ul><li><b>Три формы глагола:</b> будущее — will + глагол (will love, will not love, Will you love?); прошедшее — loved, did not love, Did you love?; настоящее — do / does.</li><li><b>Слова:</b> novel (роман), character (персонаж), film director (кинорежиссёр), script (сценарий), jewel (драгоценный камень), jewelry designer (ювелир), order (заказ, заказывать), apologize (приносить извинения).</li><li><b>Разговорные вставки:</b> well (ну…), you know (вы знаете), I mean (я имею в виду), like (как бы), sort of (типа того).</li><li><b>Welcome</b> в ответ на «спасибо» означает «пожалуйста»: You are welcome.</li></ul></dd><dt>Дополнительно</dt><dd><ul><li><b>Превосходная степень:</b> the + -est или the most; of — среди группы, in — для места: <i>the smartest of all my students, the most expensive restaurant in our town</i>. Особые: good → best, bad → worst.</li><li><b>Present Simple и Present Continuous:</b> постоянное и расписание — Simple (<i>He works in a bank</i>), сейчас и временно — Continuous (<i>He is giving the baby a bath</i>).</li><li><b>Наречия:</b> quickly, carefully, hard, well; сравнение — more carefully, harder; сила: fairly, quite, rather, very.</li><li><b>Сколько?</b> с исчисляемыми — many, a few, several; с неисчисляемыми — much, a little, a great deal of; с обоими — a lot of, plenty of, some, any.</li><li><b>Только единственное или множественное число:</b> news, physics, maths — единственное; trousers, scissors, glasses, clothes — множественное (a pair of trousers).</li></ul></dd></dl></details></li>
+      <li><details><summary><span class="code">B1</span><span><span class="name">Средний</span><span class="desc">Рассказ о событиях, планах и мнениях; поездки без стресса.</span></span></summary><dl class="more"><dt>Вы сможете</dt><dd>решать бытовые вопросы в поездке, объяснить своё мнение, понять главное в знакомых темах.</dd><dt>Грамматика</dt><dd>Present Perfect, Past Continuous, условные 0 и 1 типа, модальные (must, should, have to), пассив (Present/Past Simple), прямая и косвенная речь (основы).</dd><dt>Лексика (около 2500–3500 слов)</dt><dd>новости, образование, эмоции, отношения, первые фразовые глаголы (get up, look for).</dd><dt>Как учить</dt><dd>говорите вслух по 10 минут о прошедших событиях, ведите дневник, слушайте подкасты для изучающих (например, BBC 6 Minute English). Экзамен: Cambridge B1 Preliminary.</dd><dt>Повторение</dt><dd><ul><li><b>Present Simple</b> — привычки, расписания, общие истины. <b>Present Continuous</b> — действие сейчас и временные ситуации: <i>She is staying with friends this week.</i></li><li><b>Present Perfect</b> — связь прошлого с настоящим (for, since, just, already, yet). Период ещё идёт (today, this week) — Present Perfect; закончился (yesterday) — Past Simple.</li><li>Новость сообщаем в Present Perfect, подробности — в Past Simple: <i>The shop has closed. It lost customers last year.</i></li><li>Present Perfect подчёркивает результат или количество, Present Perfect Continuous — длительность: <i>I've written three emails. / I've been writing emails all morning.</i></li><li><b>Наречия частоты</b> стоят перед основным глаголом, но после to be и вспомогательных. Never, rarely и seldom уже отрицательные, поэтому not не нужен.</li><li><b>Глаголы состояния</b> (know, like, want) обычно не употребляются в Continuous.</li><li><b>Частая ошибка:</b> после when, before, as soon as о будущем говорим в настоящем времени: <i>I'll call you when I arrive</i>, а не <i>when I will arrive</i>.</li></ul></dd></dl></details></li>
+      <li><details><summary><span class="code">B2</span><span><span class="name">Выше среднего</span><span class="desc">Свободное общение, понимание фильмов и статей.</span></span></summary><dl class="more"><dt>Вы сможете</dt><dd>свободно беседовать с носителями, читать статьи, учиться или работать на английском.</dd><dt>Грамматика</dt><dd>Past Perfect, условные 2 и 3 типа, wish / if only, пассив во всех временах, герундий и инфинитив, относительные придаточные.</dd><dt>Лексика (около 4000–5000 слов)</dt><dd>абстрактные темы, устойчивые словосочетания, связки (however, although, therefore), фразовые глаголы.</dd><dt>Как учить</dt><dd>смотрите видео без перевода, учите слова в словосочетаниях, пишите эссе на 200–250 слов, читайте новости и смотрите TED. Экзамены: Cambridge B2 First, IELTS 5.5–6.5.</dd><dt>Разбор тем</dt><dd><ul><li><b>Прошедшие времена:</b> Past Simple, Past Continuous, Past Perfect — какое действие раньше и как сочетать их в рассказе.</li><li><b>Будущее:</b> will, be going to, Future Continuous — решение в момент речи, план, прогноз.</li><li><b>Инфинитив и -ing:</b> цель (to + глагол), глаголы с -ing, форма после модальных (без to), too / enough, причастия.</li><li><b>Прилагательные и наречия:</b> порядок (сначала мнение, потом факты), наречия от прилагательных, степени сравнения.</li><li><b>Существительные и артикли:</b> исчисляемые и неисчисляемые, a / an / the / без артикля; словообразование: приставки и суффиксы.</li><li><b>Модальные глаголы:</b> просьбы (can, could, would, may), догадки (must, may, might, can't), need как модальный и как обычный глагол.</li><li><b>Пассив</b> и конструкция have something done: <i>I had my hair cut.</i> Выбор между by и with.</li><li><b>Косвенная речь:</b> сдвиг времён и слов времени, пересказ вопросов, просьб и предложений, вводные глаголы (promise, suggest, ask). В условных 2 и 3 типа времена при пересказе не меняются.</li><li><b>Условные 0–3 типов,</b> wish / if only, had better, would rather.</li><li><b>Придаточные и связки,</b> местоимения и слова-количества, типы вопросов, часто путаемые слова.</li><li><b>Как работать с каждой темой:</b> прочитать таблицу, проговорить примеры вслух, потом делать письменные упражнения; в конце — повторение, блок типичных ошибок и фразовые глаголы.</li></ul></dd></dl></details></li>
+      <li><details><summary><span class="code">C1</span><span><span class="name">Продвинутый</span><span class="desc">Сложные тексты, точное выражение мыслей, работа и учёба.</span></span></summary><dl class="more"><dt>Вы сможете</dt><dd>гибко говорить без поиска слов, понимать длинные сложные тексты, писать структурированные документы.</dd><dt>Грамматика</dt><dd>инверсия (Never have I…), смешанные условные, cleft-конструкции (It was… that), сослагательное наклонение, тонкости модальных глаголов.</dd><dt>Лексика (около 6000–8000 слов)</dt><dd>идиомы, академическая и деловая лексика, разница между формальным и неформальным стилем.</dd><dt>Как учить</dt><dd>читайте книги и длинные статьи, слушайте лекции и дебаты, пересказывайте прочитанное своими словами, подбирайте синонимы. Экзамены: Cambridge C1 Advanced, IELTS 7–8.</dd><dt>Разбор тем</dt><dd><ul><li><b>Эмфаза:</b> выделяем главное через what и it: <i>What I need is a rest. It was Tom who called.</i></li><li><b>Инверсия</b> после отрицательных наречий: <i>Rarely do we eat out. Not only did she win, she broke the record.</i> Также Nor / Neither + вспомогательный глагол: <i>Nor was I surprised.</i></li><li><b>Нереальное прошедшее:</b> wish и if only о сожалениях, it's time, would rather + прошедшее время, as if, а также Supposing и Providing в условных.</li><li><b>Косвенная речь с вводными глаголами:</b> admit и deny + -ing, accuse sb of, promise + to — выбираем глагол по смыслу, а не просто say.</li><li><b>Перефразирование:</b> передать ту же мысль другой конструкцией (в учебнике такие упражнения называются «In other words») — лучшая тренировка гибкости.</li><li><b>Фразовые глаголы:</b> look after, pay back и другие, которые учебник даёт в конце каждого раздела.</li></ul></dd></dl></details></li>
+      <li><details><summary><span class="code">C2</span><span><span class="name">Мастерство</span><span class="desc">Понимание практически всего, тонкие оттенки смысла.</span></span></summary><dl class="more"><dt>Вы сможете</dt><dd>понимать практически любую речь, включая юмор и разговорные обороты, и выражать мысль точно в любом стиле.</dd><dt>Грамматика</dt><dd>тонкие оттенки (shall/will, may/might), стилистический порядок слов, редкие и литературные конструкции.</dd><dt>Лексика (8000+ слов)</dt><dd>редкие слова и идиомы, культурные отсылки, разница британского и американского вариантов.</dd><dt>Как учить</dt><dd>читайте художественную литературу в оригинале, смотрите стендап и профессиональные лекции, пишите в разных стилях, общайтесь с носителями. Экзамен: Cambridge C2 Proficiency.</dd></dl></details></li>
+    </ol>
+  </section>
+
+
+  <section id="tools">
+    <h2>Материалы</h2>
+    <p class="sub">Всё, что поможет учиться: выбирайте удобный формат.</p>
+    <div class="tools">
+      <a class="tool" href="lessons.html"><b>Уроки</b><span>Правила, примеры и мини-тесты по уровням</span></a>
+      <a class="tool" href="test.html"><b>Тест уровня</b><span>30 вопросов и советы, что учить</span></a>
+      <a class="tool" href="cards.html"><b>Карточки слов</b><span>Колоды для каждого уровня с озвучкой</span></a>
+      <a class="tool" href="verbs.html"><b>Неправильные глаголы</b><span>Таблица и тренажёр с вводом форм</span></a>
+      <a class="tool" href="reading.html"><b>Чтение</b><span>Короткие тексты с вопросами от A1 до C2</span></a>
+      <a class="tool" href="cheatsheets.html"><b>Шпаргалки</b><span>Таблицы времён и правил, можно распечатать</span></a>
+      <a class="tool" href="listening.html"><b>Аудирование</b><span>Слушайте фразы и записывайте их по уровням</span></a>
+      <a class="tool" href="speaking.html"><b>Говорение</b><span>Повторяйте фразы вслух, сайт проверит речь</span></a>
+      <a class="tool" href="idioms.html"><b>Идиомы</b><span>Живые выражения с примерами и проверкой</span></a>
+      <a class="tool" href="abbrev.html"><b>Сокращения</b><span>BTW, e.g., I'll, gonna и другие: что значат и как читаются</span></a>
+      <a class="tool" href="progress.html"><b>Прогресс</b><span>Дни подряд, цель на день и статистика</span></a>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">Learn English with Nefoyache · учебный проект</div></footer>
+
+<script>
+var SK=(function(){var K='streak',G=5,S={d:0,s:0,b:0,t:0,n:0,a:0,c:0,g:5,u:0,p:0,q:0},chip;function day(){return Math.floor((Date.now()-new Date().getTimezoneOffset()*60000)/86400000)}try{var x=JSON.parse(localStorage.getItem(K));if(x&&typeof x.d==='number')S=x}catch(e){}S.g=[3,5,10,15].indexOf(S.g)>-1?S.g:5;S.u=S.u||0;S.p=S.p||0;S.q=S.q||0;function merge(a,b){var r={d:Math.max(a.d,b.d),t:Math.max(a.t,b.t),a:Math.max(a.a,b.a),c:Math.max(a.c,b.c)};r.s=a.d===b.d?Math.max(a.s,b.s):(a.d>b.d?a.s:b.s);r.n=a.t===b.t?Math.max(a.n,b.n):(a.t>b.t?a.n:b.n);r.b=Math.max(a.b,b.b,r.s);r.g=(b.u||0)>(a.u||0)?b.g:a.g;r.u=Math.max(a.u||0,b.u||0);r.p=(b.q||0)>(a.q||0)?b.p:a.p;r.q=Math.max(a.q||0,b.q||0);return r}var m=/^#p((?:-[0-9a-z]+){7}(?:-[0-9a-z]+){0,4})$/.exec(location.hash||'');if(m){var v=m[1].slice(1).split('-').map(function(z){return parseInt(z,36)||0});S=merge(S,{d:v[0],s:v[1],b:v[2],t:v[3],n:v[4],a:v[5],c:v[6],g:v[7]||5,u:v[8]||0,p:v[9]||0,q:v[10]||0})}function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}function links(){var h='#p-'+[S.d,S.s,S.b,S.t,S.n,S.a,S.c,S.g,S.u,S.p,S.q].map(function(z){return Math.max(0,z|0).toString(36)}).join('-');[].forEach.call(document.querySelectorAll('a[href]'),function(a){var u=a.getAttribute('href')||'';if(u.indexOf('https://claude.ai/artifact/')===0)a.setAttribute('href',u.split('#')[0]+h)})}function draw(){var t=day();if(chip)chip.textContent='🔥 '+(S.d>=t-1?S.s:0)+' · '+Math.min(S.t===t?S.n:0,99)+'/'+S.g;links()}function task(){var t=day();if(S.d!==t){S.s=S.d===t-1?S.s+1:1;S.d=t;S.c++}if(S.t!==t){S.t=t;S.n=0}S.n++;S.a++;S.b=Math.max(S.b,S.s);save();draw()}function part(n){try{var c=(+localStorage.getItem('tk')||0)+1;if(c>=n){c=0;task()}localStorage.setItem('tk',c)}catch(e){}}function init(){var st=document.createElement('style');st.textContent='.bar{flex-wrap:nowrap}.logo{white-space:nowrap}@media (max-width:520px){.lw{display:none}}.chip{font-size:.9rem;font-weight:500;text-decoration:none;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:4px 12px;white-space:nowrap}.chip:hover{background:var(--surface-2)}';document.head.appendChild(st);chip=document.createElement('a');chip.className='chip';chip.href='progress.html';chip.title='Дней подряд и задания на сегодня';var tb=document.getElementById('theme'),host=tb&&tb.parentNode;if(host)host.insertBefore(chip,tb);var ml=[].slice.call(document.querySelectorAll('.menu a')),ci=-1;ml.forEach(function(a,i){if(a.hasAttribute('aria-current'))ci=i});if(ci>0&&ci<11){S.p=ci;S.q=Math.floor(Date.now()/60000)}save();draw();}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();return {task:task,part:part,get:function(){return S},draw:draw}})();
+</script>
+<script>
+(function(){
+  function show(){
+    var s=SK.get(),ml=document.querySelectorAll('.menu a'),a=ml[s.p];
+    if(!a||s.p<1)return;
+    var c=document.getElementById('cont');
+    document.getElementById('contN').textContent=a.textContent;
+    document.getElementById('contA').setAttribute('href',a.getAttribute('href'));
+    c.hidden=false;SK.draw();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',show);else show();
+})();
+</script>
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('theme');
+  function isDark(){
+    var t=root.getAttribute('data-theme');
+    return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function label(){var d=isDark(),t=d?'Светлая тема':'Тёмная тема';btn.textContent=d?'☀️':'🌙';btn.setAttribute('aria-label',t);btn.title=t}
+  try{var s=localStorage.getItem('theme'); if(s) root.setAttribute('data-theme',s)}catch(e){}
+  label();
+  btn.addEventListener('click',function(){
+    var n=isDark()?'light':'dark';
+    root.setAttribute('data-theme',n);
+    try{localStorage.setItem('theme',n)}catch(e){}
+    label();
+  });
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',label);
+})();
+</script>
+<script>(function(){var c=document.querySelector('.menu a[aria-current]'),m=document.querySelector('.menu');if(c&&m)m.scrollLeft=c.getBoundingClientRect().left-m.getBoundingClientRect().left+m.scrollLeft-(m.clientWidth-c.offsetWidth)/2})()</script>
+</body>
+</html>

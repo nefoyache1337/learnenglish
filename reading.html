@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Чтение — Learn English with Nefoyache</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#e4e5e2; --surface:#eeefec; --surface-2:#d9dbd7; --border:#c3c6c1;
+  --text:#272b2f; --muted:#5a6168; --accent:#3d6b78; --accent-text:#f4f6f5;
+  --ok:#2f6b4c; --ok-bg:#d3e3d9; --bad:#9a3f3f; --bad-bg:#ebd5d3;
+  --font:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+    --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+    --ok:#8fd0ab; --ok-bg:#24372d; --bad:#e49a9a; --bad-bg:#3b2828;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+  --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+  --ok:#8fd0ab; --ok-bg:#24372d; --bad:#e49a9a; --bad-bg:#3b2828;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.6 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+header{border-bottom:1px solid var(--border)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;flex-wrap:wrap}
+.logo{font-weight:700;font-size:1.15rem;text-decoration:none}
+.right{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.back{color:var(--muted);text-decoration:none}
+.back:hover{color:var(--text)}
+.theme{font:inherit;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:6px 14px;cursor:pointer}
+h1{font-size:clamp(1.8rem,5vw,2.5rem);margin:40px 0 8px}
+h2{font-size:1.4rem;margin:26px 0 8px}
+.sub{color:var(--muted);margin:0 0 20px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tabs button{font:inherit;font-weight:500;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:10px;padding:8px 14px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+.tabs small{opacity:.8;font-size:.8rem;margin-left:4px}
+.text{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;font-size:1.1rem;line-height:1.75}
+.spk{margin-top:12px;font:inherit;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:8px;padding:4px 12px;cursor:pointer}
+.q p{margin:14px 0 6px;font-weight:500}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts button{font:inherit;text-align:left;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:8px;padding:7px 14px;cursor:pointer}
+.opts button:hover{background:var(--surface-2)}
+.opts button.ok{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opts button.bad{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opts button.ok::after{content:" \2713"}
+.opts button.bad::after{content:" \2717"}
+.score{margin-top:16px;font-weight:500;min-height:1.5em}
+.again{font:inherit;margin-left:10px;border:0;background:none;color:var(--accent);cursor:pointer;text-decoration:underline}
+footer{border-top:1px solid var(--border);margin-top:40px;padding:24px 0;color:var(--muted);font-size:.9rem}
+.menu{display:flex;gap:6px;overflow-x:auto;margin-top:0;padding:0 20px 12px}
+.menu a{flex:none;text-decoration:none;color:var(--muted);padding:6px 14px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+.menu a:hover{color:var(--text);background:var(--surface-2)}
+.menu a[aria-current="page"]{color:var(--accent-text);background:var(--accent);border-color:var(--accent)}
+@media (min-width:721px){.bar,.menu{max-width:960px}.menu{overflow-x:visible;flex-wrap:wrap;gap:4px}.menu a{padding:6px 12px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="index.html"><span class="lw">Learn English with </span>Nefoyache</a>
+    <div class="right">
+      
+      <button class="theme" id="theme" type="button">Тёмная тема</button>
+    </div>
+  </div>
+<nav class="wrap menu" aria-label="Разделы">
+    <a href="index.html">Главная</a>
+    <a href="lessons.html">Уроки</a>
+    <a href="test.html">Тест</a>
+    <a href="cards.html">Карточки</a>
+    <a href="verbs.html">Глаголы</a>
+    <a href="reading.html" aria-current="page">Чтение</a>
+    <a href="cheatsheets.html">Шпаргалки</a>
+    <a href="listening.html">Аудирование</a>
+    <a href="speaking.html">Говорение</a>
+    <a href="idioms.html">Идиомы</a>
+    <a href="abbrev.html">Сокращения</a>
+    <a href="progress.html">Прогресс</a>
+  </nav>
+</header>
+<main class="wrap">
+  <h1>Чтение</h1>
+  <p class="sub">Короткие тексты для каждого уровня. Прочитайте текст, при желании прослушайте его и ответьте на вопросы. Тексты написаны специально для этого сайта.</p>
+  <div class="tabs" id="tabs" role="group" aria-label="Уровень"></div>
+  <div id="out"></div>
+</main>
+<footer><div class="wrap">Learn English with Nefoyache · учебный проект</div></footer>
+
+<script>
+var SK=(function(){var K='streak',G=5,S={d:0,s:0,b:0,t:0,n:0,a:0,c:0,g:5,u:0,p:0,q:0},chip;function day(){return Math.floor((Date.now()-new Date().getTimezoneOffset()*60000)/86400000)}try{var x=JSON.parse(localStorage.getItem(K));if(x&&typeof x.d==='number')S=x}catch(e){}S.g=[3,5,10,15].indexOf(S.g)>-1?S.g:5;S.u=S.u||0;S.p=S.p||0;S.q=S.q||0;function merge(a,b){var r={d:Math.max(a.d,b.d),t:Math.max(a.t,b.t),a:Math.max(a.a,b.a),c:Math.max(a.c,b.c)};r.s=a.d===b.d?Math.max(a.s,b.s):(a.d>b.d?a.s:b.s);r.n=a.t===b.t?Math.max(a.n,b.n):(a.t>b.t?a.n:b.n);r.b=Math.max(a.b,b.b,r.s);r.g=(b.u||0)>(a.u||0)?b.g:a.g;r.u=Math.max(a.u||0,b.u||0);r.p=(b.q||0)>(a.q||0)?b.p:a.p;r.q=Math.max(a.q||0,b.q||0);return r}var m=/^#p((?:-[0-9a-z]+){7}(?:-[0-9a-z]+){0,4})$/.exec(location.hash||'');if(m){var v=m[1].slice(1).split('-').map(function(z){return parseInt(z,36)||0});S=merge(S,{d:v[0],s:v[1],b:v[2],t:v[3],n:v[4],a:v[5],c:v[6],g:v[7]||5,u:v[8]||0,p:v[9]||0,q:v[10]||0})}function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}function links(){var h='#p-'+[S.d,S.s,S.b,S.t,S.n,S.a,S.c,S.g,S.u,S.p,S.q].map(function(z){return Math.max(0,z|0).toString(36)}).join('-');[].forEach.call(document.querySelectorAll('a[href]'),function(a){var u=a.getAttribute('href')||'';if(u.indexOf('https://claude.ai/artifact/')===0)a.setAttribute('href',u.split('#')[0]+h)})}function draw(){var t=day();if(chip)chip.textContent='🔥 '+(S.d>=t-1?S.s:0)+' · '+Math.min(S.t===t?S.n:0,99)+'/'+S.g;links()}function task(){var t=day();if(S.d!==t){S.s=S.d===t-1?S.s+1:1;S.d=t;S.c++}if(S.t!==t){S.t=t;S.n=0}S.n++;S.a++;S.b=Math.max(S.b,S.s);save();draw()}function part(n){try{var c=(+localStorage.getItem('tk')||0)+1;if(c>=n){c=0;task()}localStorage.setItem('tk',c)}catch(e){}}function init(){var st=document.createElement('style');st.textContent='.bar{flex-wrap:nowrap}.logo{white-space:nowrap}@media (max-width:520px){.lw{display:none}}.chip{font-size:.9rem;font-weight:500;text-decoration:none;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:4px 12px;white-space:nowrap}.chip:hover{background:var(--surface-2)}';document.head.appendChild(st);chip=document.createElement('a');chip.className='chip';chip.href='progress.html';chip.title='Дней подряд и задания на сегодня';var tb=document.getElementById('theme'),host=tb&&tb.parentNode;if(host)host.insertBefore(chip,tb);var ml=[].slice.call(document.querySelectorAll('.menu a')),ci=-1;ml.forEach(function(a,i){if(a.hasAttribute('aria-current'))ci=i});if(ci>0&&ci<11){S.p=ci;S.q=Math.floor(Date.now()/60000)}save();draw();}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();return {task:task,part:part,get:function(){return S},draw:draw}})();
+</script>
+<script>
+var R=[
+{id:'A1',title:'Anna and her day',text:'My name is Anna. I am twelve. I live in a small house with my mother, my father and my brother. We have a cat. Its name is Tom. In the morning I go to school by bus. I like English and music. In the evening I read a book or play with Tom.',q:[
+ {q:'How old is Anna?',o:['ten','twelve','fourteen'],a:1},{q:'How does she go to school?',o:['by bus','on foot','by car'],a:0},{q:'What is the name of the cat?',o:['Tom','Max','Ben'],a:0}]},
+{id:'A2',title:'A weekend at the seaside',text:'Last weekend we went to the seaside. The weather was sunny, so we swam in the sea and played volleyball on the beach. In the evening we had dinner in a small restaurant. I ordered fish and my sister ordered pasta. The food was delicious, but it was more expensive than we expected. On Sunday it rained, and we came back home earlier than we planned.',q:[
+ {q:'Why did they swim in the sea?',o:['The weather was sunny.','They were hungry.','It was Sunday.'],a:0},{q:'What did the narrator order?',o:['pasta','fish','soup'],a:1},{q:'Why did they come back earlier?',o:['They were tired.','It rained.','The food was bad.'],a:1}]},
+{id:'B1',title:'Learning Spanish',text:'Mark has worked as a nurse for six years. Three months ago he decided to change his life and start learning Spanish because he wants to work abroad one day. He has already finished two online courses and he practises every evening for half an hour. Last week he had his first real conversation with a Spanish colleague. At first he was nervous, but she told him that his pronunciation was quite good. If he continues like this, he will probably be able to apply for a job in Spain next year.',q:[
+ {q:'How long has Mark been a nurse?',o:['three months','six years','one year'],a:1},{q:'Why is he learning Spanish?',o:['He wants to work abroad.','He likes travelling.','His wife is Spanish.'],a:0},{q:'What did his colleague say about his pronunciation?',o:['It was bad.','It was quite good.','It was perfect.'],a:1}]},
+{id:'B2',title:'Working from home',text:'Remote work has changed the way many people think about their careers. Supporters argue that employees who work from home save time on commuting and often feel more productive. However, critics point out that it can be lonely, and that younger employees may miss the chance to learn from colleagues in the office. Although many companies have introduced flexible schedules, few have found a perfect balance. Experts suggest that the best solution is probably a mix of home and office days.',q:[
+ {q:'What do supporters say about remote work?',o:['People save commuting time and feel productive.','It is cheaper for companies.','It is always lonely.'],a:0},{q:'What may younger employees miss?',o:['higher salaries','learning from colleagues','free lunches'],a:1},{q:'What do experts suggest?',o:['Only home work','Only office work','A mix of home and office days'],a:2}]},
+{id:'C1',title:'The trouble with productivity',text:'Rarely has a single idea shaped modern workplaces as profoundly as the pursuit of efficiency. Yet a growing number of researchers argue that constant optimisation can be counterproductive: employees who never stop measuring their output tend to lose the very creativity that organisations hope to encourage. What matters, they claim, is not how many hours people spend working, but whether they are given the freedom to think without interruption. Not only does this view challenge traditional management, it also raises awkward questions about how success ought to be measured.',q:[
+ {q:'According to the researchers, constant optimisation can...',o:['increase creativity','reduce creativity','replace managers'],a:1},{q:'What matters most, they claim?',o:['Long working hours','Strict measurement','Freedom to think without interruption'],a:2},{q:'What does the last sentence say about this view?',o:['It supports traditional management.','It raises difficult questions about measuring success.','It rejects all research.'],a:1}]},
+{id:'C2',title:'Language and thought',text:'It would be difficult to overstate the extent to which language shapes the contours of thought, although the precise nature of that relationship remains hotly contested. Whereas some scholars maintain that vocabulary merely reflects existing perceptions, others contend that the structures of a language nudge its speakers towards particular habits of attention. The truth, arguably, lies somewhere in between: speakers are neither imprisoned by their grammar nor entirely free of it. What is beyond dispute is that bilingual individuals often report a subtle shift in outlook when they change languages.',q:[
+ {q:'What is said about the relationship between language and thought?',o:['It is fully understood.','Its exact nature is still disputed.','It does not exist.'],a:1},{q:'What do some scholars claim?',o:['Vocabulary only reflects existing perceptions.','Grammar has no influence.','All languages are identical.'],a:0},{q:'What does the author treat as undisputed?',o:['Bilinguals often notice a shift in outlook.','Language limits thought completely.','Grammar is unimportant.'],a:0}]}
+];
+var B={};
+try{B=JSON.parse(localStorage.getItem('reading')||'{}')||{}}catch(e){B={}}
+var tabs=document.getElementById('tabs'),out=document.getElementById('out'),canSpeak='speechSynthesis' in window;
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+function save(){try{localStorage.setItem('reading',JSON.stringify(B))}catch(e){}}
+function speak(t){
+  if(!canSpeak)return;
+  speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=0.9;
+  var v=speechSynthesis.getVoices().filter(function(x){return /^en/i.test(x.lang)})[0];
+  if(v)u.voice=v;
+  speechSynthesis.speak(u);
+}
+function badges(){R.forEach(function(r,k){tabs.children[k].querySelector('small').textContent=B[r.id]==null?'':B[r.id]+'/'+r.q.length})}
+function quiz(r,box,score){
+  box.innerHTML='';score.innerHTML='';var sc=0,n=0;
+  r.q.forEach(function(q,k){
+    var w=el('div','q','<p>'+(k+1)+'. '+q.q+'</p>'),row=el('div','opts');
+    q.o.forEach(function(t,j){
+      var b=el('button',null,t);b.type='button';
+      b.onclick=function(){
+        if(w.dataset.done)return;w.dataset.done=1;
+        b.classList.add(j===q.a?'ok':'bad');
+        if(j===q.a)sc++;else row.children[q.a].classList.add('ok');
+        if(++n===r.q.length){
+          score.textContent='Результат: '+sc+' из '+n+(sc===n?' — отлично!':' — перечитайте текст и попробуйте ещё раз.');
+          if(!(B[r.id]>=sc)){B[r.id]=sc;save();badges()}SK.task();
+          var a=el('button','again','Пройти заново');a.type='button';a.onclick=function(){quiz(r,box,score)};score.appendChild(a);
+        }
+      };
+      row.appendChild(b);
+    });
+    w.appendChild(row);box.appendChild(w);
+  });
+}
+function show(i){
+  [].forEach.call(tabs.children,function(b,j){b.setAttribute('aria-pressed',j===i)});
+  var r=R[i];out.innerHTML='';
+  out.appendChild(el('h2',null,r.id+' · '+r.title));
+  out.appendChild(el('div','text',r.text));
+  if(canSpeak){var s=el('button','spk','🔊 Прослушать текст');s.type='button';s.onclick=function(){speak(r.text)};out.appendChild(s)}
+  out.appendChild(el('h2',null,'Вопросы'));
+  var box=el('div'),score=el('div','score');score.setAttribute('role','status');
+  out.appendChild(box);out.appendChild(score);quiz(r,box,score);
+}
+R.forEach(function(r,i){var b=el('button',null,r.id+' <small></small>');b.type='button';b.onclick=function(){show(i)};tabs.appendChild(b)});
+badges();show(0);
+
+(function(){
+  var root=document.documentElement,btn=document.getElementById('theme');
+  function isDark(){var t=root.getAttribute('data-theme');return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+  function label(){var d=isDark(),t=d?'Светлая тема':'Тёмная тема';btn.textContent=d?'☀️':'🌙';btn.setAttribute('aria-label',t);btn.title=t}
+  try{var s=localStorage.getItem('theme');if(s)root.setAttribute('data-theme',s)}catch(e){}
+  label();
+  btn.addEventListener('click',function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}label()});
+})();
+</script>
+<script>(function(){var c=document.querySelector('.menu a[aria-current]'),m=document.querySelector('.menu');if(c&&m)m.scrollLeft=c.getBoundingClientRect().left-m.getBoundingClientRect().left+m.scrollLeft-(m.clientWidth-c.offsetWidth)/2})()</script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Говорение — Learn English with Nefoyache</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#e4e5e2; --surface:#eeefec; --surface-2:#d9dbd7; --border:#c3c6c1;
+  --text:#272b2f; --muted:#5a6168; --accent:#3d6b78; --accent-text:#f4f6f5;
+  --ok:#2f6b4c; --ok-bg:#d3e3d9; --bad:#9a3f3f; --bad-bg:#ebd5d3;
+  --font:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+    --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+    --ok:#8fd0ab; --ok-bg:#24372d; --bad:#e49a9a; --bad-bg:#3b2828;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+  --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+  --ok:#8fd0ab; --ok-bg:#24372d; --bad:#e49a9a; --bad-bg:#3b2828;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.6 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+header{border-bottom:1px solid var(--border)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;flex-wrap:wrap}
+.logo{font-weight:700;font-size:1.15rem;text-decoration:none}
+.right{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.back{color:var(--muted);text-decoration:none}
+.back:hover{color:var(--text)}
+.theme{font:inherit;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:6px 14px;cursor:pointer}
+h1{font-size:clamp(1.8rem,5vw,2.5rem);margin:40px 0 8px}
+h2{font-size:1.4rem;margin:26px 0 8px}
+.sub{color:var(--muted);margin:0 0 20px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tabs button{font:inherit;font-weight:500;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:10px;padding:8px 14px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+.tabs small{opacity:.8;font-size:.8rem;margin-left:4px}
+.text{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;font-size:1.1rem;line-height:1.75}
+.spk{margin-top:12px;font:inherit;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:8px;padding:4px 12px;cursor:pointer}
+.q p{margin:14px 0 6px;font-weight:500}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts button{font:inherit;text-align:left;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:8px;padding:7px 14px;cursor:pointer}
+.opts button:hover{background:var(--surface-2)}
+.opts button.ok{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opts button.bad{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opts button.ok::after{content:" \2713"}
+.opts button.bad::after{content:" \2717"}
+.score{margin-top:16px;font-weight:500;min-height:1.5em}
+.again{font:inherit;margin-left:10px;border:0;background:none;color:var(--accent);cursor:pointer;text-decoration:underline}
+footer{border-top:1px solid var(--border);margin-top:40px;padding:24px 0;color:var(--muted);font-size:.9rem}
+.menu{display:flex;gap:6px;overflow-x:auto;margin-top:0;padding:0 20px 12px}
+.menu a{flex:none;text-decoration:none;color:var(--muted);padding:6px 14px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+.menu a:hover{color:var(--text);background:var(--surface-2)}
+.menu a[aria-current="page"]{color:var(--accent-text);background:var(--accent);border-color:var(--accent)}
+@media (min-width:721px){.bar,.menu{max-width:960px}.menu{overflow-x:visible;flex-wrap:wrap;gap:4px}.menu a{padding:6px 12px}}
+
+.task{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:12px}
+.task>p{margin:0 0 8px;font-weight:500}
+.phrase{font-size:1.25rem;line-height:1.5;margin:0 0 12px}
+.play{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.play button,.sbtn{font:inherit;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:8px;padding:6px 14px;cursor:pointer}
+.play button:hover,.sbtn:hover{background:var(--surface-2)}
+.play .mic{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+.play .mic.rec{background:var(--bad);color:var(--bad-bg);border-color:var(--bad)}
+.words{font-size:1.1rem;margin:4px 0}
+.words span{padding:0 3px;border-radius:4px}
+.words .ok{background:var(--ok-bg);color:var(--ok)}
+.words .miss{background:var(--bad-bg);color:var(--bad)}
+.fb{margin-top:8px;min-height:1.4em;font-size:.95rem}
+.fb.good{color:var(--ok);font-weight:500}
+.sample{margin:10px 0;padding:10px 14px;background:var(--surface-2);border-radius:10px}
+.selfrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.warn{background:var(--bad-bg);color:var(--bad);border-radius:10px;padding:10px 14px;margin-bottom:16px}
+.note{color:var(--muted);font-size:.9rem;margin-top:20px}
+.score{margin-top:10px;font-weight:500;min-height:1.5em}
+.again{font:inherit;margin-left:10px;border:0;background:none;color:var(--accent);cursor:pointer;text-decoration:underline}
+.task.done{border-color:var(--ok)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="index.html"><span class="lw">Learn English with </span>Nefoyache</a>
+    <div class="right">
+      
+      <button class="theme" id="theme" type="button">Тёмная тема</button>
+    </div>
+  </div>
+<nav class="wrap menu" aria-label="Разделы">
+    <a href="index.html">Главная</a>
+    <a href="lessons.html">Уроки</a>
+    <a href="test.html">Тест</a>
+    <a href="cards.html">Карточки</a>
+    <a href="verbs.html">Глаголы</a>
+    <a href="reading.html">Чтение</a>
+    <a href="cheatsheets.html">Шпаргалки</a>
+    <a href="listening.html">Аудирование</a>
+    <a href="speaking.html" aria-current="page">Говорение</a>
+    <a href="idioms.html">Идиомы</a>
+    <a href="abbrev.html">Сокращения</a>
+    <a href="progress.html">Прогресс</a>
+  </nav>
+</header>
+<main class="wrap">
+  <h1>Говорение</h1>
+  <p class="sub">Послушайте фразу, повторите её вслух, и сайт проверит, что вы сказали. В конце каждого уровня — вопрос, на который нужно ответить своими словами.</p>
+  <div id="warn"></div>
+  <div class="tabs" id="tabs" role="group" aria-label="Уровень"></div>
+  <div id="out"></div>
+  <p class="note">Браузер попросит доступ к микрофону. Распознавание речи выполняет сервис вашего браузера (в Chrome это сервис Google), сайт ничего не записывает и не сохраняет.</p>
+</main>
+<footer><div class="wrap">Learn English with Nefoyache · учебный проект</div></footer>
+
+<script>
+var SK=(function(){var K='streak',G=5,S={d:0,s:0,b:0,t:0,n:0,a:0,c:0,g:5,u:0,p:0,q:0},chip;function day(){return Math.floor((Date.now()-new Date().getTimezoneOffset()*60000)/86400000)}try{var x=JSON.parse(localStorage.getItem(K));if(x&&typeof x.d==='number')S=x}catch(e){}S.g=[3,5,10,15].indexOf(S.g)>-1?S.g:5;S.u=S.u||0;S.p=S.p||0;S.q=S.q||0;function merge(a,b){var r={d:Math.max(a.d,b.d),t:Math.max(a.t,b.t),a:Math.max(a.a,b.a),c:Math.max(a.c,b.c)};r.s=a.d===b.d?Math.max(a.s,b.s):(a.d>b.d?a.s:b.s);r.n=a.t===b.t?Math.max(a.n,b.n):(a.t>b.t?a.n:b.n);r.b=Math.max(a.b,b.b,r.s);r.g=(b.u||0)>(a.u||0)?b.g:a.g;r.u=Math.max(a.u||0,b.u||0);r.p=(b.q||0)>(a.q||0)?b.p:a.p;r.q=Math.max(a.q||0,b.q||0);return r}var m=/^#p((?:-[0-9a-z]+){7}(?:-[0-9a-z]+){0,4})$/.exec(location.hash||'');if(m){var v=m[1].slice(1).split('-').map(function(z){return parseInt(z,36)||0});S=merge(S,{d:v[0],s:v[1],b:v[2],t:v[3],n:v[4],a:v[5],c:v[6],g:v[7]||5,u:v[8]||0,p:v[9]||0,q:v[10]||0})}function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}function links(){var h='#p-'+[S.d,S.s,S.b,S.t,S.n,S.a,S.c,S.g,S.u,S.p,S.q].map(function(z){return Math.max(0,z|0).toString(36)}).join('-');[].forEach.call(document.querySelectorAll('a[href]'),function(a){var u=a.getAttribute('href')||'';if(u.indexOf('https://claude.ai/artifact/')===0)a.setAttribute('href',u.split('#')[0]+h)})}function draw(){var t=day();if(chip)chip.textContent='🔥 '+(S.d>=t-1?S.s:0)+' · '+Math.min(S.t===t?S.n:0,99)+'/'+S.g;links()}function task(){var t=day();if(S.d!==t){S.s=S.d===t-1?S.s+1:1;S.d=t;S.c++}if(S.t!==t){S.t=t;S.n=0}S.n++;S.a++;S.b=Math.max(S.b,S.s);save();draw()}function part(n){try{var c=(+localStorage.getItem('tk')||0)+1;if(c>=n){c=0;task()}localStorage.setItem('tk',c)}catch(e){}}function init(){var st=document.createElement('style');st.textContent='.bar{flex-wrap:nowrap}.logo{white-space:nowrap}@media (max-width:520px){.lw{display:none}}.chip{font-size:.9rem;font-weight:500;text-decoration:none;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:4px 12px;white-space:nowrap}.chip:hover{background:var(--surface-2)}';document.head.appendChild(st);chip=document.createElement('a');chip.className='chip';chip.href='progress.html';chip.title='Дней подряд и задания на сегодня';var tb=document.getElementById('theme'),host=tb&&tb.parentNode;if(host)host.insertBefore(chip,tb);var ml=[].slice.call(document.querySelectorAll('.menu a')),ci=-1;ml.forEach(function(a,i){if(a.hasAttribute('aria-current'))ci=i});if(ci>0&&ci<11){S.p=ci;S.q=Math.floor(Date.now()/60000)}save();draw();}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();return {task:task,part:part,get:function(){return S},draw:draw}})();
+</script>
+<script>
+var T=[
+{id:'A1',c:['My name is Anna.','I like tea and coffee.','Where is the station?','She has a red bag.'],p:['Tell me about your family.','I have a mother, a father and a brother. We live in a small house.']},
+{id:'A2',c:['Yesterday we went to the cinema.','This bag is cheaper than that one.','How much water do you drink?','I will call you tomorrow.'],p:['What did you do last weekend?','Last weekend I visited my friend. We watched a film and had dinner together.']},
+{id:'B1',c:['I have lived here for ten years.','If it rains, we will stay at home.','You must not park here.','I was cooking when the phone rang.'],p:['Describe your plans for next year.','Next year I am going to learn Spanish. If I work hard, I will find a better job.']},
+{id:'B2',c:['He asked me where I lived.','If I had known, I would have told you.','I had my car repaired yesterday.','Although it was raining, we went for a walk.'],p:['Do you prefer working from home or in an office? Why?','I prefer working from home because I save time on commuting. However, I sometimes miss my colleagues.']},
+{id:'C1',c:['Rarely do we eat out.','No sooner had she left than it started to rain.','What I need is a long holiday.','It was Maria who called me.'],p:['Does constant measurement of productivity help or harm creativity?','In my view, constant measurement can harm creativity, because people need time to think without interruption.']},
+{id:'C2',c:['It is essential that he be present.','The results appear to suggest a link.','This is arguably the best solution.','Had I known, I would have called you.'],p:['How does language shape the way we think?','Arguably, language nudges our attention towards certain details, although it does not completely limit our thoughts.']}
+];
+var SR=window.SpeechRecognition||window.webkitSpeechRecognition,canSpeak='speechSynthesis' in window,PASS=0.7;
+var B={};
+try{B=JSON.parse(localStorage.getItem('speaking')||'{}')||{}}catch(e){B={}}
+var tabs=document.getElementById('tabs'),out=document.getElementById('out');
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+function save(){try{localStorage.setItem('speaking',JSON.stringify(B))}catch(e){}}
+function say(t,slow){
+  if(!canSpeak)return;
+  speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=slow?0.6:0.9;
+  var v=speechSynthesis.getVoices().filter(function(x){return /^en/i.test(x.lang)})[0];
+  if(v)u.voice=v;
+  speechSynthesis.speak(u);
+}
+var DIG={'0':'zero','1':'one','2':'two','3':'three','4':'four','5':'five','6':'six','7':'seven','8':'eight','9':'nine','10':'ten'};
+var CON={im:'i am',ive:'i have',ill:'i will',id:'i would',dont:'do not',doesnt:'does not',didnt:'did not',wont:'will not',cant:'can not',isnt:'is not',arent:'are not',wasnt:'was not',havent:'have not',hasnt:'has not',itll:'it will',theyre:'they are',were:'we are',youre:'you are',shes:'she is',hes:'he is',its:'it is',whats:'what is',wheres:'where is',thats:'that is'};
+function words(s,heard){
+  var w=s.toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9 ]+/g,' ').split(/\s+/).filter(Boolean),o=[];
+  w.forEach(function(x){x=DIG[x]||x;if(heard&&CON[x])o=o.concat(CON[x].split(' '));else o.push(x)});
+  return o;
+}
+function match(target,heard){
+  var tw=words(target),hw=words(heard,true),cnt={};
+  hw.forEach(function(x){cnt[x]=(cnt[x]||0)+1});
+  var flags=tw.map(function(x){if(cnt[x]>0){cnt[x]--;return true}return false});
+  var ok=flags.filter(Boolean).length;
+  return {tw:tw,flags:flags,pct:tw.length?ok/tw.length:0};
+}
+function recognise(onOk,onErr,onEnd){
+  var r=new SR();r.lang='en-US';r.interimResults=false;r.maxAlternatives=3;
+  r.onresult=function(e){var a=[];for(var i=0;i<e.results[0].length;i++)a.push(e.results[0][i].transcript);onOk(a)};
+  r.onerror=function(e){onErr(e.error)};
+  r.onend=onEnd;
+  try{r.start()}catch(e){onErr('start');onEnd()}
+  return r;
+}
+function errText(c){
+  if(c==='not-allowed'||c==='service-not-allowed')return 'Нет доступа к микрофону. Разрешите его в настройках сайта в браузере или проверьте себя сами кнопками ниже.';
+  if(c==='no-speech')return 'Речь не слышна. Нажмите «Говорить» и повторите ещё раз.';
+  if(c==='audio-capture')return 'Микрофон не найден. Проверьте подключение или проверьте себя сами кнопками ниже.';
+  if(c==='network')return 'Нет связи с сервисом распознавания. Проверьте интернет или проверьте себя сами.';
+  if(c==='aborted')return '';
+  return 'Не удалось распознать речь. Попробуйте ещё раз или проверьте себя сами.';
+}
+function selfCheck(row,onRes){
+  row.innerHTML='';
+  var y=el('button','sbtn','Получилось'),n=el('button','sbtn','Не получилось');
+  y.type=n.type='button';y.onclick=function(){onRes(true)};n.onclick=function(){onRes(false)};
+  row.appendChild(y);row.appendChild(n);
+}
+function level(l,box,score){
+  box.innerHTML='';score.innerHTML='';
+  var fin=0,pass=0,total=l.c.length+1;
+  function finished(ok,w){
+    if(w.dataset.done)return;w.dataset.done=1;w.classList.add('done');fin++;if(ok)pass++;
+    if(fin===total){
+      score.textContent='Результат: '+pass+' из '+total+(pass===total?' — отлично!':' — вернитесь к трудным фразам и попробуйте ещё раз.');
+      if(!(B[l.id]>=pass)){B[l.id]=pass;save();badges()}SK.task();
+      var a=el('button','again','Пройти заново');a.type='button';a.onclick=function(){level(l,box,score)};score.appendChild(a);
+    }
+  }
+  l.c.forEach(function(ph,k){
+    var w=el('div','task','<p>'+(k+1)+'. Повторите фразу</p><div class="phrase"></div>');
+    w.querySelector('.phrase').textContent=ph;
+    var play=el('div','play'),b1=el('button',null,'🔊 Прослушать'),b2=el('button',null,'🐢 Медленно'),mic=el('button','mic','🎤 Говорить');
+    [b1,b2,mic].forEach(function(b){b.type='button';play.appendChild(b)});
+    b1.onclick=function(){say(ph,false)};b2.onclick=function(){say(ph,true)};
+    var wd=el('div','words'),fb=el('div','fb'),row=el('div','selfrow'),rec=null;fb.setAttribute('role','status');
+    function skipBtn(){if(row.children.length||w.dataset.done)return;var s=el('button','sbtn','Пропустить');s.type='button';s.onclick=function(){fb.textContent='';row.innerHTML='';finished(false,w)};row.appendChild(s)}
+    function useSelf(msg){fb.className='fb';fb.textContent=msg;selfCheck(row,function(ok){fb.textContent=ok?'Отлично!':'Ничего страшного, попробуйте позже.';fb.className='fb'+(ok?' good':'');row.innerHTML='';finished(ok,w)})}
+    function show(alts){
+      var best=null;alts.forEach(function(a){var m=match(ph,a);m.heard=a;if(!best||m.pct>best.pct)best=m});
+      wd.innerHTML='';best.tw.forEach(function(x,i){wd.appendChild(el('span',best.flags[i]?'ok':'miss',x));wd.appendChild(document.createTextNode(' '))});
+      var p=Math.round(best.pct*100);
+      if(best.pct>=PASS){fb.className='fb good';fb.textContent='Отлично! Совпало '+p+'%. Вы сказали: «'+best.heard+'».';row.innerHTML='';finished(true,w)}
+      else{fb.className='fb';fb.textContent='Совпало '+p+'%. Вы сказали: «'+best.heard+'». Послушайте фразу и попробуйте ещё раз.';skipBtn()}
+    }
+    mic.onclick=function(){
+      if(w.dataset.done)return;
+      if(!SR){useSelf('Распознавание речи не поддерживается этим браузером. Скажите фразу вслух и оцените себя.');return}
+      if(rec){try{rec.stop()}catch(e){}return}
+      speechSynthesis&&speechSynthesis.cancel&&speechSynthesis.cancel();
+      fb.className='fb';fb.textContent='Слушаю… говорите.';mic.classList.add('rec');mic.textContent='⏹ Остановить';
+      var got=false;
+      rec=recognise(function(a){got=true;show(a)},function(c){var m=errText(c);if(c==='not-allowed'||c==='service-not-allowed'||c==='audio-capture'||c==='start')useSelf(m);else if(m){fb.className='fb';fb.textContent=m;skipBtn()}},function(){rec=null;mic.classList.remove('rec');mic.textContent='🎤 Говорить';if(!got&&fb.textContent==='Слушаю… говорите.'){fb.textContent='Ничего не услышал. Нажмите «Говорить» и повторите.';skipBtn()}});
+    };
+    w.appendChild(play);w.appendChild(wd);w.appendChild(fb);w.appendChild(row);box.appendChild(w);
+  });
+  var pw=el('div','task','<p>'+total+'. Ответьте на вопрос своими словами</p><div class="phrase"></div>');
+  pw.querySelector('.phrase').textContent=l.p[0];
+  var play=el('div','play'),q1=el('button',null,'🔊 Вопрос'),mic=el('button','mic','🎤 Говорить'),sm=el('button',null,'Показать образец');
+  [q1,mic,sm].forEach(function(b){b.type='button';play.appendChild(b)});
+  var tr=el('div','fb'),smp=el('div','sample'),row=el('div','selfrow'),rec=null;smp.hidden=true;tr.setAttribute('role','status');
+  q1.onclick=function(){say(l.p[0],false)};
+  mic.onclick=function(){
+    if(!SR){tr.textContent='Распознавание речи не поддерживается этим браузером. Ответьте вслух, потом откройте образец и оцените себя.';return}
+    if(rec){try{rec.stop()}catch(e){}return}
+    tr.textContent='Слушаю… ответьте 1–2 предложениями.';mic.classList.add('rec');mic.textContent='⏹ Остановить';
+    rec=recognise(function(a){tr.textContent='Вы сказали: «'+a[0]+'» ('+words(a[0]).length+' слов)'},function(c){tr.textContent=errText(c)||''},function(){rec=null;mic.classList.remove('rec');mic.textContent='🎤 Говорить'});
+  };
+  sm.onclick=function(){
+    if(!smp.hidden)return;
+    smp.hidden=false;smp.innerHTML='<b>Образец:</b> ';smp.appendChild(document.createTextNode(l.p[1]));
+    var s=el('button','spk','🔊');s.type='button';s.style.marginLeft='8px';s.onclick=function(){say(l.p[1],false)};smp.appendChild(s);
+    tr.textContent+= tr.textContent?'':'';
+    selfCheck(row,function(ok){row.innerHTML='';tr.textContent=ok?'Отлично!':'Ничего страшного, попробуйте позже.';finished(ok,pw)});
+  };
+  pw.appendChild(play);pw.appendChild(tr);pw.appendChild(smp);pw.appendChild(row);box.appendChild(pw);
+}
+function badges(){T.forEach(function(l,k){tabs.children[k].querySelector('small').textContent=B[l.id]==null?'':B[l.id]+'/5'})}
+function show(i){
+  [].forEach.call(tabs.children,function(b,j){b.setAttribute('aria-pressed',j===i)});
+  var l=T[i];out.innerHTML='';
+  out.appendChild(el('h2',null,'Уровень '+l.id));
+  var box=el('div'),score=el('div','score');score.setAttribute('role','status');
+  out.appendChild(box);out.appendChild(score);level(l,box,score);
+}
+if(!SR)document.getElementById('warn').appendChild(el('div','warn','Ваш браузер не умеет распознавать речь (лучше всего работает Chrome, Edge или Safari). Задания доступны в режиме самопроверки: произнесите фразу вслух и честно оцените себя.'));
+T.forEach(function(l,i){var b=el('button',null,l.id+' <small></small>');b.type='button';b.onclick=function(){show(i)};tabs.appendChild(b)});
+badges();show(0);
+
+(function(){
+  var root=document.documentElement,btn=document.getElementById('theme');
+  function isDark(){var t=root.getAttribute('data-theme');return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+  function label(){var d=isDark(),t=d?'Светлая тема':'Тёмная тема';btn.textContent=d?'☀️':'🌙';btn.setAttribute('aria-label',t);btn.title=t}
+  try{var s=localStorage.getItem('theme');if(s)root.setAttribute('data-theme',s)}catch(e){}
+  label();
+  btn.addEventListener('click',function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}label()});
+})();
+</script>
+<script>(function(){var c=document.querySelector('.menu a[aria-current]'),m=document.querySelector('.menu');if(c&&m)m.scrollLeft=c.getBoundingClientRect().left-m.getBoundingClientRect().left+m.scrollLeft-(m.clientWidth-c.offsetWidth)/2})()</script>
+</body>
+</html>

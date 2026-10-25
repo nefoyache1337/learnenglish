@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Неправильные глаголы — Learn English with Nefoyache</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#e4e5e2; --surface:#eeefec; --surface-2:#d9dbd7; --border:#c3c6c1;
+  --text:#272b2f; --muted:#5a6168; --accent:#3d6b78; --accent-text:#f4f6f5;
+  --ok:#2f6b4c; --ok-bg:#d3e3d9; --bad:#9a3f3f; --bad-bg:#ebd5d3;
+  --font:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+    --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+    --ok:#8fd0ab; --ok-bg:#24372d; --bad:#e49a9a; --bad-bg:#3b2828;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+  --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+  --ok:#8fd0ab; --ok-bg:#24372d; --bad:#e49a9a; --bad-bg:#3b2828;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.6 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+header{border-bottom:1px solid var(--border)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;flex-wrap:wrap}
+.logo{font-weight:700;font-size:1.15rem;text-decoration:none}
+.right{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.back{color:var(--muted);text-decoration:none}
+.back:hover{color:var(--text)}
+.theme{font:inherit;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:6px 14px;cursor:pointer}
+h1{font-size:clamp(1.8rem,5vw,2.5rem);margin:40px 0 8px}
+.sub{color:var(--muted);margin:0 0 20px}
+.tabs{display:flex;gap:8px;margin-bottom:18px}
+.tabs button{font:inherit;font-weight:500;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:10px;padding:8px 18px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+input[type=search],input[type=text]{font:inherit;width:100%;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 14px}
+.tw{overflow-x:auto;margin-top:14px;border:1px solid var(--border);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:480px}
+th,td{text-align:left;padding:9px 14px;border-bottom:1px solid var(--border)}
+th{color:var(--muted);font-weight:500;font-size:.9rem}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:500}
+.note{color:var(--muted);font-size:.9rem;margin-top:12px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 20px}
+.prompt{font-size:1.3rem;margin:0 0 16px}
+.f{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.f label{display:block;color:var(--muted);font-size:.9rem;margin-bottom:4px}
+.f input.ok{border-color:var(--ok);background:var(--ok-bg)}
+.f input.bad{border-color:var(--bad);background:var(--bad-bg)}
+.btn{font:inherit;font-weight:500;border:0;cursor:pointer;background:var(--accent);color:var(--accent-text);padding:11px 22px;border-radius:10px;margin-top:14px}
+.msg{margin-top:14px;font-weight:500;min-height:1.5em}
+.stat{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:.95rem;margin-bottom:12px}
+.link{font:inherit;border:0;background:none;color:var(--accent);cursor:pointer;text-decoration:underline;padding:0}
+footer{border-top:1px solid var(--border);margin-top:40px;padding:24px 0;color:var(--muted);font-size:.9rem}
+@media (max-width:480px){.f{grid-template-columns:1fr}}
+.menu{display:flex;gap:6px;overflow-x:auto;margin-top:0;padding:0 20px 12px}
+.menu a{flex:none;text-decoration:none;color:var(--muted);padding:6px 14px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+.menu a:hover{color:var(--text);background:var(--surface-2)}
+.menu a[aria-current="page"]{color:var(--accent-text);background:var(--accent);border-color:var(--accent)}
+@media (min-width:721px){.bar,.menu{max-width:960px}.menu{overflow-x:visible;flex-wrap:wrap;gap:4px}.menu a{padding:6px 12px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="index.html"><span class="lw">Learn English with </span>Nefoyache</a>
+    <div class="right">
+      
+      <button class="theme" id="theme" type="button">Тёмная тема</button>
+    </div>
+  </div>
+<nav class="wrap menu" aria-label="Разделы">
+    <a href="index.html">Главная</a>
+    <a href="lessons.html">Уроки</a>
+    <a href="test.html">Тест</a>
+    <a href="cards.html">Карточки</a>
+    <a href="verbs.html" aria-current="page">Глаголы</a>
+    <a href="reading.html">Чтение</a>
+    <a href="cheatsheets.html">Шпаргалки</a>
+    <a href="listening.html">Аудирование</a>
+    <a href="speaking.html">Говорение</a>
+    <a href="idioms.html">Идиомы</a>
+    <a href="abbrev.html">Сокращения</a>
+    <a href="progress.html">Прогресс</a>
+  </nav>
+</header>
+<main class="wrap">
+  <h1>Неправильные глаголы</h1>
+  <p class="sub">Три формы самых частых неправильных глаголов: смотрите таблицу или тренируйтесь.</p>
+  <div class="tabs" role="group" aria-label="Режим">
+    <button id="t-tab" type="button" aria-pressed="true">Таблица</button>
+    <button id="t-tr" type="button" aria-pressed="false">Тренажёр</button>
+  </div>
+  <section id="tab">
+    <input type="search" id="q" placeholder="Поиск по глаголу или переводу" aria-label="Поиск">
+    <div class="tw"><table><thead><tr><th>Инфинитив</th><th>Past Simple (V2)</th><th>Participle (V3)</th><th>Перевод</th></tr></thead><tbody id="rows"></tbody></table></div>
+    <p class="note">Глагол read во всех формах пишется одинаково, но во 2-й и 3-й формах читается «ред».</p>
+  </section>
+  <section id="tr" hidden>
+    <div class="stat"><span id="mastered"></span><button class="link" id="rst" type="button">Сбросить прогресс</button></div>
+    <div class="card" id="card"></div>
+  </section>
+</main>
+<footer><div class="wrap">Learn English with Nefoyache · учебный проект</div></footer>
+
+<script>
+var SK=(function(){var K='streak',G=5,S={d:0,s:0,b:0,t:0,n:0,a:0,c:0,g:5,u:0,p:0,q:0},chip;function day(){return Math.floor((Date.now()-new Date().getTimezoneOffset()*60000)/86400000)}try{var x=JSON.parse(localStorage.getItem(K));if(x&&typeof x.d==='number')S=x}catch(e){}S.g=[3,5,10,15].indexOf(S.g)>-1?S.g:5;S.u=S.u||0;S.p=S.p||0;S.q=S.q||0;function merge(a,b){var r={d:Math.max(a.d,b.d),t:Math.max(a.t,b.t),a:Math.max(a.a,b.a),c:Math.max(a.c,b.c)};r.s=a.d===b.d?Math.max(a.s,b.s):(a.d>b.d?a.s:b.s);r.n=a.t===b.t?Math.max(a.n,b.n):(a.t>b.t?a.n:b.n);r.b=Math.max(a.b,b.b,r.s);r.g=(b.u||0)>(a.u||0)?b.g:a.g;r.u=Math.max(a.u||0,b.u||0);r.p=(b.q||0)>(a.q||0)?b.p:a.p;r.q=Math.max(a.q||0,b.q||0);return r}var m=/^#p((?:-[0-9a-z]+){7}(?:-[0-9a-z]+){0,4})$/.exec(location.hash||'');if(m){var v=m[1].slice(1).split('-').map(function(z){return parseInt(z,36)||0});S=merge(S,{d:v[0],s:v[1],b:v[2],t:v[3],n:v[4],a:v[5],c:v[6],g:v[7]||5,u:v[8]||0,p:v[9]||0,q:v[10]||0})}function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}function links(){var h='#p-'+[S.d,S.s,S.b,S.t,S.n,S.a,S.c,S.g,S.u,S.p,S.q].map(function(z){return Math.max(0,z|0).toString(36)}).join('-');[].forEach.call(document.querySelectorAll('a[href]'),function(a){var u=a.getAttribute('href')||'';if(u.indexOf('https://claude.ai/artifact/')===0)a.setAttribute('href',u.split('#')[0]+h)})}function draw(){var t=day();if(chip)chip.textContent='🔥 '+(S.d>=t-1?S.s:0)+' · '+Math.min(S.t===t?S.n:0,99)+'/'+S.g;links()}function task(){var t=day();if(S.d!==t){S.s=S.d===t-1?S.s+1:1;S.d=t;S.c++}if(S.t!==t){S.t=t;S.n=0}S.n++;S.a++;S.b=Math.max(S.b,S.s);save();draw()}function part(n){try{var c=(+localStorage.getItem('tk')||0)+1;if(c>=n){c=0;task()}localStorage.setItem('tk',c)}catch(e){}}function init(){var st=document.createElement('style');st.textContent='.bar{flex-wrap:nowrap}.logo{white-space:nowrap}@media (max-width:520px){.lw{display:none}}.chip{font-size:.9rem;font-weight:500;text-decoration:none;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:4px 12px;white-space:nowrap}.chip:hover{background:var(--surface-2)}';document.head.appendChild(st);chip=document.createElement('a');chip.className='chip';chip.href='progress.html';chip.title='Дней подряд и задания на сегодня';var tb=document.getElementById('theme'),host=tb&&tb.parentNode;if(host)host.insertBefore(chip,tb);var ml=[].slice.call(document.querySelectorAll('.menu a')),ci=-1;ml.forEach(function(a,i){if(a.hasAttribute('aria-current'))ci=i});if(ci>0&&ci<11){S.p=ci;S.q=Math.floor(Date.now()/60000)}save();draw();}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();return {task:task,part:part,get:function(){return S},draw:draw}})();
+</script>
+<script>
+var V=[['be','was / were','been','быть'],['become','became','become','становиться'],['begin','began','begun','начинать'],['break','broke','broken','ломать'],['bring','brought','brought','приносить'],['build','built','built','строить'],['buy','bought','bought','покупать'],['catch','caught','caught','ловить'],['choose','chose','chosen','выбирать'],['come','came','come','приходить'],['cost','cost','cost','стоить'],['cut','cut','cut','резать'],['do','did','done','делать'],['draw','drew','drawn','рисовать'],['drink','drank','drunk','пить'],['drive','drove','driven','водить'],['eat','ate','eaten','есть'],['fall','fell','fallen','падать'],['feel','felt','felt','чувствовать'],['find','found','found','находить'],['fly','flew','flown','летать'],['forget','forgot','forgotten','забывать'],['get','got','got / gotten','получать'],['give','gave','given','давать'],['go','went','gone','идти, ехать'],['grow','grew','grown','расти'],['have','had','had','иметь'],['hear','heard','heard','слышать'],['hide','hid','hidden','прятать'],['hit','hit','hit','ударять'],['hold','held','held','держать'],['keep','kept','kept','хранить, держать'],['know','knew','known','знать'],['leave','left','left','покидать, уезжать'],['lend','lent','lent','одалживать (кому-то)'],['let','let','let','позволять'],['lose','lost','lost','терять'],['make','made','made','делать, создавать'],['mean','meant','meant','означать'],['meet','met','met','встречать'],['pay','paid','paid','платить'],['put','put','put','класть'],['read','read','read','читать'],['ride','rode','ridden','ездить верхом'],['ring','rang','rung','звонить'],['run','ran','run','бегать'],['say','said','said','говорить, сказать'],['see','saw','seen','видеть'],['sell','sold','sold','продавать'],['send','sent','sent','отправлять'],['sing','sang','sung','петь'],['sit','sat','sat','сидеть'],['sleep','slept','slept','спать'],['speak','spoke','spoken','говорить'],['spend','spent','spent','тратить'],['stand','stood','stood','стоять'],['swim','swam','swum','плавать'],['take','took','taken','брать'],['teach','taught','taught','учить (кого-то)'],['tell','told','told','рассказывать'],['think','thought','thought','думать'],['throw','threw','thrown','бросать'],['understand','understood','understood','понимать'],['wake','woke','woken','просыпаться, будить'],['wear','wore','worn','носить (одежду)'],['win','won','won','выигрывать'],['write','wrote','written','писать']];
+var M={};
+try{M=JSON.parse(localStorage.getItem('verbs')||'{}')||{}}catch(e){M={}}
+function save(){try{localStorage.setItem('verbs',JSON.stringify(M))}catch(e){}}
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+function norm(s){return s.toLowerCase().replace(/\s+/g,' ').trim()}
+function ok(inp,ans){var o=ans.split('/').map(norm);o.push(norm(ans));return o.indexOf(norm(inp))>-1}
+
+var rows=document.getElementById('rows'),qEl=document.getElementById('q');
+function draw(){
+  var f=norm(qEl.value);rows.innerHTML='';
+  V.filter(function(v){return !f||v.join(' ').toLowerCase().indexOf(f)>-1}).forEach(function(v){
+    rows.appendChild(el('tr',null,'<td>'+v[0]+'</td><td>'+v[1]+'</td><td>'+v[2]+'</td><td>'+v[3]+'</td>'));
+  });
+}
+qEl.addEventListener('input',draw);draw();
+
+var card=document.getElementById('card'),cur=null,checked=false,sessR=0,sessT=0;
+function stat(){document.getElementById('mastered').textContent='Освоено глаголов: '+Object.keys(M).length+' из '+V.length+(sessT?' · в этой сессии верно: '+sessR+' из '+sessT:'')}
+function next(){
+  var pool=V.filter(function(v){return !M[v[0]]});if(!pool.length)pool=V;
+  cur=pool[Math.floor(Math.random()*pool.length)];checked=false;stat();
+  card.innerHTML='<p class="prompt"><b>'+cur[3]+'</b> — <b>'+cur[0]+'</b></p>'+
+    '<div class="f"><div><label for="a2">Past Simple (V2)</label><input type="text" id="a2" autocomplete="off" autocapitalize="off" spellcheck="false"></div>'+
+    '<div><label for="a3">Participle (V3)</label><input type="text" id="a3" autocomplete="off" autocapitalize="off" spellcheck="false"></div></div>'+
+    '<button class="btn" id="go" type="button">Проверить</button><div class="msg" id="msg" role="status"></div>';
+  var a2=document.getElementById('a2'),a3=document.getElementById('a3'),go=document.getElementById('go');
+  function act(){checked?next():check()}
+  go.onclick=act;
+  [a2,a3].forEach(function(i){i.addEventListener('keydown',function(e){if(e.key==='Enter')act()})});
+  a2.focus();
+}
+function check(){
+  var a2=document.getElementById('a2'),a3=document.getElementById('a3'),msg=document.getElementById('msg');
+  var r2=ok(a2.value,cur[1]),r3=ok(a3.value,cur[2]);
+  a2.className=r2?'ok':'bad';a3.className=r3?'ok':'bad';
+  sessT++;checked=true;SK.part(5);
+  if(r2&&r3){sessR++;M[cur[0]]=1;save();msg.textContent='Верно!'}
+  else{delete M[cur[0]];save();msg.textContent='Правильно: '+cur[0]+' — '+cur[1]+' — '+cur[2]}
+  document.getElementById('go').textContent='Дальше';stat();
+}
+document.getElementById('rst').onclick=function(){M={};save();sessR=0;sessT=0;next()};
+
+var tab=document.getElementById('tab'),tr=document.getElementById('tr'),bt=document.getElementById('t-tab'),bn=document.getElementById('t-tr');
+bt.onclick=function(){tab.hidden=false;tr.hidden=true;bt.setAttribute('aria-pressed','true');bn.setAttribute('aria-pressed','false')};
+bn.onclick=function(){tab.hidden=true;tr.hidden=false;bn.setAttribute('aria-pressed','true');bt.setAttribute('aria-pressed','false');if(!cur)next()};
+
+(function(){
+  var root=document.documentElement,btn=document.getElementById('theme');
+  function isDark(){var t=root.getAttribute('data-theme');return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+  function label(){var d=isDark(),t=d?'Светлая тема':'Тёмная тема';btn.textContent=d?'☀️':'🌙';btn.setAttribute('aria-label',t);btn.title=t}
+  try{var s=localStorage.getItem('theme');if(s)root.setAttribute('data-theme',s)}catch(e){}
+  label();
+  btn.addEventListener('click',function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}label()});
+})();
+</script>
+<script>(function(){var c=document.querySelector('.menu a[aria-current]'),m=document.querySelector('.menu');if(c&&m)m.scrollLeft=c.getBoundingClientRect().left-m.getBoundingClientRect().left+m.scrollLeft-(m.clientWidth-c.offsetWidth)/2})()</script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Шпаргалки — Learn English with Nefoyache</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#e4e5e2; --surface:#eeefec; --surface-2:#d9dbd7; --border:#c3c6c1;
+  --text:#272b2f; --muted:#5a6168; --accent:#3d6b78; --accent-text:#f4f6f5;
+  --font:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+    --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+  --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.6 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+header{border-bottom:1px solid var(--border)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;flex-wrap:wrap}
+.logo{font-weight:700;font-size:1.15rem;text-decoration:none}
+.right{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.back{color:var(--muted);text-decoration:none}
+.back:hover{color:var(--text)}
+.theme,.print{font:inherit;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:6px 14px;cursor:pointer}
+h1{font-size:clamp(1.8rem,5vw,2.5rem);margin:40px 0 8px}
+h2{font-size:1.3rem;margin:34px 0 10px}
+.sub{color:var(--muted);margin:0 0 6px}
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:520px}
+th,td{text-align:left;vertical-align:top;padding:9px 14px;border-bottom:1px solid var(--border)}
+th{color:var(--muted);font-weight:500;font-size:.9rem;background:var(--surface-2)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:500;white-space:nowrap}
+td i{color:var(--muted)}
+.note{color:var(--muted);font-size:.9rem;margin:8px 0 0}
+footer{border-top:1px solid var(--border);margin-top:40px;padding:24px 0;color:var(--muted);font-size:.9rem}
+@media print{
+  :root{--bg:#fff;--surface:#fff;--surface-2:#eee;--border:#999;--text:#000;--muted:#333}
+  header,footer,.noprint{display:none}
+  body{font-size:11pt}
+  .tw{border-radius:0;overflow:visible}
+  table{min-width:0}
+  h2{break-after:avoid}
+  .tw{break-inside:avoid}
+}
+.menu{display:flex;gap:6px;overflow-x:auto;margin-top:0;padding:0 20px 12px}
+.menu a{flex:none;text-decoration:none;color:var(--muted);padding:6px 14px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+.menu a:hover{color:var(--text);background:var(--surface-2)}
+.menu a[aria-current="page"]{color:var(--accent-text);background:var(--accent);border-color:var(--accent)}
+@media (min-width:721px){.bar,.menu{max-width:960px}.menu{overflow-x:visible;flex-wrap:wrap;gap:4px}.menu a{padding:6px 12px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="index.html"><span class="lw">Learn English with </span>Nefoyache</a>
+    <div class="right">
+      
+      <button class="theme" id="theme" type="button">Тёмная тема</button>
+    </div>
+  </div>
+<nav class="wrap menu" aria-label="Разделы">
+    <a href="index.html">Главная</a>
+    <a href="lessons.html">Уроки</a>
+    <a href="test.html">Тест</a>
+    <a href="cards.html">Карточки</a>
+    <a href="verbs.html">Глаголы</a>
+    <a href="reading.html">Чтение</a>
+    <a href="cheatsheets.html" aria-current="page">Шпаргалки</a>
+    <a href="listening.html">Аудирование</a>
+    <a href="speaking.html">Говорение</a>
+    <a href="idioms.html">Идиомы</a>
+    <a href="abbrev.html">Сокращения</a>
+    <a href="progress.html">Прогресс</a>
+  </nav>
+</header>
+<main class="wrap">
+  <h1>Шпаргалки</h1>
+  <p class="sub">Основные таблицы в одном месте. Чтобы распечатать, нажмите кнопку или Ctrl+P (на телефоне — «Поделиться» → «Печать»).</p>
+  <button class="print noprint" id="pr" type="button">Печать</button>
+
+  <h2>Времена</h2>
+  <div class="tw"><table>
+    <tr><th>Время</th><th>Форма</th><th>Пример</th><th>Когда</th></tr>
+    <tr><td>Present Simple</td><td>V / V+s; do / does not</td><td><i>She works.</i></td><td>привычки, факты, расписания</td></tr>
+    <tr><td>Past Simple</td><td>V-ed / V2; did / did not</td><td><i>She worked.</i></td><td>законченное действие в прошлом</td></tr>
+    <tr><td>Future Simple</td><td>will + V</td><td><i>She will work.</i></td><td>решение в момент речи, прогноз</td></tr>
+    <tr><td>be going to</td><td>am / is / are going to + V</td><td><i>She is going to work.</i></td><td>план, намерение</td></tr>
+    <tr><td>Present Continuous</td><td>am / is / are + V-ing</td><td><i>She is working.</i></td><td>действие сейчас, временная ситуация</td></tr>
+    <tr><td>Past Continuous</td><td>was / were + V-ing</td><td><i>She was working.</i></td><td>процесс в прошлом</td></tr>
+    <tr><td>Present Perfect</td><td>have / has + V3</td><td><i>She has worked.</i></td><td>результат, связь с настоящим</td></tr>
+    <tr><td>Present Perfect Continuous</td><td>have / has been + V-ing</td><td><i>She has been working.</i></td><td>длительность до настоящего момента</td></tr>
+    <tr><td>Past Perfect</td><td>had + V3</td><td><i>She had worked.</i></td><td>действие раньше другого в прошлом</td></tr>
+  </table></div>
+
+  <h2>Will, do / does, did: вопрос, утверждение, отрицание</h2>
+  <div class="tw"><table>
+    <tr><th>Время</th><th>Вопрос</th><th>Утверждение</th><th>Отрицание</th></tr>
+    <tr><td>Будущее</td><td>Will you love?</td><td>I will love</td><td>I will not love</td></tr>
+    <tr><td>Настоящее</td><td>Do you love? / Does he love?</td><td>I love / he loves</td><td>I do not love / he does not love</td></tr>
+    <tr><td>Прошедшее</td><td>Did you love?</td><td>I loved</td><td>I did not love</td></tr>
+  </table></div>
+
+  <h2>Местоимения</h2>
+  <div class="tw"><table>
+    <tr><th>Кто?</th><th>Кого? кому?</th><th>Мой, твой…</th></tr>
+    <tr><td>I</td><td>me</td><td>my</td></tr>
+    <tr><td>you</td><td>you</td><td>your</td></tr>
+    <tr><td>he</td><td>him</td><td>his</td></tr>
+    <tr><td>she</td><td>her</td><td>her</td></tr>
+    <tr><td>it</td><td>it</td><td>its</td></tr>
+    <tr><td>we</td><td>us</td><td>our</td></tr>
+    <tr><td>they</td><td>them</td><td>their</td></tr>
+  </table></div>
+
+  <h2>Вопросительные слова и предлоги</h2>
+  <div class="tw"><table>
+    <tr><th>Слово</th><th>Значение</th></tr>
+    <tr><td>what</td><td>что, какой</td></tr>
+    <tr><td>who</td><td>кто</td></tr>
+    <tr><td>where</td><td>где, куда</td></tr>
+    <tr><td>when</td><td>когда</td></tr>
+    <tr><td>why</td><td>почему, зачем</td></tr>
+    <tr><td>how</td><td>как</td></tr>
+    <tr><td>to</td><td>куда, к кому, к чему</td></tr>
+    <tr><td>from</td><td>откуда, от кого, из чего</td></tr>
+  </table></div>
+
+  <h2>Модальные глаголы</h2>
+  <div class="tw"><table>
+    <tr><th>Глагол</th><th>Значение</th><th>Пример</th></tr>
+    <tr><td>can</td><td>умение, возможность</td><td><i>I can swim.</i></td></tr>
+    <tr><td>must / have to</td><td>необходимость</td><td><i>You must wear a seat belt.</i></td></tr>
+    <tr><td>must not</td><td>запрещено</td><td><i>You must not smoke here.</i></td></tr>
+    <tr><td>do not have to</td><td>необязательно</td><td><i>You do not have to come.</i></td></tr>
+    <tr><td>should</td><td>совет</td><td><i>You should rest.</i></td></tr>
+    <tr><td>may / might</td><td>возможно</td><td><i>Tom might come.</i></td></tr>
+    <tr><td>must (вывод)</td><td>почти уверены, что так</td><td><i>He must be at home.</i></td></tr>
+    <tr><td>cannot (вывод)</td><td>почти уверены, что не так</td><td><i>You cannot be hungry.</i></td></tr>
+  </table></div>
+
+  <h2>Условные предложения</h2>
+  <div class="tw"><table>
+    <tr><th>Тип</th><th>Схема</th><th>Пример</th></tr>
+    <tr><td>0 (факты)</td><td>If + Present, Present</td><td><i>If you heat ice, it melts.</i></td></tr>
+    <tr><td>1 (реальное)</td><td>If + Present, will + V</td><td><i>If it rains, we will stay home.</i></td></tr>
+    <tr><td>2 (нереальное сейчас)</td><td>If + Past Simple, would + V</td><td><i>If I had more money, I would buy a house.</i></td></tr>
+    <tr><td>3 (нереальное в прошлом)</td><td>If + Past Perfect, would have + V3</td><td><i>If I had known, I would have told you.</i></td></tr>
+  </table></div>
+  <p class="note">После when, before, as soon as будущее выражаем настоящим временем: <i>I will call you when I arrive.</i></p>
+
+  <h2>Степени сравнения</h2>
+  <div class="tw"><table>
+    <tr><th>Тип</th><th>Сравнительная</th><th>Превосходная</th></tr>
+    <tr><td>короткие</td><td>cheap → cheaper than</td><td>the cheapest</td></tr>
+    <tr><td>длинные</td><td>more expensive than</td><td>the most expensive</td></tr>
+    <tr><td>исключения</td><td>good → better, bad → worse</td><td>the best, the worst</td></tr>
+    <tr><td>равенство</td><td colspan="2">as … as: <i>as tall as</i></td></tr>
+  </table></div>
+
+  <h2>Прошлое и будущее: ещё формы</h2>
+  <div class="tw"><table>
+    <tr><th>Форма</th><th>Схема</th><th>Пример</th></tr>
+    <tr><td>used to</td><td>used to + V</td><td><i>I used to smoke.</i></td></tr>
+    <tr><td>be / get used to</td><td>am used to + V-ing</td><td><i>I am used to getting up early.</i></td></tr>
+    <tr><td>Future Continuous</td><td>will be + V-ing</td><td><i>This time tomorrow I will be flying.</i></td></tr>
+    <tr><td>Future Perfect</td><td>will have + V3</td><td><i>By Friday I will have finished.</i></td></tr>
+    <tr><td>had better</td><td>had better (not) + V</td><td><i>You had better see a doctor.</i></td></tr>
+    <tr><td>would rather</td><td>would rather + V; + Past (о другом)</td><td><i>I would rather you stayed.</i></td></tr>
+  </table></div>
+
+  <h2>Вопросительные хвосты (question tags)</h2>
+  <div class="tw"><table>
+    <tr><th>Предложение</th><th>Хвост</th></tr>
+    <tr><td>утверждение</td><td><i>You like tea, don't you?</i></td></tr>
+    <tr><td>отрицание</td><td><i>She isn't here, is she?</i></td></tr>
+    <tr><td>с модальным</td><td><i>You can swim, can't you?</i></td></tr>
+    <tr><td>I am</td><td><i>I am late, aren't I?</i></td></tr>
+  </table></div>
+
+  <h2>Множественное число существительных</h2>
+  <div class="tw"><table>
+    <tr><th>Правило</th><th>Пример</th></tr>
+    <tr><td>обычно + -s</td><td><i>book → books</i></td></tr>
+    <tr><td>-s, -ch, -sh, -x + -es</td><td><i>box → boxes, watch → watches</i></td></tr>
+    <tr><td>особые формы</td><td><i>man → men, woman → women, child → children, foot → feet, tooth → teeth, mouse → mice</i></td></tr>
+    <tr><td>не меняются</td><td><i>sheep, fish, deer</i></td></tr>
+    <tr><td>всегда единственное число</td><td><i>news, physics, maths</i></td></tr>
+    <tr><td>всегда множественное число</td><td><i>trousers, scissors, glasses, clothes; a pair of trousers</i></td></tr>
+  </table></div>
+
+  <h2>Сколько? Количество</h2>
+  <div class="tw"><table>
+    <tr><th>С исчисляемыми</th><th>С неисчисляемыми</th><th>С обоими</th></tr>
+    <tr><td>many, a few, several, a couple of</td><td>much, a little, a great deal of</td><td>a lot of, lots of, plenty of, some, any, no</td></tr>
+  </table></div>
+  <p class="note">A few / a little — немного, но хватает; few / little — почти нет. Неисчисляемые считаем с помощью слов: a glass of water, a bottle of milk, a piece of advice, a slice of bread, a packet of rice, a bar of chocolate.</p>
+
+  <h2>Наречия и степени признака</h2>
+  <div class="tw"><table>
+    <tr><th>Правило</th><th>Пример</th></tr>
+    <tr><td>прилагательное + -ly</td><td><i>quick → quickly, careful → carefully</i></td></tr>
+    <tr><td>одинаковые формы</td><td><i>hard, fast, late; но good → well</i></td></tr>
+    <tr><td>сравнение</td><td><i>harder, later; more carefully, most carefully</i></td></tr>
+    <tr><td>сила признака</td><td><i>fairly → quite → rather → very</i></td></tr>
+  </table></div>
+
+  <h2>Артикли</h2>
+  <div class="tw"><table>
+    <tr><th>Артикль</th><th>Когда</th><th>Пример</th></tr>
+    <tr><td>a</td><td>один, перед согласным звуком</td><td><i>a book</i></td></tr>
+    <tr><td>an</td><td>один, перед гласным звуком</td><td><i>an apple</i></td></tr>
+    <tr><td>the</td><td>известный, конкретный предмет</td><td><i>Close the door.</i></td></tr>
+    <tr><td>без артикля</td><td>множественное число и неисчисляемые в общем смысле</td><td><i>I like music.</i></td></tr>
+  </table></div>
+</main>
+<footer><div class="wrap">Learn English with Nefoyache · учебный проект</div></footer>
+
+<script>
+var SK=(function(){var K='streak',G=5,S={d:0,s:0,b:0,t:0,n:0,a:0,c:0,g:5,u:0,p:0,q:0},chip;function day(){return Math.floor((Date.now()-new Date().getTimezoneOffset()*60000)/86400000)}try{var x=JSON.parse(localStorage.getItem(K));if(x&&typeof x.d==='number')S=x}catch(e){}S.g=[3,5,10,15].indexOf(S.g)>-1?S.g:5;S.u=S.u||0;S.p=S.p||0;S.q=S.q||0;function merge(a,b){var r={d:Math.max(a.d,b.d),t:Math.max(a.t,b.t),a:Math.max(a.a,b.a),c:Math.max(a.c,b.c)};r.s=a.d===b.d?Math.max(a.s,b.s):(a.d>b.d?a.s:b.s);r.n=a.t===b.t?Math.max(a.n,b.n):(a.t>b.t?a.n:b.n);r.b=Math.max(a.b,b.b,r.s);r.g=(b.u||0)>(a.u||0)?b.g:a.g;r.u=Math.max(a.u||0,b.u||0);r.p=(b.q||0)>(a.q||0)?b.p:a.p;r.q=Math.max(a.q||0,b.q||0);return r}var m=/^#p((?:-[0-9a-z]+){7}(?:-[0-9a-z]+){0,4})$/.exec(location.hash||'');if(m){var v=m[1].slice(1).split('-').map(function(z){return parseInt(z,36)||0});S=merge(S,{d:v[0],s:v[1],b:v[2],t:v[3],n:v[4],a:v[5],c:v[6],g:v[7]||5,u:v[8]||0,p:v[9]||0,q:v[10]||0})}function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}function links(){var h='#p-'+[S.d,S.s,S.b,S.t,S.n,S.a,S.c,S.g,S.u,S.p,S.q].map(function(z){return Math.max(0,z|0).toString(36)}).join('-');[].forEach.call(document.querySelectorAll('a[href]'),function(a){var u=a.getAttribute('href')||'';if(u.indexOf('https://claude.ai/artifact/')===0)a.setAttribute('href',u.split('#')[0]+h)})}function draw(){var t=day();if(chip)chip.textContent='🔥 '+(S.d>=t-1?S.s:0)+' · '+Math.min(S.t===t?S.n:0,99)+'/'+S.g;links()}function task(){var t=day();if(S.d!==t){S.s=S.d===t-1?S.s+1:1;S.d=t;S.c++}if(S.t!==t){S.t=t;S.n=0}S.n++;S.a++;S.b=Math.max(S.b,S.s);save();draw()}function part(n){try{var c=(+localStorage.getItem('tk')||0)+1;if(c>=n){c=0;task()}localStorage.setItem('tk',c)}catch(e){}}function init(){var st=document.createElement('style');st.textContent='.bar{flex-wrap:nowrap}.logo{white-space:nowrap}@media (max-width:520px){.lw{display:none}}.chip{font-size:.9rem;font-weight:500;text-decoration:none;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:4px 12px;white-space:nowrap}.chip:hover{background:var(--surface-2)}';document.head.appendChild(st);chip=document.createElement('a');chip.className='chip';chip.href='progress.html';chip.title='Дней подряд и задания на сегодня';var tb=document.getElementById('theme'),host=tb&&tb.parentNode;if(host)host.insertBefore(chip,tb);var ml=[].slice.call(document.querySelectorAll('.menu a')),ci=-1;ml.forEach(function(a,i){if(a.hasAttribute('aria-current'))ci=i});if(ci>0&&ci<11){S.p=ci;S.q=Math.floor(Date.now()/60000)}save();draw();}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();return {task:task,part:part,get:function(){return S},draw:draw}})();
+</script>
+<script>
+(function(){
+  var root=document.documentElement,btn=document.getElementById('theme');
+  function isDark(){var t=root.getAttribute('data-theme');return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+  function label(){var d=isDark(),t=d?'Светлая тема':'Тёмная тема';btn.textContent=d?'☀️':'🌙';btn.setAttribute('aria-label',t);btn.title=t}
+  try{var s=localStorage.getItem('theme');if(s)root.setAttribute('data-theme',s)}catch(e){}
+  label();
+  btn.addEventListener('click',function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}label()});
+  document.getElementById('pr').addEventListener('click',function(){try{window.print()}catch(e){}});
+})();
+</script>
+<script>(function(){var c=document.querySelector('.menu a[aria-current]'),m=document.querySelector('.menu');if(c&&m)m.scrollLeft=c.getBoundingClientRect().left-m.getBoundingClientRect().left+m.scrollLeft-(m.clientWidth-c.offsetWidth)/2})()</script>
+</body>
+</html>

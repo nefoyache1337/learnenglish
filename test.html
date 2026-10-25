@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Тест уровня — Learn English with Nefoyache</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#e4e5e2; --surface:#eeefec; --surface-2:#d9dbd7; --border:#c3c6c1;
+  --text:#272b2f; --muted:#5a6168; --accent:#3d6b78; --accent-text:#f4f6f5;
+  --font:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+    --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+  --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.6 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+header{border-bottom:1px solid var(--border)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;flex-wrap:wrap}
+.logo{font-weight:700;font-size:1.15rem;text-decoration:none}
+.right{display:flex;gap:14px;align-items:center}
+.back{color:var(--muted);text-decoration:none}
+.back:hover{color:var(--text)}
+.theme{font:inherit;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:6px 14px;cursor:pointer}
+h1{font-size:clamp(1.8rem,5vw,2.5rem);margin:40px 0 8px}
+.sub{color:var(--muted);margin:0 0 24px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 20px}
+.btn{display:inline-block;font:inherit;font-weight:500;border:0;cursor:pointer;background:var(--accent);color:var(--accent-text);
+  text-decoration:none;padding:12px 24px;border-radius:10px}
+.btn:hover{filter:brightness(1.08)}
+.btn.alt{background:var(--surface-2);color:var(--text)}
+.prog{height:6px;background:var(--surface-2);border-radius:99px;overflow:hidden;margin:0 0 8px}
+.prog i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}
+.count{color:var(--muted);font-size:.9rem;margin:0 0 14px}
+.qt{font-size:1.25rem;font-weight:500;margin:0 0 18px}
+.opts{display:grid;gap:10px}
+.opts button{font:inherit;text-align:left;border:1px solid var(--border);background:var(--bg);color:var(--text);
+  border-radius:10px;padding:12px 16px;cursor:pointer}
+.opts button:hover{background:var(--surface-2)}
+.opts button.dk{color:var(--muted)}
+.level{font-size:3.2rem;font-weight:700;color:var(--accent);line-height:1.1;margin:4px 0}
+.rows{margin:18px 0;display:grid;gap:8px}
+.row{display:grid;grid-template-columns:36px 1fr 40px;gap:12px;align-items:center}
+.bar2{height:10px;background:var(--surface-2);border-radius:99px;overflow:hidden}
+.bar2 i{display:block;height:100%;background:var(--accent)}
+.acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.note{color:var(--muted);font-size:.9rem;margin-top:16px}
+footer{border-top:1px solid var(--border);margin-top:40px;padding:24px 0;color:var(--muted);font-size:.9rem}
+.menu{display:flex;gap:6px;overflow-x:auto;margin-top:0;padding:0 20px 12px}
+.menu a{flex:none;text-decoration:none;color:var(--muted);padding:6px 14px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+.menu a:hover{color:var(--text);background:var(--surface-2)}
+.menu a[aria-current="page"]{color:var(--accent-text);background:var(--accent);border-color:var(--accent)}
+@media (min-width:721px){.bar,.menu{max-width:960px}.menu{overflow-x:visible;flex-wrap:wrap;gap:4px}.menu a{padding:6px 12px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="index.html"><span class="lw">Learn English with </span>Nefoyache</a>
+    <div class="right">
+      
+      <button class="theme" id="theme" type="button">Тёмная тема</button>
+    </div>
+  </div>
+<nav class="wrap menu" aria-label="Разделы">
+    <a href="index.html">Главная</a>
+    <a href="lessons.html">Уроки</a>
+    <a href="test.html" aria-current="page">Тест</a>
+    <a href="cards.html">Карточки</a>
+    <a href="verbs.html">Глаголы</a>
+    <a href="reading.html">Чтение</a>
+    <a href="cheatsheets.html">Шпаргалки</a>
+    <a href="listening.html">Аудирование</a>
+    <a href="speaking.html">Говорение</a>
+    <a href="idioms.html">Идиомы</a>
+    <a href="abbrev.html">Сокращения</a>
+    <a href="progress.html">Прогресс</a>
+  </nav>
+</header>
+<main class="wrap">
+  <h1>Тест уровня</h1>
+  <p class="sub">30 вопросов — от простых до сложных. Если не знаете ответ, выбирайте «Не знаю»: так результат будет точнее.</p>
+  <div class="card" id="box"></div>
+</main>
+<footer><div class="wrap">Learn English with Nefoyache · учебный проект</div></footer>
+
+<script>
+var SK=(function(){var K='streak',G=5,S={d:0,s:0,b:0,t:0,n:0,a:0,c:0,g:5,u:0,p:0,q:0},chip;function day(){return Math.floor((Date.now()-new Date().getTimezoneOffset()*60000)/86400000)}try{var x=JSON.parse(localStorage.getItem(K));if(x&&typeof x.d==='number')S=x}catch(e){}S.g=[3,5,10,15].indexOf(S.g)>-1?S.g:5;S.u=S.u||0;S.p=S.p||0;S.q=S.q||0;function merge(a,b){var r={d:Math.max(a.d,b.d),t:Math.max(a.t,b.t),a:Math.max(a.a,b.a),c:Math.max(a.c,b.c)};r.s=a.d===b.d?Math.max(a.s,b.s):(a.d>b.d?a.s:b.s);r.n=a.t===b.t?Math.max(a.n,b.n):(a.t>b.t?a.n:b.n);r.b=Math.max(a.b,b.b,r.s);r.g=(b.u||0)>(a.u||0)?b.g:a.g;r.u=Math.max(a.u||0,b.u||0);r.p=(b.q||0)>(a.q||0)?b.p:a.p;r.q=Math.max(a.q||0,b.q||0);return r}var m=/^#p((?:-[0-9a-z]+){7}(?:-[0-9a-z]+){0,4})$/.exec(location.hash||'');if(m){var v=m[1].slice(1).split('-').map(function(z){return parseInt(z,36)||0});S=merge(S,{d:v[0],s:v[1],b:v[2],t:v[3],n:v[4],a:v[5],c:v[6],g:v[7]||5,u:v[8]||0,p:v[9]||0,q:v[10]||0})}function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}function links(){var h='#p-'+[S.d,S.s,S.b,S.t,S.n,S.a,S.c,S.g,S.u,S.p,S.q].map(function(z){return Math.max(0,z|0).toString(36)}).join('-');[].forEach.call(document.querySelectorAll('a[href]'),function(a){var u=a.getAttribute('href')||'';if(u.indexOf('https://claude.ai/artifact/')===0)a.setAttribute('href',u.split('#')[0]+h)})}function draw(){var t=day();if(chip)chip.textContent='🔥 '+(S.d>=t-1?S.s:0)+' · '+Math.min(S.t===t?S.n:0,99)+'/'+S.g;links()}function task(){var t=day();if(S.d!==t){S.s=S.d===t-1?S.s+1:1;S.d=t;S.c++}if(S.t!==t){S.t=t;S.n=0}S.n++;S.a++;S.b=Math.max(S.b,S.s);save();draw()}function part(n){try{var c=(+localStorage.getItem('tk')||0)+1;if(c>=n){c=0;task()}localStorage.setItem('tk',c)}catch(e){}}function init(){var st=document.createElement('style');st.textContent='.bar{flex-wrap:nowrap}.logo{white-space:nowrap}@media (max-width:520px){.lw{display:none}}.chip{font-size:.9rem;font-weight:500;text-decoration:none;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:4px 12px;white-space:nowrap}.chip:hover{background:var(--surface-2)}';document.head.appendChild(st);chip=document.createElement('a');chip.className='chip';chip.href='progress.html';chip.title='Дней подряд и задания на сегодня';var tb=document.getElementById('theme'),host=tb&&tb.parentNode;if(host)host.insertBefore(chip,tb);var ml=[].slice.call(document.querySelectorAll('.menu a')),ci=-1;ml.forEach(function(a,i){if(a.hasAttribute('aria-current'))ci=i});if(ci>0&&ci<11){S.p=ci;S.q=Math.floor(Date.now()/60000)}save();draw();}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();return {task:task,part:part,get:function(){return S},draw:draw}})();
+</script>
+<script>
+var LV=['A1','A2','B1','B2','C1','C2'];
+var NAMES={A1:'Начальный',A2:'Элементарный',B1:'Средний',B2:'Выше среднего',C1:'Продвинутый',C2:'Мастерство'};
+var Q=[
+['A1','My sister ___ a doctor.',['am','is','are'],1],
+['A1','I ___ coffee in the morning.',['drink','drinks','drinking'],0],
+['A1','There ___ two books on the table.',['is','are','am'],1],
+['A2','Yesterday we ___ to the park.',['go','went','gone'],1],
+['A2','This film is ___ than the first one.',['more interesting','interestinger','most interesting'],0],
+['A2','I\'m ___ to visit my aunt next week.',['going','go','went'],0],
+['B1','I ___ in this city since 2018.',['live','lived','have lived'],2],
+['B1','If it rains tomorrow, we ___ at home.',['stay','will stay','stayed'],1],
+['B1','You ___ wear a seat belt. It\'s the law.',['must','might','can'],0],
+['B2','The bridge ___ in 1998.',['built','was built','has built'],1],
+['B2','If I ___ more money, I would buy a bigger house.',['have','had','will have'],1],
+['B2','I had my car ___ yesterday.',['repair','repaired','repairing'],1],
+['C1','Never before ___ such a beautiful sunset.',['I have seen','have I seen','I saw'],1],
+['C1','I wish I ___ the exam last year.',['didn\'t fail','hadn\'t failed','wouldn\'t fail'],1],
+['C1','She denied ___ the money.',['to take','taking','take'],1],
+['C2','It is essential that every applicant ___ the form by Friday.',['submits','submit','submitted'],1],
+['C2','Scarcely ___ the door when the phone rang.',['he had opened','had he opened','did he open'],1],
+['C2','He is a very ___ person: he never says what he really thinks.',['reticent','talkative','outspoken'],0]
+];
+Q=Q.concat([
+['A1','She ___ not like tea.',['do','does','is'],1],
+['A1','This is my brother. ___ name is Tom.',['His','He','Him'],0],
+['A2','How ___ water do you drink every day?',['many','much','few'],1],
+['A2','He is the ___ student in our class.',['tall','taller','tallest'],2],
+['B1','I have lived here ___ ten years.',['since','for','from'],1],
+['B1','If you ___ hard, you will pass the exam.',['study','will study','studied'],0],
+['B2','If I had known, I ___ you.',['would have told','will tell','would tell'],0],
+['B2','The film was ___ boring that we left early.',['so','such','too'],0],
+['C1','It is high time we ___ a decision.',['make','made','will make'],1],
+['C1','Hardly had we arrived ___ it began to rain.',['than','when','then'],1],
+['C2','I suggest that he ___ the manager.',['sees','see','saw'],1],
+['C2','Формальный вариант слова «start» в договоре:',['commence','kick off','get going'],0]
+]);
+Q.sort(function(a,b){return LV.indexOf(a[0])-LV.indexOf(b[0])});
+var REC={
+A1:['Глагол to be','Present Simple','Местоимения','Вопросительные слова, to и from','Артикли a / an / the','Множественное число существительных','Исчисляемые и неисчисляемые существительные','A / an, one и some'],
+A2:['Past Simple','Степени сравнения','Will, do / does, did','Полезные слова и разговорные вставки','Much / many, some / any','Превосходная степень','Present Simple и Present Continuous','Наречия: как и насколько','Many, much, few, little, a lot of','News, physics, trousers: число существительных'],
+B1:['Present Perfect и Past Simple','Условные 0 и 1 типа','Модальные глаголы: must, have to, should','Past Continuous и Past Simple','Инфинитив и -ing','Used to и would о прошлом','Present Perfect Continuous','Будущее: will, going to, Present Continuous','Вопросительные хвосты (question tags)','Too и enough'],
+B2:['Пассив и have something done','Косвенная речь','Догадки: must, might, cannot','Относительные придаточные: who, which, whose, where','Связки: although, despite, however','Past Perfect','Условные 2 и 3 типа','Инфинитив или -ing: меняется смысл','Used to, be used to, get used to','Had better и would rather'],
+C1:['Инверсия','Wish и нереальное прошедшее','Эмфаза: What… и It was… that','Смешанные условные','Причастные обороты','Future Continuous и Future Perfect','Пассив с вводными глаголами'],
+C2:['Сослагательное наклонение','Формальный и нейтральный стиль','Смягчение утверждений (hedging)','Отглагольные существительные в формальном стиле','Инверсия в условных: Had, Should, Were']
+};
+var box=document.getElementById('box'),i=0,ans=[];
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+function start(){i=0;ans=[];box.innerHTML='';var b=el('button','btn','Начать тест');b.type='button';b.onclick=ask;
+  box.appendChild(el('p',null,'Тест займёт около 8 минут. Он покажет примерный уровень — точную оценку даст только экзамен или преподаватель.'));
+  var lr=null;try{lr=JSON.parse(localStorage.getItem('lastResult'))}catch(e){}
+  if(lr)box.appendChild(el('p','note','Прошлый результат: '+(lr.l||'ниже A1')+', '+lr.d+'.'));box.appendChild(b)}
+function ask(){
+  var q=Q[i];box.innerHTML='';
+  var p=el('div','prog','<i style="width:'+(i/Q.length*100)+'%"></i>');
+  box.appendChild(p);box.appendChild(el('p','count','Вопрос '+(i+1)+' из '+Q.length));
+  box.appendChild(el('p','qt',q[1]));
+  var o=el('div','opts');
+  q[2].concat(['Не знаю']).forEach(function(t,j){
+    var b=el('button',j===3?'dk':'',t);b.type='button';
+    b.onclick=function(){ans.push(j===q[3]);if(++i<Q.length)ask();else result()};
+    o.appendChild(b);
+  });
+  box.appendChild(o);
+}
+function result(){
+  var sc={};LV.forEach(function(l){sc[l]=0});
+  Q.forEach(function(q,k){if(ans[k])sc[q[0]]++});
+  var lvl=null;
+  for(var k=0;k<LV.length;k++){if(sc[LV[k]]>=3)lvl=LV[k];else break}
+  box.innerHTML='';
+  try{localStorage.setItem('lastResult',JSON.stringify({l:lvl||'',d:new Date().toLocaleDateString('ru-RU')}))}catch(e){}
+  SK.task();
+  box.appendChild(el('p','count','Ваш примерный уровень'));
+  box.appendChild(el('div','level',lvl||'A1'));
+  box.appendChild(el('p',null,lvl?NAMES[lvl]+'. Рекомендуем начать с уроков этого уровня и заглянуть на ступень ниже, если встретите пробелы.':'Результат ниже A1: начните с самого начала — уроки A1 подойдут лучше всего.'));
+  var rows=el('div','rows');
+  LV.forEach(function(l){rows.appendChild(el('div','row','<b>'+l+'</b><div class="bar2"><i style="width:'+sc[l]/5*100+'%"></i></div><span>'+sc[l]+'/5</span>'))});
+  box.appendChild(rows);
+  var base=lvl||'A1',nx=LV[LV.indexOf(base)+1],rec=el('p','note');
+  rec.innerHTML='<b>Что учить:</b> '+REC[base].join('; ')+'.'+(lvl&&nx?' Следующий шаг ('+nx+'): '+REC[nx].join('; ')+'.':'');
+  box.appendChild(rec);
+  var a=el('div','acts');
+  a.appendChild(el('a','btn','Перейти к урокам')).href='lessons.html'+(lvl?'#'+lvl:'');
+  var r=el('button','btn alt','Пройти заново');r.type='button';r.onclick=start;a.appendChild(r);
+  box.appendChild(a);
+  box.appendChild(el('p','note','Уровень определяется по самому высокому уровню, где верно хотя бы 3 из 5 ответов и все предыдущие уровни тоже пройдены.'));
+}
+start();
+
+(function(){
+  var root=document.documentElement,btn=document.getElementById('theme');
+  function isDark(){var t=root.getAttribute('data-theme');return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+  function label(){var d=isDark(),t=d?'Светлая тема':'Тёмная тема';btn.textContent=d?'☀️':'🌙';btn.setAttribute('aria-label',t);btn.title=t}
+  try{var s=localStorage.getItem('theme');if(s)root.setAttribute('data-theme',s)}catch(e){}
+  label();
+  btn.addEventListener('click',function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}label()});
+})();
+</script>
+<script>(function(){var c=document.querySelector('.menu a[aria-current]'),m=document.querySelector('.menu');if(c&&m)m.scrollLeft=c.getBoundingClientRect().left-m.getBoundingClientRect().left+m.scrollLeft-(m.clientWidth-c.offsetWidth)/2})()</script>
+</body>
+</html>

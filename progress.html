@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Прогресс — Learn English with Nefoyache</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#e4e5e2; --surface:#eeefec; --surface-2:#d9dbd7; --border:#c3c6c1;
+  --text:#272b2f; --muted:#5a6168; --accent:#3d6b78; --accent-text:#f4f6f5;
+  --font:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+    --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+  --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.6 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+header{border-bottom:1px solid var(--border)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;flex-wrap:wrap}
+.logo{font-weight:700;font-size:1.15rem;text-decoration:none}
+.right{display:flex;gap:14px;align-items:center}
+.theme{font:inherit;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:6px 14px;cursor:pointer}
+.menu{display:flex;gap:6px;overflow-x:auto;margin-top:0;padding:0 20px 12px}
+.menu a{flex:none;text-decoration:none;color:var(--muted);padding:6px 14px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+.menu a:hover{color:var(--text);background:var(--surface-2)}
+.menu a[aria-current="page"]{color:var(--accent-text);background:var(--accent);border-color:var(--accent)}
+h1{font-size:clamp(1.8rem,5vw,2.5rem);margin:40px 0 8px}
+h2{font-size:1.3rem;margin:30px 0 10px}
+.sub{color:var(--muted);margin:0 0 20px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 20px}
+.big{display:flex;align-items:baseline;gap:12px}
+.num{font-size:3.6rem;font-weight:700;color:var(--accent);line-height:1}
+.msg{margin:10px 0 0;color:var(--muted)}
+.bar2{height:12px;background:var(--surface-2);border-radius:99px;overflow:hidden;margin:12px 0 6px}
+.bar2 i{display:block;height:100%;background:var(--accent);width:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.stat b{display:block;font-size:1.8rem}
+.stat span{color:var(--muted);font-size:.95rem}
+ul{margin:0;padding-left:20px;color:var(--muted)}
+li{margin-bottom:6px}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.goals{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px;color:var(--muted);font-size:.95rem}
+.goals button{font:inherit;font-weight:500;border:1px solid var(--border);background:var(--surface-2);color:var(--text);border-radius:10px;padding:6px 14px;cursor:pointer;min-width:44px}
+.goals button[aria-pressed="true"]{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+.btn{display:inline-block;text-decoration:none;background:var(--accent);color:var(--accent-text);font-weight:500;padding:10px 20px;border-radius:10px}
+.btn.alt{background:var(--surface-2);color:var(--text)}
+footer{border-top:1px solid var(--border);margin-top:40px;padding:24px 0;color:var(--muted);font-size:.9rem}
+@media (min-width:721px){.bar,.menu{max-width:960px}.menu{overflow-x:visible;flex-wrap:wrap;gap:4px}.menu a{padding:6px 12px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="index.html"><span class="lw">Learn English with </span>Nefoyache</a>
+    <div class="right"><button class="theme" id="theme" type="button">Тёмная тема</button></div>
+  </div>
+  <nav class="wrap menu" aria-label="Разделы">
+    <a href="index.html">Главная</a>
+    <a href="lessons.html">Уроки</a>
+    <a href="test.html">Тест</a>
+    <a href="cards.html">Карточки</a>
+    <a href="verbs.html">Глаголы</a>
+    <a href="reading.html">Чтение</a>
+    <a href="cheatsheets.html">Шпаргалки</a>
+    <a href="listening.html">Аудирование</a>
+    <a href="speaking.html">Говорение</a>
+    <a href="idioms.html">Идиомы</a>
+    <a href="abbrev.html">Сокращения</a>
+    <a href="#top" aria-current="page">Прогресс</a>
+  </nav>
+</header>
+<main class="wrap" id="top">
+  <h1>Прогресс</h1>
+  <p class="sub">Дни подряд, задания на сегодня и общая статистика.</p>
+
+  <div class="card">
+    <div class="big"><span class="num" id="streak">0</span><span id="sword">дней подряд</span></div>
+    <p class="msg" id="smsg"></p>
+  </div>
+
+  <h2>Цель на сегодня</h2>
+  <div class="card">
+    <div id="goalt"></div>
+    <div class="bar2"><i id="goalb"></i></div>
+    <p class="msg" id="goalm"></p>
+    <div class="goals" id="goals" role="group" aria-label="Цель на день"><span>Заданий в день:</span></div>
+  </div>
+
+  <h2>Итоги</h2>
+  <div class="grid">
+    <div class="card stat"><b id="best">0</b><span>лучший стрик, дней</span></div>
+    <div class="card stat"><b id="days">0</b><span>дней с заданиями</span></div>
+    <div class="card stat"><b id="total">0</b><span>заданий выполнено</span></div>
+  </div>
+
+  <h2>Что считается заданием</h2>
+  <ul>
+    <li>Мини-тест в уроке, вопросы к тексту, уровень аудирования или говорения, проверка идиом или сокращений, тест уровня.</li>
+    <li>Каждые 5 карточек и каждые 5 проверенных глаголов.</li>
+    <li>День засчитывается в стрик, если выполнено хотя бы одно задание. Цель дня выбирается выше: 3, 5, 10 или 15 заданий.</li>
+  </ul>
+  <p class="sub" style="margin-top:12px">Данные хранятся в вашем браузере. Чтобы счётчик переносился между страницами сайта, переходите по меню сайта, а не по прямым ссылкам.</p>
+
+  <h2>Продолжить</h2>
+  <div class="links">
+    <a class="btn" href="lessons.html">Уроки</a>
+    <a class="btn alt" href="cards.html">Карточки</a>
+    <a class="btn alt" href="reading.html">Чтение</a>
+    <a class="btn alt" href="listening.html">Аудирование</a>
+  </div>
+</main>
+<footer><div class="wrap">Learn English with Nefoyache · учебный проект</div></footer>
+
+<script>
+var SK=(function(){
+  var K='streak',G=5,S={d:0,s:0,b:0,t:0,n:0,a:0,c:0,g:5,u:0,p:0,q:0},chip;
+  function day(){return Math.floor((Date.now()-new Date().getTimezoneOffset()*60000)/86400000)}
+  try{var x=JSON.parse(localStorage.getItem(K));if(x&&typeof x.d==='number')S=x}catch(e){}S.g=[3,5,10,15].indexOf(S.g)>-1?S.g:5;S.u=S.u||0;S.p=S.p||0;S.q=S.q||0;
+  function merge(a,b){
+    var r={d:Math.max(a.d,b.d),t:Math.max(a.t,b.t),a:Math.max(a.a,b.a),c:Math.max(a.c,b.c)};
+    r.s=a.d===b.d?Math.max(a.s,b.s):(a.d>b.d?a.s:b.s);
+    r.n=a.t===b.t?Math.max(a.n,b.n):(a.t>b.t?a.n:b.n);
+    r.b=Math.max(a.b,b.b,r.s);r.g=(b.u||0)>(a.u||0)?b.g:a.g;r.u=Math.max(a.u||0,b.u||0);r.p=(b.q||0)>(a.q||0)?b.p:a.p;r.q=Math.max(a.q||0,b.q||0);return r;
+  }
+  var m=/^#p((?:-[0-9a-z]+){7}(?:-[0-9a-z]+){0,4})$/.exec(location.hash||'');
+  if(m){var v=m[1].slice(1).split('-').map(function(z){return parseInt(z,36)||0});S=merge(S,{d:v[0],s:v[1],b:v[2],t:v[3],n:v[4],a:v[5],c:v[6],g:v[7]||5,u:v[8]||0,p:v[9]||0,q:v[10]||0})}
+  function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
+  function view(){var t=day();return {streak:S.d>=t-1?S.s:0,today:S.t===t?S.n:0,best:S.b,total:S.a,days:S.c,goal:S.g,done:S.d===t}}
+  function links(){
+    var h='#p-'+[S.d,S.s,S.b,S.t,S.n,S.a,S.c,S.g,S.u,S.p,S.q].map(function(z){return Math.max(0,z|0).toString(36)}).join('-');
+    [].forEach.call(document.querySelectorAll('a[href^="https://claude.ai/artifact/"]'),function(a){a.href=a.href.split('#')[0]+h});
+  }
+  function draw(){var v=view();if(chip)chip.textContent='🔥 '+v.streak+' · '+Math.min(v.today,99)+'/'+S.g;links()}
+  function task(){
+    var t=day();
+    if(S.d!==t){S.s=S.d===t-1?S.s+1:1;S.d=t;S.c++}
+    if(S.t!==t){S.t=t;S.n=0}
+    S.n++;S.a++;S.b=Math.max(S.b,S.s);save();draw();
+  }
+  function part(n){try{var c=(+localStorage.getItem('tk')||0)+1;if(c>=n){c=0;task()}localStorage.setItem('tk',c)}catch(e){}}
+  function init(){
+    var st=document.createElement('style');
+    st.textContent='.bar{flex-wrap:nowrap}.logo{white-space:nowrap}@media (max-width:520px){.lw{display:none}}.chip{font-size:.9rem;font-weight:500;text-decoration:none;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:4px 12px;white-space:nowrap}.chip:hover{background:var(--surface-2)}';
+    document.head.appendChild(st);
+    chip=document.createElement('a');chip.className='chip';chip.href='#top';chip.title='Дней подряд и задания на сегодня';
+    var tb=document.getElementById('theme'),host=tb&&tb.parentNode;if(host)host.insertBefore(chip,tb);
+    var ml=[].slice.call(document.querySelectorAll('.menu a')),ci=-1;ml.forEach(function(a,i){if(a.hasAttribute('aria-current'))ci=i});if(ci>0&&ci<11){S.p=ci;S.q=Math.floor(Date.now()/60000)}save();draw();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+  return {task:task,part:part,view:view,draw:draw,get:function(){return S},setGoal:function(n){S.g=n;S.u=Math.floor(Date.now()/60000);save();draw()}};
+})();
+
+(function(){
+  function render(){
+  var v=SK.view();
+  function plural(n,a,b,c){var m=n%100,k=n%10;return (m>10&&m<20)?c:(k===1?a:(k>1&&k<5?b:c))}
+  document.getElementById('streak').textContent=v.streak;
+  document.getElementById('sword').textContent=plural(v.streak,'день подряд','дня подряд','дней подряд');
+  document.getElementById('smsg').textContent=v.streak===0?'Выполните любое задание — и стрик начнётся.':(v.done?'Сегодня уже засчитано. Так держать!':'Сегодня ещё нет заданий. Выполните одно, чтобы не потерять стрик.');
+  document.getElementById('goalt').textContent=Math.min(v.today,v.goal)+' из '+v.goal+' заданий';
+  document.getElementById('goalb').style.width=Math.min(100,v.today/v.goal*100)+'%';
+  document.getElementById('goalm').textContent=v.today>=v.goal?'Цель на сегодня выполнена!':'Осталось заданий: '+(v.goal-v.today);
+  document.getElementById('best').textContent=v.best;
+  document.getElementById('days').textContent=v.days;
+  document.getElementById('total').textContent=v.total;
+  [].forEach.call(document.querySelectorAll('#goals button'),function(b){b.setAttribute('aria-pressed',String(+b.textContent===v.goal))});
+  }
+  var gl=document.getElementById('goals');
+  [3,5,10,15].forEach(function(n){var b=document.createElement('button');b.type='button';b.textContent=n;b.onclick=function(){SK.setGoal(n);render()};gl.appendChild(b)});
+  render();
+})();
+
+(function(){
+  var root=document.documentElement,btn=document.getElementById('theme');
+  function isDark(){var t=root.getAttribute('data-theme');return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+  function label(){var d=isDark(),t=d?'Светлая тема':'Тёмная тема';btn.textContent=d?'☀️':'🌙';btn.setAttribute('aria-label',t);btn.title=t}
+  try{var s=localStorage.getItem('theme');if(s)root.setAttribute('data-theme',s)}catch(e){}
+  label();
+  btn.addEventListener('click',function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}label()});
+})();
+</script>
+<script>(function(){var c=document.querySelector('.menu a[aria-current]'),m=document.querySelector('.menu');if(c&&m)m.scrollLeft=c.getBoundingClientRect().left-m.getBoundingClientRect().left+m.scrollLeft-(m.clientWidth-c.offsetWidth)/2})()</script>
+</body>
+</html>

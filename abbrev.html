@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Сокращения — Learn English with Nefoyache</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#e4e5e2; --surface:#eeefec; --surface-2:#d9dbd7; --border:#c3c6c1;
+  --text:#272b2f; --muted:#5a6168; --accent:#3d6b78; --accent-text:#f4f6f5;
+  --ok:#2f6b4c; --ok-bg:#d3e3d9; --bad:#9a3f3f; --bad-bg:#ebd5d3;
+  --font:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+    --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+    --ok:#8fd0ab; --ok-bg:#24372d; --bad:#e49a9a; --bad-bg:#3b2828;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+  --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+  --ok:#8fd0ab; --ok-bg:#24372d; --bad:#e49a9a; --bad-bg:#3b2828;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.6 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+header{border-bottom:1px solid var(--border)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;flex-wrap:wrap}
+.logo{font-weight:700;font-size:1.15rem;text-decoration:none}
+.right{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.back{color:var(--muted);text-decoration:none}
+.back:hover{color:var(--text)}
+.theme{font:inherit;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:6px 14px;cursor:pointer}
+h1{font-size:clamp(1.8rem,5vw,2.5rem);margin:40px 0 8px}
+h2{font-size:1.4rem;margin:26px 0 8px}
+.sub{color:var(--muted);margin:0 0 20px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tabs button{font:inherit;font-weight:500;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:10px;padding:8px 14px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+.tabs small{opacity:.8;font-size:.8rem;margin-left:4px}
+.text{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;font-size:1.1rem;line-height:1.75}
+.spk{margin-top:12px;font:inherit;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:8px;padding:4px 12px;cursor:pointer}
+.q p{margin:14px 0 6px;font-weight:500}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts button{font:inherit;text-align:left;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:8px;padding:7px 14px;cursor:pointer}
+.opts button:hover{background:var(--surface-2)}
+.opts button.ok{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opts button.bad{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opts button.ok::after{content:" \2713"}
+.opts button.bad::after{content:" \2717"}
+.score{margin-top:16px;font-weight:500;min-height:1.5em}
+.again{font:inherit;margin-left:10px;border:0;background:none;color:var(--accent);cursor:pointer;text-decoration:underline}
+footer{border-top:1px solid var(--border);margin-top:40px;padding:24px 0;color:var(--muted);font-size:.9rem}
+.menu{display:flex;gap:6px;overflow-x:auto;margin-top:0;padding:0 20px 12px}
+.menu a{flex:none;text-decoration:none;color:var(--muted);padding:6px 14px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+.menu a:hover{color:var(--text);background:var(--surface-2)}
+.menu a[aria-current="page"]{color:var(--accent-text);background:var(--accent);border-color:var(--accent)}
+@media (min-width:721px){.bar,.menu{max-width:960px}.menu{overflow-x:visible;flex-wrap:wrap;gap:4px}.menu a{padding:6px 12px}}
+.modes{margin:14px 0 4px}
+.idm{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+.idm h3{font-size:1.15rem;margin:0 0 4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.idm .mean{margin:0 0 6px}
+.idm .exs{margin:0;color:var(--muted);font-style:italic}
+.spk{font:inherit;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:8px;padding:0 8px;cursor:pointer;line-height:1.5;font-style:normal}
+.qs{font-size:1.1rem;margin:0 0 8px}
+.qs b{color:var(--accent)}
+.srch{font:inherit;width:100%;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 14px;margin-bottom:14px}
+.ab{font-size:1.3rem;font-weight:700;color:var(--accent)}
+.full{font-weight:500}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="index.html"><span class="lw">Learn English with </span>Nefoyache</a>
+    <div class="right">
+      
+      <button class="theme" id="theme" type="button">Тёмная тема</button>
+    </div>
+  </div>
+<nav class="wrap menu" aria-label="Разделы">
+    <a href="index.html">Главная</a>
+    <a href="lessons.html">Уроки</a>
+    <a href="test.html">Тест</a>
+    <a href="cards.html">Карточки</a>
+    <a href="verbs.html">Глаголы</a>
+    <a href="reading.html">Чтение</a>
+    <a href="cheatsheets.html">Шпаргалки</a>
+    <a href="listening.html">Аудирование</a>
+    <a href="speaking.html">Говорение</a>
+    <a href="idioms.html">Идиомы</a>
+    <a href="abbrev.html" aria-current="page">Сокращения</a>
+    <a href="progress.html">Прогресс</a>
+  </nav>
+</header>
+<main class="wrap">
+  <h1>Сокращения</h1>
+  <p class="sub">Аббревиатуры, сокращения из переписки, латинские пометки и стяжения, которые часто встречаются в текстах и разговорной речи. Нажмите 🔊, чтобы услышать, как это произносится.</p>
+  <input type="search" id="q" class="srch" placeholder="Поиск по сокращению или значению" aria-label="Поиск">
+  <div class="tabs" id="tabs" role="group" aria-label="Раздел"></div>
+  <div class="tabs modes" role="group" aria-label="Режим"><button type="button" id="m-list" aria-pressed="true">Список</button><button type="button" id="m-quiz" aria-pressed="false">Проверка</button></div>
+  <div id="out"></div>
+</main>
+<footer><div class="wrap">Learn English with Nefoyache · учебный проект</div></footer>
+
+<script>
+var SK=(function(){var K='streak',G=5,S={d:0,s:0,b:0,t:0,n:0,a:0,c:0,g:5,u:0,p:0,q:0},chip;function day(){return Math.floor((Date.now()-new Date().getTimezoneOffset()*60000)/86400000)}try{var x=JSON.parse(localStorage.getItem(K));if(x&&typeof x.d==='number')S=x}catch(e){}S.g=[3,5,10,15].indexOf(S.g)>-1?S.g:5;S.u=S.u||0;S.p=S.p||0;S.q=S.q||0;function merge(a,b){var r={d:Math.max(a.d,b.d),t:Math.max(a.t,b.t),a:Math.max(a.a,b.a),c:Math.max(a.c,b.c)};r.s=a.d===b.d?Math.max(a.s,b.s):(a.d>b.d?a.s:b.s);r.n=a.t===b.t?Math.max(a.n,b.n):(a.t>b.t?a.n:b.n);r.b=Math.max(a.b,b.b,r.s);r.g=(b.u||0)>(a.u||0)?b.g:a.g;r.u=Math.max(a.u||0,b.u||0);r.p=(b.q||0)>(a.q||0)?b.p:a.p;r.q=Math.max(a.q||0,b.q||0);return r}var m=/^#p((?:-[0-9a-z]+){7}(?:-[0-9a-z]+){0,4})$/.exec(location.hash||'');if(m){var v=m[1].slice(1).split('-').map(function(z){return parseInt(z,36)||0});S=merge(S,{d:v[0],s:v[1],b:v[2],t:v[3],n:v[4],a:v[5],c:v[6],g:v[7]||5,u:v[8]||0,p:v[9]||0,q:v[10]||0})}function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}function links(){var h='#p-'+[S.d,S.s,S.b,S.t,S.n,S.a,S.c,S.g,S.u,S.p,S.q].map(function(z){return Math.max(0,z|0).toString(36)}).join('-');[].forEach.call(document.querySelectorAll('a[href]'),function(a){var u=a.getAttribute('href')||'';if(u.indexOf('https://claude.ai/artifact/')===0)a.setAttribute('href',u.split('#')[0]+h)})}function draw(){var t=day();if(chip)chip.textContent='🔥 '+(S.d>=t-1?S.s:0)+' · '+Math.min(S.t===t?S.n:0,99)+'/'+S.g;links()}function task(){var t=day();if(S.d!==t){S.s=S.d===t-1?S.s+1:1;S.d=t;S.c++}if(S.t!==t){S.t=t;S.n=0}S.n++;S.a++;S.b=Math.max(S.b,S.s);save();draw()}function part(n){try{var c=(+localStorage.getItem('tk')||0)+1;if(c>=n){c=0;task()}localStorage.setItem('tk',c)}catch(e){}}function init(){var st=document.createElement('style');st.textContent='.bar{flex-wrap:nowrap}.logo{white-space:nowrap}@media (max-width:520px){.lw{display:none}}.chip{font-size:.9rem;font-weight:500;text-decoration:none;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:4px 12px;white-space:nowrap}.chip:hover{background:var(--surface-2)}';document.head.appendChild(st);chip=document.createElement('a');chip.className='chip';chip.href='progress.html';chip.title='Дней подряд и задания на сегодня';var tb=document.getElementById('theme'),host=tb&&tb.parentNode;if(host)host.insertBefore(chip,tb);var ml=[].slice.call(document.querySelectorAll('.menu a')),ci=-1;ml.forEach(function(a,i){if(a.hasAttribute('aria-current'))ci=i});if(ci>0&&ci<11){S.p=ci;S.q=Math.floor(Date.now()/60000)}save();draw();}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();return {task:task,part:part,get:function(){return S},draw:draw}})();
+</script>
+<script>
+var C=[["Переписка и чаты", [["BTW", "by the way", "кстати", "BTW, I'll be late tonight.", "B T W"], ["FYI", "for your information", "к вашему сведению", "FYI, the meeting is at ten.", "F Y I"], ["IMO", "in my opinion", "по моему мнению", "IMO, the first plan is better.", "I M O"], ["LOL", "laughing out loud", "смешно, смеюсь вслух", "That video was so funny. LOL!", "L O L"], ["OMG", "oh my God", "боже мой", "OMG, I forgot my keys!", "O M G"], ["BRB", "be right back", "скоро вернусь", "BRB, someone is at the door.", "B R B"], ["TBH", "to be honest", "честно говоря", "TBH, I didn't like the film.", "T B H"], ["IDK", "I don't know", "не знаю", "IDK what to say.", "I D K"], ["NP", "no problem", "без проблем", "Thanks for your help! NP.", "N P"], ["AFAIK", "as far as I know", "насколько я знаю", "AFAIK, the shop is closed on Sunday.", "A F A I K"], ["DM", "direct message", "личное сообщение", "Send me a DM.", "D M"], ["TL;DR", "too long; didn't read", "слишком длинно, не читал (краткий итог)", "TL;DR: we won the game.", "T L D R"], ["FOMO", "fear of missing out", "страх что-то упустить", "I went to the party because of FOMO.", "fomo"], ["ICYMI", "in case you missed it", "если вы пропустили", "ICYMI, the results are online now.", "I C Y M I"], ["BFF", "best friends forever", "лучшие друзья навсегда", "She is my BFF.", "B F F"]]], ["Повседневные и деловые", [["ASAP", "as soon as possible", "как можно скорее", "Please call me back ASAP.", "A S A P"], ["ETA", "estimated time of arrival", "ожидаемое время прибытия", "What is your ETA?", "E T A"], ["CEO", "chief executive officer", "генеральный директор", "The CEO spoke to the staff.", "C E O"], ["HR", "human resources", "отдел кадров", "Please send your CV to HR.", "H R"], ["FAQ", "frequently asked questions", "часто задаваемые вопросы", "Check the FAQ on our website.", "F A Q"], ["RSVP", "répondez s'il vous plaît", "пожалуйста, подтвердите приглашение", "Please RSVP by Friday.", "R S V P"], ["N/A", "not applicable / not available", "не применимо / нет данных", "Phone number: N/A.", "N A"], ["DIY", "do it yourself", "сделай сам", "We built the shelf as a DIY project.", "D I Y"], ["ID", "identification", "удостоверение личности", "Please show your ID.", "I D"], ["VIP", "very important person", "очень важная персона", "The VIP guests arrived first.", "V I P"], ["PIN", "personal identification number", "пин-код", "Enter your PIN.", "pin"], ["ATM", "automated teller machine", "банкомат", "I need to find an ATM.", "A T M"], ["TBA", "to be announced", "будет объявлено", "Date: TBA.", "T B A"], ["TBC", "to be confirmed", "будет подтверждено", "Time: 6 p.m. (TBC).", "T B C"], ["P.S.", "postscript", "постскриптум (приписка в конце письма)", "P.S. Don't forget your passport.", "P S"], ["PR", "public relations", "связи с общественностью", "She works in PR.", "P R"]]], ["Латинские сокращения", [["e.g.", "exempli gratia (for example)", "например", "I like fruit, e.g. apples and pears.", "for example"], ["i.e.", "id est (that is)", "то есть", "I'm busy tomorrow, i.e. I can't meet you.", "that is"], ["etc.", "et cetera", "и так далее", "We need pens, paper, etc.", "et cetera"], ["vs.", "versus", "против", "The final is Spain vs. Italy.", "versus"], ["a.m.", "ante meridiem", "до полудня", "The train leaves at 7 a.m.", "A M"], ["p.m.", "post meridiem", "после полудня", "The shop closes at 6 p.m.", "P M"], ["N.B.", "nota bene", "обратите внимание", "N.B. The office is closed on Monday.", "N B"], ["cf.", "confer (compare)", "сравните", "Cf. page 12.", "compare"], ["c. / ca.", "circa (about)", "около (о датах)", "The castle was built c. 1450.", "circa"], ["AD", "anno Domini", "нашей эры", "The city was founded in 300 AD.", "A D"], ["BC", "before Christ", "до нашей эры", "He lived in the 4th century BC.", "B C"]]], ["Титулы, адреса и единицы", [["Mr", "mister", "господин", "Mr Brown is our teacher.", "mister"], ["Mrs", "missus", "госпожа (замужняя женщина)", "Mrs Smith lives next door.", "missus"], ["Ms", "miz", "госпожа (без указания семейного положения)", "Ms Taylor will help you.", "miz"], ["Dr", "doctor", "доктор", "Dr Jones is in his office.", "doctor"], ["Prof.", "professor", "профессор", "Prof. Green gave a lecture.", "professor"], ["St.", "street / saint", "улица / святой", "I live on Baker St.", "street"], ["Ave.", "avenue", "проспект", "The hotel is on Fifth Ave.", "avenue"], ["Apt.", "apartment", "квартира", "Apt. 5, 12 High Street.", "apartment"], ["approx.", "approximately", "приблизительно", "The trip takes approx. two hours.", "approximately"], ["no.", "number", "номер", "Room no. 12.", "number"], ["min. / max.", "minimum / maximum", "минимум / максимум", "Max. speed: 50 km/h.", "maximum"], ["kg", "kilogram", "килограмм", "The bag weighs 5 kg.", "kilograms"], ["km", "kilometre", "километр", "It is 10 km to the city.", "kilometres"], ["cm", "centimetre", "сантиметр", "He is 180 cm tall.", "centimetres"], ["lb", "pound", "фунт (≈ 454 г)", "The baby weighs 8 lb.", "pounds"], ["oz", "ounce", "унция (≈ 28 г)", "Add 4 oz of butter.", "ounces"]]], ["Стяжения и разговорные формы", [["I'm", "I am", "я (есть)", "I'm a student.", "I'm"], ["you're", "you are", "ты есть, вы есть", "You're late.", "you're"], ["he's", "he is / he has", "он есть / у него есть", "He's at home. He's got a dog.", "he's"], ["they've", "they have", "они (уже)", "They've finished.", "they've"], ["I'll", "I will", "я (сделаю)", "I'll call you tomorrow.", "I'll"], ["I'd", "I would / I had", "я бы / я (уже)", "I'd like some tea.", "I'd"], ["don't", "do not", "не (делаю)", "I don't know.", "don't"], ["can't", "cannot", "не могу", "I can't swim.", "can't"], ["won't", "will not", "не буду", "He won't come.", "won't"], ["let's", "let us", "давайте", "Let's go!", "let's"], ["gonna", "going to (разг.)", "собираюсь", "I'm gonna call him.", "gonna"], ["wanna", "want to (разг.)", "хочу", "I wanna go home.", "wanna"], ["gotta", "got to / have to (разг.)", "должен, надо", "I gotta go.", "gotta"], ["kinda", "kind of (разг.)", "вроде, как бы", "It's kinda cold.", "kinda"]]]];
+var cur=0,mode='list',B={},canSpeak='speechSynthesis' in window;
+try{B=JSON.parse(localStorage.getItem('abbrev')||'{}')||{}}catch(e){B={}}
+var tabs=document.getElementById('tabs'),out=document.getElementById('out'),qEl=document.getElementById('q');
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+function save(){try{localStorage.setItem('abbrev',JSON.stringify(B))}catch(e){}}
+function say(t){
+  if(!canSpeak)return;
+  speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=0.9;
+  var v=speechSynthesis.getVoices().filter(function(x){return /^en/i.test(x.lang)})[0];
+  if(v)u.voice=v;
+  speechSynthesis.speak(u);
+}
+function spk(t,label){if(!canSpeak)return null;var s=el('button','spk','🔊');s.type='button';s.title='Прослушать';s.setAttribute('aria-label','Прослушать: '+label);s.onclick=function(){say(t)};return s}
+function badges(){C.forEach(function(c,k){tabs.children[k].querySelector('small').textContent=B[k]==null?'':B[k]+'/5'})}
+function card(x){
+  var c=el('div','idm'),h=el('h3',null,'<span class="ab"></span>');h.firstChild.textContent=x[0];
+  var s=spk(x[4],x[0]);if(s)h.appendChild(s);c.appendChild(h);
+  var f=el('p','mean','<span class="full"></span> — <span></span>');f.children[0].textContent=x[1];f.children[1].textContent=x[2];c.appendChild(f);
+  var e=el('p','exs');e.textContent='“'+x[3]+'” ';var s2=spk(x[3],x[3]);if(s2)e.appendChild(s2);c.appendChild(e);
+  return c;
+}
+function list(){
+  var f=qEl.value.trim().toLowerCase();
+  if(f){
+    var n=0;C.forEach(function(cat){cat[1].forEach(function(x){if((x[0]+' '+x[1]+' '+x[2]).toLowerCase().indexOf(f)>-1){out.appendChild(card(x));n++}})});
+    if(!n)out.appendChild(el('p','sub','Ничего не найдено.'));
+    return;
+  }
+  out.appendChild(el('p','sub','Сокращений в разделе: '+C[cur][1].length));
+  C[cur][1].forEach(function(x){out.appendChild(card(x))});
+}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function quiz(){
+  var items=C[cur][1],box=el('div'),score=el('div','score');score.setAttribute('role','status');
+  out.appendChild(el('p','sub','Выберите, что означает сокращение. Пять вопросов каждый раз случайные.'));
+  out.appendChild(box);out.appendChild(score);
+  function run(){
+    box.innerHTML='';score.innerHTML='';var sc=0,n=0,qs=shuffle(items).slice(0,5);
+    qs.forEach(function(x,k){
+      var w=el('div','q'),p=el('p','qs');p.textContent=(k+1)+'. «'+x[0]+'» — “'+x[3]+'”';
+      w.appendChild(p);
+      var wrong=shuffle(items.filter(function(y){return y!==x&&y[2]!==x[2]})).slice(0,2),opts=shuffle([x].concat(wrong)),row=el('div','opts');
+      opts.forEach(function(o){
+        var b=el('button',null);b.textContent=o[1]+' — '+o[2];b.type='button';
+        b.onclick=function(){
+          if(w.dataset.done)return;w.dataset.done=1;
+          if(o===x){b.classList.add('ok');sc++}else{b.classList.add('bad');[].forEach.call(row.children,function(c,i){if(opts[i]===x)c.classList.add('ok')})}
+          if(++n===qs.length){
+            score.textContent='Результат: '+sc+' из '+n+(sc===n?' — отлично!':' — повторите список и попробуйте ещё раз.');
+            if(!(B[cur]>=sc)){B[cur]=sc;save();badges()}SK.task();
+            var a=el('button','again','Пройти заново');a.type='button';a.onclick=run;score.appendChild(a);
+          }
+        };
+        row.appendChild(b);
+      });
+      w.appendChild(row);box.appendChild(w);
+    });
+  }
+  run();
+}
+function show(){
+  [].forEach.call(tabs.children,function(b,j){b.setAttribute('aria-pressed',j===cur)});
+  document.getElementById('m-list').setAttribute('aria-pressed',mode==='list');
+  document.getElementById('m-quiz').setAttribute('aria-pressed',mode==='quiz');
+  out.innerHTML='';
+  var searching=qEl.value.trim()&&mode==='list';
+  if(!searching)out.appendChild(el('h2',null,C[cur][0]));
+  if(mode==='list')list();else quiz();
+}
+C.forEach(function(c,i){var b=el('button',null,c[0]+' <small></small>');b.type='button';b.onclick=function(){cur=i;qEl.value='';show()};tabs.appendChild(b)});
+document.getElementById('m-list').onclick=function(){mode='list';show()};
+document.getElementById('m-quiz').onclick=function(){mode='quiz';qEl.value='';show()};
+qEl.addEventListener('input',function(){mode='list';show()});
+badges();show();
+
+(function(){
+  var root=document.documentElement,btn=document.getElementById('theme');
+  function isDark(){var t=root.getAttribute('data-theme');return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+  function label(){var d=isDark(),t=d?'Светлая тема':'Тёмная тема';btn.textContent=d?'☀️':'🌙';btn.setAttribute('aria-label',t);btn.title=t}
+  try{var s=localStorage.getItem('theme');if(s)root.setAttribute('data-theme',s)}catch(e){}
+  label();
+  btn.addEventListener('click',function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}label()});
+})();
+</script>
+<script>(function(){var c=document.querySelector('.menu a[aria-current]'),m=document.querySelector('.menu');if(c&&m)m.scrollLeft=c.getBoundingClientRect().left-m.getBoundingClientRect().left+m.scrollLeft-(m.clientWidth-c.offsetWidth)/2})()</script>
+</body>
+</html>

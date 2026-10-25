@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Аудирование — Learn English with Nefoyache</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#e4e5e2; --surface:#eeefec; --surface-2:#d9dbd7; --border:#c3c6c1;
+  --text:#272b2f; --muted:#5a6168; --accent:#3d6b78; --accent-text:#f4f6f5;
+  --ok:#2f6b4c; --ok-bg:#d3e3d9; --bad:#9a3f3f; --bad-bg:#ebd5d3;
+  --font:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+    --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+    --ok:#8fd0ab; --ok-bg:#24372d; --bad:#e49a9a; --bad-bg:#3b2828;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+  --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+  --ok:#8fd0ab; --ok-bg:#24372d; --bad:#e49a9a; --bad-bg:#3b2828;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.6 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+header{border-bottom:1px solid var(--border)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;flex-wrap:wrap}
+.logo{font-weight:700;font-size:1.15rem;text-decoration:none}
+.right{display:flex;gap:14px;align-items:center}
+.theme{font:inherit;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:6px 14px;cursor:pointer}
+.menu{display:flex;gap:6px;overflow-x:auto;margin-top:0;padding:0 20px 12px}
+.menu a{flex:none;text-decoration:none;color:var(--muted);padding:6px 14px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+.menu a:hover{color:var(--text);background:var(--surface-2)}
+.menu a[aria-current="page"]{color:var(--accent-text);background:var(--accent);border-color:var(--accent)}
+h1{font-size:clamp(1.8rem,5vw,2.5rem);margin:40px 0 8px}
+h2{font-size:1.4rem;margin:26px 0 6px}
+.sub{color:var(--muted);margin:0 0 20px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tabs button{font:inherit;font-weight:500;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:10px;padding:8px 14px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+.tabs small{opacity:.8;font-size:.8rem;margin-left:4px}
+.task{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:12px}
+.task p{margin:0 0 10px;font-weight:500}
+.play{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.play button,.chk{font:inherit;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:8px;padding:6px 14px;cursor:pointer}
+.opts{display:grid;gap:8px}
+.opts button{font:inherit;text-align:left;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:8px;padding:9px 14px;cursor:pointer}
+.opts button:hover{background:var(--surface-2)}
+.opts button.ok{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opts button.bad{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opts button.ok::after{content:" \2713"}
+.opts button.bad::after{content:" \2717"}
+input[type=text]{font:inherit;width:100%;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:9px 14px;margin-bottom:8px}
+input.ok{border-color:var(--ok);background:var(--ok-bg)}
+input.bad{border-color:var(--bad);background:var(--bad-bg)}
+.fb{margin-top:8px;min-height:1.4em;font-size:.95rem}
+.score{margin-top:10px;font-weight:500;min-height:1.5em}
+.again{font:inherit;margin-left:10px;border:0;background:none;color:var(--accent);cursor:pointer;text-decoration:underline}
+.warn{background:var(--bad-bg);color:var(--bad);border-radius:10px;padding:10px 14px;margin-bottom:16px}
+footer{border-top:1px solid var(--border);margin-top:40px;padding:24px 0;color:var(--muted);font-size:.9rem}
+@media (min-width:721px){.bar,.menu{max-width:960px}.menu{overflow-x:visible;flex-wrap:wrap;gap:4px}.menu a{padding:6px 12px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="index.html"><span class="lw">Learn English with </span>Nefoyache</a>
+    <div class="right"><button class="theme" id="theme" type="button">Тёмная тема</button></div>
+  </div>
+  <nav class="wrap menu" aria-label="Разделы">
+    <a href="index.html">Главная</a>
+    <a href="lessons.html">Уроки</a>
+    <a href="test.html">Тест</a>
+    <a href="cards.html">Карточки</a>
+    <a href="verbs.html">Глаголы</a>
+    <a href="reading.html">Чтение</a>
+    <a href="cheatsheets.html">Шпаргалки</a>
+    <a href="#top" aria-current="page">Аудирование</a>
+    <a href="speaking.html">Говорение</a>
+    <a href="idioms.html">Идиомы</a>
+    <a href="abbrev.html">Сокращения</a>
+    <a href="progress.html">Прогресс</a>
+  </nav>
+</header>
+<main class="wrap" id="top">
+  <h1>Аудирование</h1>
+  <p class="sub">Слушайте фразу и выбирайте, что услышали, или записывайте её. Если непонятно, включите медленное воспроизведение.</p>
+  <div id="warn"></div>
+  <div class="tabs" id="tabs" role="group" aria-label="Уровень"></div>
+  <div id="out"></div>
+</main>
+<footer><div class="wrap">Learn English with Nefoyache · учебный проект</div></footer>
+
+<script>
+var SK=(function(){var K='streak',G=5,S={d:0,s:0,b:0,t:0,n:0,a:0,c:0,g:5,u:0,p:0,q:0},chip;function day(){return Math.floor((Date.now()-new Date().getTimezoneOffset()*60000)/86400000)}try{var x=JSON.parse(localStorage.getItem(K));if(x&&typeof x.d==='number')S=x}catch(e){}S.g=[3,5,10,15].indexOf(S.g)>-1?S.g:5;S.u=S.u||0;S.p=S.p||0;S.q=S.q||0;function merge(a,b){var r={d:Math.max(a.d,b.d),t:Math.max(a.t,b.t),a:Math.max(a.a,b.a),c:Math.max(a.c,b.c)};r.s=a.d===b.d?Math.max(a.s,b.s):(a.d>b.d?a.s:b.s);r.n=a.t===b.t?Math.max(a.n,b.n):(a.t>b.t?a.n:b.n);r.b=Math.max(a.b,b.b,r.s);r.g=(b.u||0)>(a.u||0)?b.g:a.g;r.u=Math.max(a.u||0,b.u||0);r.p=(b.q||0)>(a.q||0)?b.p:a.p;r.q=Math.max(a.q||0,b.q||0);return r}var m=/^#p((?:-[0-9a-z]+){7}(?:-[0-9a-z]+){0,4})$/.exec(location.hash||'');if(m){var v=m[1].slice(1).split('-').map(function(z){return parseInt(z,36)||0});S=merge(S,{d:v[0],s:v[1],b:v[2],t:v[3],n:v[4],a:v[5],c:v[6],g:v[7]||5,u:v[8]||0,p:v[9]||0,q:v[10]||0})}function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}function links(){var h='#p-'+[S.d,S.s,S.b,S.t,S.n,S.a,S.c,S.g,S.u,S.p,S.q].map(function(z){return Math.max(0,z|0).toString(36)}).join('-');[].forEach.call(document.querySelectorAll('a[href]'),function(a){var u=a.getAttribute('href')||'';if(u.indexOf('https://claude.ai/artifact/')===0)a.setAttribute('href',u.split('#')[0]+h)})}function draw(){var t=day();if(chip)chip.textContent='🔥 '+(S.d>=t-1?S.s:0)+' · '+Math.min(S.t===t?S.n:0,99)+'/'+S.g;links()}function task(){var t=day();if(S.d!==t){S.s=S.d===t-1?S.s+1:1;S.d=t;S.c++}if(S.t!==t){S.t=t;S.n=0}S.n++;S.a++;S.b=Math.max(S.b,S.s);save();draw()}function part(n){try{var c=(+localStorage.getItem('tk')||0)+1;if(c>=n){c=0;task()}localStorage.setItem('tk',c)}catch(e){}}function init(){var st=document.createElement('style');st.textContent='.bar{flex-wrap:nowrap}.logo{white-space:nowrap}@media (max-width:520px){.lw{display:none}}.chip{font-size:.9rem;font-weight:500;text-decoration:none;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:4px 12px;white-space:nowrap}.chip:hover{background:var(--surface-2)}';document.head.appendChild(st);chip=document.createElement('a');chip.className='chip';chip.href='progress.html';chip.title='Дней подряд и задания на сегодня';var tb=document.getElementById('theme'),host=tb&&tb.parentNode;if(host)host.insertBefore(chip,tb);var ml=[].slice.call(document.querySelectorAll('.menu a')),ci=-1;ml.forEach(function(a,i){if(a.hasAttribute('aria-current'))ci=i});if(ci>0&&ci<11){S.p=ci;S.q=Math.floor(Date.now()/60000)}save();draw();}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();return {task:task,part:part,get:function(){return S},draw:draw}})();
+</script>
+<script>
+var T=[
+{id:'A1',c:[
+ ['She has a red bag.','She has a red bag.','She has a bread bag.','He has a red bag.'],
+ ['I get up at seven.','I give up at seven.','I get up at seven.','I get up at eleven.'],
+ ['Where is the station?','Where is the stadium?','Where is the station?','Where is the Asian?'],
+ 'I like tea.']},
+{id:'A2',c:[
+ ['We went to the cinema yesterday.','We want to the cinema yesterday.','We went to the cinema tomorrow.','We went to the cinema yesterday.'],
+ ['It is cheaper than the other one.','It is cheaper than the older one.','It is cheaper than the other one.','It is cheaper, then the other one.'],
+ ['How much water do you drink?','How many waters do you drink?','How much water did you drink?','How much water do you drink?'],
+ 'She did not call me.']},
+{id:'B1',c:[
+ ['I have lived here for ten years.','I lived here for ten years.','I have lived here for ten years.','I have lived here since ten years.'],
+ ['If it rains, we will stay at home.','If it rained, we would stay at home.','If it rains, we will stay at home.','If it rains, we will stay at Rome.'],
+ ['You must not park here.','You do not have to park here.','You must park here.','You must not park here.'],
+ 'I will call you when I arrive.']},
+{id:'B2',c:[
+ ['He asked me where I lived.','He asked me where do I live.','He asked me where I lived.','He asked me were I lived.'],
+ ['The bridge was built in nineteen ninety-eight.','The bridge was built in nineteen eighty-nine.','The bridge has built in nineteen ninety-eight.','The bridge was built in nineteen ninety-eight.'],
+ ['If I had known, I would have told you.','If I knew, I would tell you.','If I had known, I would have told you.','If I have known, I will tell you.'],
+ 'I had my car repaired yesterday.']},
+{id:'C1',c:[
+ ['Rarely do we eat out.','Rarely we do eat out.','Really do we eat out.','Rarely do we eat out.'],
+ ['No sooner had she left than it started to rain.','No sooner she had left than it started to rain.','No sooner had she left when it started to rain.','No sooner had she left than it started to rain.'],
+ ['What I need is a long holiday.','What I need it is a long holiday.','That I need is a long holiday.','What I need is a long holiday.'],
+ 'It was Maria who called me.']},
+{id:'C2',c:[
+ ['It is essential that he be present.','It is essential that he is present.','It is essential that he be present.','It is essential that he was present.'],
+ ['Scarcely had he opened the door when the phone rang.','Scarcely he had opened the door when the phone rang.','Scarcely had he opened the door when the phone rang.','Scarcely had he opened the door than the phone rang.'],
+ ['The results appear to suggest a link.','The results appeared to suggest a link.','The results appear to suggest a link.','The result appears to suggest a link.'],
+ 'This is arguably the best solution.']}
+];
+var S={},canSpeak='speechSynthesis' in window;
+try{S=JSON.parse(localStorage.getItem('listening')||'{}')||{}}catch(e){S={}}
+var tabs=document.getElementById('tabs'),out=document.getElementById('out');
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+function save(){try{localStorage.setItem('listening',JSON.stringify(S))}catch(e){}}
+function say(t,slow){
+  if(!canSpeak)return;
+  speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=slow?0.6:0.9;
+  var v=speechSynthesis.getVoices().filter(function(x){return /^en/i.test(x.lang)})[0];
+  if(v)u.voice=v;
+  speechSynthesis.speak(u);
+}
+function norm(s){return s.toLowerCase().replace(/[.,!?]/g,'').replace(/\s+/g,' ').trim()}
+function badges(){T.forEach(function(l,k){tabs.children[k].querySelector('small').textContent=S[l.id]==null?'':S[l.id]+'/4'})}
+function player(text){
+  var p=el('div','play'),a=el('button',null,'🔊 Прослушать'),b=el('button',null,'🐢 Медленно');
+  a.type=b.type='button';a.onclick=function(){say(text,false)};b.onclick=function(){say(text,true)};
+  p.appendChild(a);p.appendChild(b);return p;
+}
+function build(l,box,score){
+  box.innerHTML='';score.innerHTML='';var sc=0,n=0;
+  function done(){
+    if(++n===4){
+      score.textContent='Результат: '+sc+' из 4'+(sc===4?' — отлично!':' — послушайте ещё раз и попробуйте снова.');
+      if(!(S[l.id]>=sc)){S[l.id]=sc;save();badges()}SK.task();
+      var r=el('button','again','Пройти заново');r.type='button';r.onclick=function(){build(l,box,score)};score.appendChild(r);
+    }
+  }
+  for(var k=0;k<3;k++)(function(k){
+    var d=l.c[k],ans=d[0],opts=d.slice(1).sort(function(){return Math.random()-0.5});
+    var w=el('div','task','<p>'+(k+1)+'. Что вы услышали?</p>');
+    w.appendChild(player(ans));
+    var row=el('div','opts');
+    opts.forEach(function(t){
+      var b=el('button',null,t);b.type='button';
+      b.onclick=function(){
+        if(w.dataset.done)return;w.dataset.done=1;
+        if(t===ans){b.classList.add('ok');sc++}else{b.classList.add('bad');[].forEach.call(row.children,function(x){if(x.textContent===ans)x.classList.add('ok')})}
+        done();
+      };
+      row.appendChild(b);
+    });
+    w.appendChild(row);box.appendChild(w);
+  })(k);
+  var ds=l.c[3],w=el('div','task','<p>4. Запишите фразу</p>');
+  w.appendChild(player(ds));
+  var inp=el('input');inp.type='text';inp.setAttribute('autocomplete','off');inp.setAttribute('autocapitalize','off');inp.setAttribute('spellcheck','false');inp.setAttribute('aria-label','Ваша запись');
+  var chk=el('button','chk','Проверить');chk.type='button';var fb=el('div','fb');fb.setAttribute('role','status');
+  function check(){
+    if(w.dataset.done)return;w.dataset.done=1;
+    var good=norm(inp.value)===norm(ds);
+    inp.className=good?'ok':'bad';if(good)sc++;
+    fb.textContent=good?'Верно!':'Правильно: '+ds;
+    done();
+  }
+  chk.onclick=check;inp.addEventListener('keydown',function(e){if(e.key==='Enter')check()});
+  w.appendChild(inp);w.appendChild(chk);w.appendChild(fb);box.appendChild(w);
+}
+function show(i){
+  [].forEach.call(tabs.children,function(b,j){b.setAttribute('aria-pressed',j===i)});
+  var l=T[i];out.innerHTML='';
+  out.appendChild(el('h2',null,'Уровень '+l.id));
+  var box=el('div'),score=el('div','score');score.setAttribute('role','status');
+  out.appendChild(box);out.appendChild(score);build(l,box,score);
+}
+if(!canSpeak)document.getElementById('warn').appendChild(el('div','warn','Ваш браузер не поддерживает озвучку, поэтому задания не будут воспроизводиться. Попробуйте другой браузер.'));
+T.forEach(function(l,i){var b=el('button',null,l.id+' <small></small>');b.type='button';b.onclick=function(){show(i)};tabs.appendChild(b)});
+badges();show(0);
+
+(function(){
+  var root=document.documentElement,btn=document.getElementById('theme');
+  function isDark(){var t=root.getAttribute('data-theme');return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+  function label(){var d=isDark(),t=d?'Светлая тема':'Тёмная тема';btn.textContent=d?'☀️':'🌙';btn.setAttribute('aria-label',t);btn.title=t}
+  try{var s=localStorage.getItem('theme');if(s)root.setAttribute('data-theme',s)}catch(e){}
+  label();
+  btn.addEventListener('click',function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}label()});
+})();
+</script>
+<script>(function(){var c=document.querySelector('.menu a[aria-current]'),m=document.querySelector('.menu');if(c&&m)m.scrollLeft=c.getBoundingClientRect().left-m.getBoundingClientRect().left+m.scrollLeft-(m.clientWidth-c.offsetWidth)/2})()</script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Идиомы — Learn English with Nefoyache</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#e4e5e2; --surface:#eeefec; --surface-2:#d9dbd7; --border:#c3c6c1;
+  --text:#272b2f; --muted:#5a6168; --accent:#3d6b78; --accent-text:#f4f6f5;
+  --ok:#2f6b4c; --ok-bg:#d3e3d9; --bad:#9a3f3f; --bad-bg:#ebd5d3;
+  --font:"Onest","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+    --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+    --ok:#8fd0ab; --ok-bg:#24372d; --bad:#e49a9a; --bad-bg:#3b2828;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1d2023; --surface:#272b2f; --surface-2:#32373c; --border:#40464b;
+  --text:#e2e4e5; --muted:#9fa6ac; --accent:#86b6c2; --accent-text:#16282d;
+  --ok:#8fd0ab; --ok-bg:#24372d; --bad:#e49a9a; --bad-bg:#3b2828;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.6 var(--font);-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+header{border-bottom:1px solid var(--border)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;flex-wrap:wrap}
+.logo{font-weight:700;font-size:1.15rem;text-decoration:none}
+.right{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.back{color:var(--muted);text-decoration:none}
+.back:hover{color:var(--text)}
+.theme{font:inherit;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:6px 14px;cursor:pointer}
+h1{font-size:clamp(1.8rem,5vw,2.5rem);margin:40px 0 8px}
+h2{font-size:1.4rem;margin:26px 0 8px}
+.sub{color:var(--muted);margin:0 0 20px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tabs button{font:inherit;font-weight:500;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:10px;padding:8px 14px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+.tabs small{opacity:.8;font-size:.8rem;margin-left:4px}
+.text{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;font-size:1.1rem;line-height:1.75}
+.spk{margin-top:12px;font:inherit;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:8px;padding:4px 12px;cursor:pointer}
+.q p{margin:14px 0 6px;font-weight:500}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts button{font:inherit;text-align:left;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:8px;padding:7px 14px;cursor:pointer}
+.opts button:hover{background:var(--surface-2)}
+.opts button.ok{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.opts button.bad{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opts button.ok::after{content:" \2713"}
+.opts button.bad::after{content:" \2717"}
+.score{margin-top:16px;font-weight:500;min-height:1.5em}
+.again{font:inherit;margin-left:10px;border:0;background:none;color:var(--accent);cursor:pointer;text-decoration:underline}
+footer{border-top:1px solid var(--border);margin-top:40px;padding:24px 0;color:var(--muted);font-size:.9rem}
+.menu{display:flex;gap:6px;overflow-x:auto;margin-top:0;padding:0 20px 12px}
+.menu a{flex:none;text-decoration:none;color:var(--muted);padding:6px 14px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+.menu a:hover{color:var(--text);background:var(--surface-2)}
+.menu a[aria-current="page"]{color:var(--accent-text);background:var(--accent);border-color:var(--accent)}
+@media (min-width:721px){.bar,.menu{max-width:960px}.menu{overflow-x:visible;flex-wrap:wrap;gap:4px}.menu a{padding:6px 12px}}
+.modes{margin:14px 0 4px}
+.idm{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+.idm h3{font-size:1.15rem;margin:0 0 4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.idm .mean{margin:0 0 6px}
+.idm .exs{margin:0;color:var(--muted);font-style:italic}
+.spk{font:inherit;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:8px;padding:0 8px;cursor:pointer;line-height:1.5;font-style:normal}
+.qs{font-size:1.1rem;margin:0 0 8px}
+.qs b{color:var(--accent)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="index.html"><span class="lw">Learn English with </span>Nefoyache</a>
+    <div class="right">
+      
+      <button class="theme" id="theme" type="button">Тёмная тема</button>
+    </div>
+  </div>
+<nav class="wrap menu" aria-label="Разделы">
+    <a href="index.html">Главная</a>
+    <a href="lessons.html">Уроки</a>
+    <a href="test.html">Тест</a>
+    <a href="cards.html">Карточки</a>
+    <a href="verbs.html">Глаголы</a>
+    <a href="reading.html">Чтение</a>
+    <a href="cheatsheets.html">Шпаргалки</a>
+    <a href="listening.html">Аудирование</a>
+    <a href="speaking.html">Говорение</a>
+    <a href="idioms.html" aria-current="page">Идиомы</a>
+    <a href="abbrev.html">Сокращения</a>
+    <a href="progress.html">Прогресс</a>
+  </nav>
+</header>
+<main class="wrap">
+  <h1>Идиомы</h1>
+  <p class="sub">Устойчивые выражения, которые носители используют в живой речи. Их нельзя переводить слово в слово: смотрите значение и пример. Идиомы собраны по уровням от A2 до C2.</p>
+  <div class="tabs" id="tabs" role="group" aria-label="Уровень"></div>
+  <div class="tabs modes" role="group" aria-label="Режим"><button type="button" id="m-list" aria-pressed="true">Список</button><button type="button" id="m-quiz" aria-pressed="false">Проверка</button></div>
+  <div id="out"></div>
+</main>
+<footer><div class="wrap">Learn English with Nefoyache · учебный проект</div></footer>
+
+<script>
+var SK=(function(){var K='streak',G=5,S={d:0,s:0,b:0,t:0,n:0,a:0,c:0,g:5,u:0,p:0,q:0},chip;function day(){return Math.floor((Date.now()-new Date().getTimezoneOffset()*60000)/86400000)}try{var x=JSON.parse(localStorage.getItem(K));if(x&&typeof x.d==='number')S=x}catch(e){}S.g=[3,5,10,15].indexOf(S.g)>-1?S.g:5;S.u=S.u||0;S.p=S.p||0;S.q=S.q||0;function merge(a,b){var r={d:Math.max(a.d,b.d),t:Math.max(a.t,b.t),a:Math.max(a.a,b.a),c:Math.max(a.c,b.c)};r.s=a.d===b.d?Math.max(a.s,b.s):(a.d>b.d?a.s:b.s);r.n=a.t===b.t?Math.max(a.n,b.n):(a.t>b.t?a.n:b.n);r.b=Math.max(a.b,b.b,r.s);r.g=(b.u||0)>(a.u||0)?b.g:a.g;r.u=Math.max(a.u||0,b.u||0);r.p=(b.q||0)>(a.q||0)?b.p:a.p;r.q=Math.max(a.q||0,b.q||0);return r}var m=/^#p((?:-[0-9a-z]+){7}(?:-[0-9a-z]+){0,4})$/.exec(location.hash||'');if(m){var v=m[1].slice(1).split('-').map(function(z){return parseInt(z,36)||0});S=merge(S,{d:v[0],s:v[1],b:v[2],t:v[3],n:v[4],a:v[5],c:v[6],g:v[7]||5,u:v[8]||0,p:v[9]||0,q:v[10]||0})}function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}function links(){var h='#p-'+[S.d,S.s,S.b,S.t,S.n,S.a,S.c,S.g,S.u,S.p,S.q].map(function(z){return Math.max(0,z|0).toString(36)}).join('-');[].forEach.call(document.querySelectorAll('a[href]'),function(a){var u=a.getAttribute('href')||'';if(u.indexOf('https://claude.ai/artifact/')===0)a.setAttribute('href',u.split('#')[0]+h)})}function draw(){var t=day();if(chip)chip.textContent='🔥 '+(S.d>=t-1?S.s:0)+' · '+Math.min(S.t===t?S.n:0,99)+'/'+S.g;links()}function task(){var t=day();if(S.d!==t){S.s=S.d===t-1?S.s+1:1;S.d=t;S.c++}if(S.t!==t){S.t=t;S.n=0}S.n++;S.a++;S.b=Math.max(S.b,S.s);save();draw()}function part(n){try{var c=(+localStorage.getItem('tk')||0)+1;if(c>=n){c=0;task()}localStorage.setItem('tk',c)}catch(e){}}function init(){var st=document.createElement('style');st.textContent='.bar{flex-wrap:nowrap}.logo{white-space:nowrap}@media (max-width:520px){.lw{display:none}}.chip{font-size:.9rem;font-weight:500;text-decoration:none;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:4px 12px;white-space:nowrap}.chip:hover{background:var(--surface-2)}';document.head.appendChild(st);chip=document.createElement('a');chip.className='chip';chip.href='progress.html';chip.title='Дней подряд и задания на сегодня';var tb=document.getElementById('theme'),host=tb&&tb.parentNode;if(host)host.insertBefore(chip,tb);var ml=[].slice.call(document.querySelectorAll('.menu a')),ci=-1;ml.forEach(function(a,i){if(a.hasAttribute('aria-current'))ci=i});if(ci>0&&ci<11){S.p=ci;S.q=Math.floor(Date.now()/60000)}save();draw();}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();return {task:task,part:part,get:function(){return S},draw:draw}})();
+</script>
+<script>
+var I={"A2": [["a piece of cake", "проще простого (рус.: проще пареной репы)", "The exam was a piece of cake."], ["break a leg", "удачи, ни пуха ни пера (пожелание перед выступлением)", "Break a leg at your concert tonight!"], ["it's raining cats and dogs", "льёт как из ведра", "Take an umbrella. It's raining cats and dogs."], ["hit the books", "засесть за учёбу", "I have an exam tomorrow, so I need to hit the books."], ["under the weather", "неважно себя чувствовать", "I'm feeling a bit under the weather today."], ["once in a blue moon", "очень редко, раз в сто лет", "We eat out once in a blue moon."], ["no pain, no gain", "без труда не вытащишь и рыбку из пруда", "Training is hard, but no pain, no gain."], ["the more, the merrier", "чем больше, тем веселее", "Can I bring a friend? Sure, the more the merrier!"]], "B1": [["spill the beans", "выболтать секрет", "Don't spill the beans about the surprise party."], ["let the cat out of the bag", "проболтаться, выдать тайну", "He let the cat out of the bag about their wedding."], ["cost an arm and a leg", "стоить очень дорого", "That car costs an arm and a leg."], ["call it a day", "закончить на сегодня", "We're tired. Let's call it a day."], ["be on the same page", "понимать друг друга, быть на одной волне", "Let's make sure we're all on the same page."], ["hit the nail on the head", "попасть в точку", "You hit the nail on the head with that answer."], ["bite the bullet", "стиснуть зубы и сделать неприятное", "I hate dentists, but I'll bite the bullet and go."], ["get out of hand", "выйти из-под контроля", "The party got out of hand."], ["the ball is in your court", "ваш ход, решение за вами", "I've made my offer. Now the ball is in your court."], ["make up your mind", "решиться, определиться", "Make up your mind: tea or coffee?"]], "B2": [["beat around the bush", "ходить вокруг да около", "Stop beating around the bush and tell me the truth."], ["burn the midnight oil", "работать допоздна", "She burned the midnight oil to finish the report."], ["cut corners", "халтурить, экономить на качестве", "Don't cut corners when you build a house."], ["go the extra mile", "сделать больше, чем требуется", "Our teacher always goes the extra mile for her students."], ["back to square one", "вернуться к началу", "The test failed, so we're back to square one."], ["jump on the bandwagon", "присоединиться к модному тренду", "Everyone jumped on the bandwagon and bought the new phone."], ["the last straw", "последняя капля", "His rude comment was the last straw."], ["miss the boat", "упустить шанс", "If you don't apply now, you'll miss the boat."], ["be on thin ice", "быть в рискованном положении, ходить по тонкому льду", "After three warnings, he's on thin ice at work."], ["face the music", "ответить за свои поступки", "He broke the window, so he has to face the music."]], "C1": [["bite off more than you can chew", "взяться за непосильное", "She bit off more than she could chew with three jobs."], ["the elephant in the room", "очевидная проблема, о которой все молчат", "Nobody mentioned the budget, but it was the elephant in the room."], ["throw in the towel", "сдаться", "After five failures, he threw in the towel."], ["a blessing in disguise", "не было бы счастья, да несчастье помогло", "Losing that job was a blessing in disguise."], ["play devil's advocate", "спорить, чтобы проверить идею на прочность", "Let me play devil's advocate for a moment."], ["read between the lines", "читать между строк", "If you read between the lines, he is unhappy."], ["get cold feet", "струсить в последний момент", "He got cold feet before the wedding."], ["the tip of the iceberg", "верхушка айсберга", "These complaints are only the tip of the iceberg."], ["turn a blind eye", "закрывать глаза на что-то", "The manager turned a blind eye to the mistakes."], ["a double-edged sword", "палка о двух концах", "Social media is a double-edged sword."]], "C2": [["the proof of the pudding is in the eating", "ценность проверяется на практике", "We'll see: the proof of the pudding is in the eating."], ["a storm in a teacup", "буря в стакане воды", "The argument was just a storm in a teacup."], ["cross that bridge when we come to it", "решать проблему, когда она появится", "We may need more money later, but we'll cross that bridge when we come to it."], ["leave no stone unturned", "сделать всё возможное, перепробовать всё", "The police left no stone unturned in the search."], ["a red herring", "ложный след, отвлекающий манёвр", "The clue turned out to be a red herring."], ["the writing is on the wall", "всё ясно, беда неизбежна", "Sales kept falling. The writing was on the wall."], ["have a chip on your shoulder", "держать обиду, быть обидчивым", "He has a chip on his shoulder about not going to university."], ["a Pyrrhic victory", "пиррова победа", "They won the case, but it was a Pyrrhic victory."], ["add insult to injury", "усугубить обиду", "He forgot my birthday and, to add insult to injury, laughed about it."], ["swim against the tide", "идти против течения", "She swam against the tide and opened a paper bookshop."]]};
+var LV=Object.keys(I),B={},cur=0,mode='list',canSpeak='speechSynthesis' in window;
+try{B=JSON.parse(localStorage.getItem('idioms')||'{}')||{}}catch(e){B={}}
+var tabs=document.getElementById('tabs'),out=document.getElementById('out');
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+function save(){try{localStorage.setItem('idioms',JSON.stringify(B))}catch(e){}}
+function say(t){
+  if(!canSpeak)return;
+  speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=0.9;
+  var v=speechSynthesis.getVoices().filter(function(x){return /^en/i.test(x.lang)})[0];
+  if(v)u.voice=v;
+  speechSynthesis.speak(u);
+}
+function spk(t){if(!canSpeak)return null;var s=el('button','spk','🔊');s.type='button';s.title='Прослушать';s.setAttribute('aria-label','Прослушать: '+t);s.onclick=function(){say(t)};return s}
+function badges(){LV.forEach(function(l,k){tabs.children[k].querySelector('small').textContent=B[l]==null?'':B[l]+'/5'})}
+function list(l){
+  out.appendChild(el('p','sub','Идиом на уровне: '+I[l].length+'. Нажмите 🔊, чтобы услышать выражение или пример.'));
+  I[l].forEach(function(x){
+    var c=el('div','idm'),h=el('h3',null,'<span></span>');h.firstChild.textContent=x[0];
+    var s=spk(x[0]);if(s)h.appendChild(s);c.appendChild(h);
+    var m=el('p','mean');m.textContent=x[1];c.appendChild(m);
+    var e=el('p','exs');e.textContent='“'+x[2]+'” ';var s2=spk(x[2]);if(s2)e.appendChild(s2);c.appendChild(e);
+    out.appendChild(c);
+  });
+}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function quiz(l){
+  var box=el('div'),score=el('div','score');score.setAttribute('role','status');
+  out.appendChild(el('p','sub','Выберите, что значит выражение в предложении. Пять вопросов каждый раз случайные.'));
+  out.appendChild(box);out.appendChild(score);
+  function run(){
+    box.innerHTML='';score.innerHTML='';var sc=0,n=0,qs=shuffle(I[l]).slice(0,5);
+    qs.forEach(function(x,k){
+      var w=el('div','q'),p=el('p','qs');
+      p.textContent=(k+1)+'. “'+x[2]+'” — что значит «'+x[0]+'»?';
+      w.appendChild(p);
+      var wrong=shuffle(I[l].filter(function(y){return y!==x})).slice(0,2),opts=shuffle([x].concat(wrong)),row=el('div','opts');
+      opts.forEach(function(o){
+        var b=el('button',null);b.textContent=o[1];b.type='button';
+        b.onclick=function(){
+          if(w.dataset.done)return;w.dataset.done=1;
+          if(o===x){b.classList.add('ok');sc++}else{b.classList.add('bad');[].forEach.call(row.children,function(c,i){if(opts[i]===x)c.classList.add('ok')})}
+          if(++n===qs.length){
+            score.textContent='Результат: '+sc+' из '+n+(sc===n?' — отлично!':' — повторите список и попробуйте ещё раз.');
+            if(!(B[l]>=sc)){B[l]=sc;save();badges()}SK.task();
+            var a=el('button','again','Пройти заново');a.type='button';a.onclick=run;score.appendChild(a);
+          }
+        };
+        row.appendChild(b);
+      });
+      w.appendChild(row);box.appendChild(w);
+    });
+  }
+  run();
+}
+function show(){
+  [].forEach.call(tabs.children,function(b,j){b.setAttribute('aria-pressed',j===cur)});
+  document.getElementById('m-list').setAttribute('aria-pressed',mode==='list');
+  document.getElementById('m-quiz').setAttribute('aria-pressed',mode==='quiz');
+  var l=LV[cur];out.innerHTML='';out.appendChild(el('h2',null,'Уровень '+l));
+  if(mode==='list')list(l);else quiz(l);
+}
+LV.forEach(function(l,i){var b=el('button',null,l+' <small></small>');b.type='button';b.onclick=function(){cur=i;show()};tabs.appendChild(b)});
+document.getElementById('m-list').onclick=function(){mode='list';show()};
+document.getElementById('m-quiz').onclick=function(){mode='quiz';show()};
+badges();show();
+
+(function(){
+  var root=document.documentElement,btn=document.getElementById('theme');
+  function isDark(){var t=root.getAttribute('data-theme');return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+  function label(){var d=isDark(),t=d?'Светлая тема':'Тёмная тема';btn.textContent=d?'☀️':'🌙';btn.setAttribute('aria-label',t);btn.title=t}
+  try{var s=localStorage.getItem('theme');if(s)root.setAttribute('data-theme',s)}catch(e){}
+  label();
+  btn.addEventListener('click',function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}label()});
+})();
+</script>
+<script>(function(){var c=document.querySelector('.menu a[aria-current]'),m=document.querySelector('.menu');if(c&&m)m.scrollLeft=c.getBoundingClientRect().left-m.getBoundingClientRect().left+m.scrollLeft-(m.clientWidth-c.offsetWidth)/2})()</script>
+</body>
+</html>
